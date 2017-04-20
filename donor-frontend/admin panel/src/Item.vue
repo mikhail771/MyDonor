@@ -2,12 +2,19 @@
 	<div id="item">
 	<ul>
 	<li class="head"><span>Банк:</span><span>Адрес:</span></li>
-		<li v-for="item in filteredList"><span> {{ item.name }}  </span> <span> {{ item.address }} </span> <i class="fa fa-trash" aria-hidden="true" @click="deleteList(id)"></i></li>
+		<li v-for="(item, index) in filteredList"><span > {{ item.name }}  </span> <span> {{ item.address }} </span> <i class="fa fa-trash" aria-hidden="true" @click="deleteList(index)"></i></li>
 		</ul>
 	</div>
 </template>
 
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios)
+
+
 	export default{
 		props:['dat', 'keyword'],
 		
@@ -19,14 +26,34 @@
       }
       
   },
-  methods:{
-  	deleteList: function(id) {
-      // var index = this.lists.indexOf(list);
-      this.dat.splice(id, 1);
-    }
-  }
 
-	}
+  data: function(){
+  	return{
+  		storeMinus: []
+  	}
+  },
+  methods:{
+
+  	deleteList: function(index) {
+  		
+      this.storeMinus = this.dat[index];
+       var thi = this;
+      const config = { headers: {'Content-Type': 'text/plain'}};
+      axios.post('https://dry-island-77618.herokuapp.com/banks', 
+      this.storeMinus.id, config)
+  .then(function (response) {
+    thi.dat = response.data;
+    thi.$emit('updateStore', thi.dat);
+
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+  	}
+  }
+}
+  
 </script>
 
 <style lang="scss"scoped>

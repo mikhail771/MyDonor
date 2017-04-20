@@ -2,11 +2,12 @@
 
   <div id="app">
   <div class="title"> <span><i class="fa fa-cogs" aria-hidden="true"></i> Панелюшка админчика </span> <button @click="toggleAdd" class="addbutton">{{capt}} </button></div>
-  <div class="search"><i class="fa fa-search" aria-hidden="true"></i> <input type="text" placeholder="Какой банк будете искать?" class="searchfield" v-model="keyword"></div>
-  <form class="add" v-if="show">
-  <div><input type="text" v-model="newBank" autofocus placeholder="Банк" required></div> <div> <input type="text" v-model="newLocation" placeholder="Адрес" required> <input type="submit" class="fa" value=" Добавить банк" @click.stop.prevent="addNext"> </div></form>
-  <i-list :dat="store" :keyword="keyword"> </i-list>
-<!--   <div class="placeholder" v-if="place"> <span>Здесь будет база Банков</span></div> -->
+  <div class="search"><i class="fa fa-search" aria-hidden="true"></i> <input type="text"  placeholder="Какой банк будете искать?" class="searchfield" v-model="keyword"></div>
+   
+  <form  class="add" v-if="show">
+  <div><input type="text" :class="{error:classErrorB, valid:classValid}"  v-model="newBank"  autofocus placeholder="Банк" required></div> <div> <input type="text" :class="{error:classErrorL, valid:classValid}" v-model="newLocation" placeholder="Адрес" required> <input type="submit"  class="fa" value=" Добавить банк" @click.stop.prevent="addNext"> </div></form>
+  
+  <i-list :dat="store" :keyword="keyword" @updateStore="store = $event"> </i-list>
   </div>
 </template>
 
@@ -15,8 +16,10 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+
 Vue.use(VueAxios, axios)
 import List from './Item.vue';
+import { required} from 'vuelidate/lib/validators'
 export default{
   data: function(){
     return{
@@ -25,33 +28,63 @@ export default{
       newLocation: '',
       show: false,
       capt: 'Добавить банк',
-     keyword: ''
+     keyword: '',
+     classErrorB: false,
+     classErrorL:false,
+     classValid: false
+    }
+  },
+   validations: {
+    newBank: {
+      required
+    },
+    newLocation: {
+      required
     }
   },
  components:{
     'i-list': List
   },
   methods:{
-    addNext: function(){
-        axios.post('https://intense-river-88829.herokuapp.com/banks', {
-    name: this.newBank,
+    addNext: function(){ 
+      var thi = this;
+      if(thi.newBank && thi.newLocation) {
+      const config = { headers: {'Content-Type': 'application/json'}};
+      axios.post('https://dry-island-77618.herokuapp.com/banks', {
+      name: this.newBank,
     address: this.newLocation
-  })
+  
+    
+  }, config)
   .then(function (response) {
-    console.log(response);
+    thi.store = response.data;
+
   })
   .catch(function (error) {
     console.log(error);
   });
-      // this.store.unshift({name: this.newBank, address: this.newLocation});
-      // this.newBank='';
-      // this.newLocation='';
-      //  this.show = !this.show;
-      //  this.place = false;
-     
-    },
+      this.newBank='';
+      this.newLocation='';
+       this.show = !this.show;
+       thi.classErrorB = false;
+   thi.classErrorL = false;
+    
+  } else if(!thi.newBank){
+   thi.classErrorB = true;
+   thi.classErrorL = false }
+
+   else if(!thi.newLocation){
+   thi.classErrorL = true ;
+   thi.classErrorB = false}
+
+
+
+},
+  
     toggleAdd: function(){
       this.show = !this.show;
+      this.classErrorL = false; 
+   this.classErrorB = false;
     },
     place: function(){
       if(this.store.length == 0){
@@ -61,7 +94,7 @@ export default{
       }
     },
     retData: function(){
-      const api = 'https://intense-river-88829.herokuapp.com/banks'
+      const api = 'https://dry-island-77618.herokuapp.com/banks'
       Vue.axios.get(api).then(response=> {
         this.store = response.data
       }).catch(error=>{
@@ -74,10 +107,6 @@ export default{
     this.retData()
   }  
 }
-
-
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -194,4 +223,24 @@ button, input[type="submit"]{
   left:5px;
   color:grey;
 }
+  .error {
+  border-color: red;
+  background-color: #FDD;
+  border:1px solid red;
+  border-radius:none;
+}
+
+.error:focus {
+  outline-color: #F99;
+}
+
+.valid {
+  border-color: #5A5;
+  background: #EFE;
+}
+
+.valid:focus {
+  outline-color: #8E8;
+}
+
 </style>
