@@ -33,7 +33,7 @@ public class BankDao {
 
     public void removeBank(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Bank bank = (Bank) session.load(Bank.class, new Integer(id));
+        Bank bank = (Bank) session.load(Bank.class, id);
 
         if (bank != null)
             session.delete(bank);
