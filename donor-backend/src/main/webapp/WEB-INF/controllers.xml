@@ -9,5 +9,7 @@
 
     <!-- Определяем папку, в которой будем искать веб компоненты (контроллеры)-->
     <context:component-scan base-package="ua.donordp.controller" />
+    <mvc:resources mapping="/**" location="/public/"/>
+    <mvc:default-servlet-handler/>
 
 </beans>

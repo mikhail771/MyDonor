@@ -7,7 +7,7 @@ function getCORS(url, success) {
     return xhr;
 }
 
-getCORS('https://intense-river-88829.herokuapp.com/bids', function(request){
+getCORS('/evo-donor/bids', function(request){
     var response = request.currentTarget.response || request.target.responseText;
     var feed = JSON.parse(response);
     // console.log(feed);
