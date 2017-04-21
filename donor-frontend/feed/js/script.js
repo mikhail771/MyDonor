@@ -7,7 +7,7 @@ function getCORS(url, success) {
     return xhr;
 }
 
-getCORS('/evo-donor/bids', function(request){
+getCORS('https://dry-island-77618.herokuapp.com/bids', function(request){
     var response = request.currentTarget.response || request.target.responseText;
     var feed = JSON.parse(response);
     // console.log(feed);
