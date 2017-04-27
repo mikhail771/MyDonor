@@ -1,23 +1,21 @@
 package ua.donordp.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.donordp.model.Bid;
 import ua.donordp.service.BidService;
 
-import java.io.IOException;
+import java.net.URI;
 import java.util.List;
 
-@Controller(value = "/bids")
+@RestController
+@RequestMapping("/bids")
 public class BidController {
     private BidService bidService;
 
     @Autowired
-    @Qualifier(value = "bidService")
     public void setBidService(BidService bidService) {
         this.bidService = bidService;
     }
@@ -31,15 +29,10 @@ public class BidController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String addBid(@RequestBody String json) {
-        try {
-            Bid bid = new ObjectMapper().readValue(json, Bid.class);
+    public ResponseEntity addBid(@RequestBody Bid bid) {
+
             this.bidService.addBid(bid);
 
-            return "Data successfully added!";
-
-        } catch (IOException e) {
-            return "ERROR JSON!";
-        }
+        return ResponseEntity.created(URI.create("/bids")).build();
     }
 }
