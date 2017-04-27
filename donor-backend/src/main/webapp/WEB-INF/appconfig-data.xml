@@ -59,23 +59,23 @@
     </bean>
 
 
-    <bean id="bidDao" class="ua.donordp.dao.BidDao">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
+    <!--<bean id="bidDao" class="ua.donordp.dao.BidDao">-->
+        <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>-->
+    <!--</bean>-->
 
-    <bean id="bidService" class="ua.donordp.service.BidService">
-        <property name="bidDao" ref="bidDao"/>
-    </bean>
+    <!--<bean id="bidService" class="ua.donordp.service.BidService">-->
+        <!--<property name="bidDao" ref="bidDao"/>-->
+    <!--</bean>-->
 
-    <bean id="bankDao" class="ua.donordp.dao.BankDao">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
-    </bean>
+    <!--<bean id="bankDao" class="ua.donordp.dao.BankDao">-->
+        <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>-->
+    <!--</bean>-->
 
-    <bean id="bankService" class="ua.donordp.service.BankService">
-        <property name="bankDao" ref="bankDao"/>
-    </bean>
+    <!--<bean id="bankService" class="ua.donordp.service.BankService">-->
+        <!--<property name="bankDao" ref="bankDao"/>-->
+    <!--</bean>-->
 
     <tx:annotation-driven/>
 
-    <jpa:repositories base-package="ua.donordp"/>
+    <jpa:repositories base-package="ua.donordp.model"/>
 </beans>
