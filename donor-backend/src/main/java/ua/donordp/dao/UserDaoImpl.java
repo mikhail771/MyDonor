@@ -33,22 +33,42 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void updateUser(User user) {
-
-    }
-
-    @Override
-    public List<User> listUsers() {
-        return null;
-    }
-
-    @Override
-    public User getUserById(int id) {
-        return null;
+        Session session = this.sessionFactory.getCurrentSession();
+        session.update(user);
+        logger.info("User successfully update. User details: " + user);
     }
 
     @Override
     public void removeUser(int id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        User user = (User) session.load(User.class, new Integer(id));
 
+        if(user!=null){
+            session.delete(user);
+        }
+        logger.info("User successfully removed. User details: " + user);
+    }
+
+    @Override
+    public User getUserById(int id) {
+        Session session =this.sessionFactory.getCurrentSession();
+        User user = (User) session.load(User.class, new Integer(id));
+        logger.info("User successfully loaded. User details: " + user);
+
+        return user;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<User> listUsers() {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<User> listUsers = session.createQuery("from User").list();
+
+        for(User user: listUsers()){
+            logger.info("User list: " + user);
+        }
+
+        return listUsers();
     }
 
 
