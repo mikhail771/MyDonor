@@ -1,0 +1,1 @@
+web:    java $JAVA_OPTS -jar donor-backend/target/dependency/webapp-runner.jar --port $PORT donor-backend/target/*.war
