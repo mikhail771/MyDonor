@@ -1,18 +1,7 @@
 package ua.donordp.service;
 
-
-import ua.donordp.model.User;
-
-import java.util.List;
-
 /**
- * Created by user on 21.04.17.
+ * Created by Alexander on 06.06.2017.
  */
-public interface UserService {
-    public void addUser(User user);
-    public void updateUser(User user);
-    public List<User> listUsers();
-    public User getUserById(int id);
-    public void removeUser(int id);
-
+public class UserServiceImpl {
 }
