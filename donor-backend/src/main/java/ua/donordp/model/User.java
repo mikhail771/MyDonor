@@ -25,10 +25,10 @@ public class User {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "blood_type")
+    @Column(name = "bloodType")
     private String bloodType;
 
-    @Column(name = "rhesus_factor")
+    @Column(name = "rhesusFactor")
     private String rhesusFactor;
 
     @Column(name = "contact")
@@ -36,13 +36,6 @@ public class User {
 
     @Column(name = "info")
     private String info;
-
-    public User(String admin, String admin1) {
-
-    }
-    public User(){
-
-    }
 
     public int getId() {
         return id;

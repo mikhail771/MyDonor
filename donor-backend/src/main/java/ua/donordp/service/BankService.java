@@ -1,5 +1,6 @@
 package ua.donordp.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.donordp.dao.BankDao;
@@ -14,6 +15,7 @@ import java.util.List;
 public class BankService {
     private BankDao bankDao;
 
+    @Autowired
     public void setBankDao(BankDao bankDao) {
         this.bankDao = bankDao;
     }
