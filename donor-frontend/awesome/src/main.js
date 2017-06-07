@@ -5,21 +5,19 @@ import Registration from './components/registration/App.vue';
 import Bids from './components/bids/App.vue';
 import Feed from './components/feed/App.vue';
 import Login from './components/login/login.vue';
+import notFound from './components/notFound/NotFound.vue';
 
 
 Vue.use(VueRouter);
 
 var router = new VueRouter({
-<<<<<<< Updated upstream
   mode: 'history',
-=======
-mode: 'history',
->>>>>>> Stashed changes
   routes: [
     {path: "/registration", component: Registration},
     {path: "/bids", component: Bids},
     {path: "/", component: Feed},
-    {path:"/login", component: Login}
+    {path:"/login", component: Login},
+    {path: "*", component: notFound}
   ]
 });
 
