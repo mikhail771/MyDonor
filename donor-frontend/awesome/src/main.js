@@ -9,6 +9,7 @@ import Feed from './components/feed/App.vue';
 Vue.use(VueRouter);
 
 var router = new VueRouter({
+  mode: 'history',
   routes: [
     {path: "/registration", component: Registration},
     {path: "/bids", component: Bids},
