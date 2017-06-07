@@ -69,6 +69,7 @@
     import VueAxios from 'vue-axios'
 
     Vue.use(VueAxios, axios);
+
     export default {
         data: function(){
             return{
@@ -173,9 +174,6 @@
     .control-label {
         width: 30%;
         display: inline-block;
-    }
-    .radio {
-        margin-right: 25px;
     }
     .button {
         width: 90%;
