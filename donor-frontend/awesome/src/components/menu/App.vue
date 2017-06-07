@@ -26,7 +26,6 @@
 }
 .nav li{
 	display: inline-block;
-	padding: 20px;
 	background-color: #b02429;
 	border-radius: 0 0 7px 7px;
 	margin-right: 5px;
@@ -42,6 +41,8 @@
 	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
+	display: block;
+	padding: 20px;
 }
 
 
