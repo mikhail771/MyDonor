@@ -3,7 +3,7 @@
 		<ul class="nav" id="nav">
 			<li><router-link to="/">Главная/Заявки</router-link></li>
 			<li><router-link to="/bids">Подать заявку</router-link></li>
-			<li><router-link to="/registration">Регистрация</router-link></li>
+			<li><router-link to="/login">Login</router-link></li>
 		</ul>
 </div>
 </template>
