@@ -33,13 +33,35 @@ public class UserDao {
     }
 
     @SuppressWarnings("unchecked")
-    public List userList() {
+    public List listUsers() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<User> userList = session.createQuery("from User").list();
+        List<User> listUsers = session.createQuery("from User").list();
 
-        return userList;
+        return listUsers;
     }
 
+    public void updateUser(User user) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.update(user);
+    }
+
+    public void removeUser(int id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        User user = (User) session.load(User.class, new Integer(id));
+
+        if (user != null) {
+            session.delete(user);
+        }
+
+    }
+
+    public User getUserById(int id) {
+        Session session = this.sessionFactory.getCurrentSession();
+        User user = (User) session.load(User.class, new Integer(id));
+        logger.info("User successfully loaded. User details: " + user);
+
+        return user;
+    }
 
 
 }

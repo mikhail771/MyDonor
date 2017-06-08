@@ -41,4 +41,20 @@ public class UserController {
         this.userService.addUser(user);
         return ResponseEntity.created(URI.create("/registration")).build();
     }
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    public @ResponseBody
+    ResponseEntity removeUser(@PathVariable String id) {
+        userService.removeUser(Integer.parseInt(id));
+        return ResponseEntity.created(URI.create("/users")).build();
+    }
+
+    @CrossOrigin
+    @RequestMapping("update/{id}")
+    public String updateUser(@PathVariable("id") int id, @RequestBody User user){
+        user.setId(id);
+        userService.updateUser(user);
+
+        return "users";
+    }
 }
