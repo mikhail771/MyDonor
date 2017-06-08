@@ -5,7 +5,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ua.donordp.model.Bank;
+import ua.donordp.model.Role;
 import ua.donordp.service.BankService;
+import ua.donordp.service.SecurityService;
 
 import java.net.URI;
 import java.util.List;
@@ -17,11 +19,16 @@ import java.util.List;
 //@RequestMapping("/banks")
 public class BankController {
     private BankService bankService;
+    private SecurityService securityService;
+
+    @Autowired
+    public void setSecurityService(SecurityService securityService){this.securityService = securityService;};
 
     @Autowired
     public void setBankService(BankService bankService) {
         this.bankService = bankService;
     }
+
 
     @CrossOrigin
     @RequestMapping(method = RequestMethod.GET, value="/banks")
@@ -42,8 +49,15 @@ public class BankController {
     @RequestMapping(method = RequestMethod.DELETE, value="/banks/{id}")
     public @ResponseBody
     ResponseEntity deleteBank(@PathVariable String id){
-        bankService.removeBank(Integer.parseInt(id));
-        return ResponseEntity.created(URI.create("/banks")).build();
+        return securityService.operateWithRole(Role.ADMIN, new SecurityService.SecuredOperation<Void>() {
+
+            @Override
+            public ResponseEntity<Void> operate() {
+                bankService.removeBank(Integer.parseInt(id));
+                return ResponseEntity.created(URI.create("/banks")).build();
+            }
+        });
+
     }
 
     @CrossOrigin
