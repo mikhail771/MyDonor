@@ -15,7 +15,7 @@ import java.net.URI;
 import java.util.List;
 
 /**
- * Created by user on 18.04.17.
+ * Created by user on 08.06.17.
  */
 @RestController
 @RequestMapping("/registration")
