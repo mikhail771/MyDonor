@@ -14,7 +14,7 @@ import java.util.List;
  * Created by Alexander on 19.04.2017.
  */
 @RestController
-@RequestMapping("/banks")
+//@RequestMapping("/banks")
 public class BankController {
     private BankService bankService;
 
@@ -24,7 +24,7 @@ public class BankController {
     }
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, value="/banks")
     @ResponseBody
     public List<Bank> bankList() {
         return this.bankService.bankList();
@@ -38,9 +38,19 @@ public class BankController {
             return ResponseEntity.created(URI.create("/banks")).build();
     }
 
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.DELETE, value="/banks/{id}")
+    public @ResponseBody
+    ResponseEntity deleteBank(@PathVariable String id){
+        bankService.removeBank(Integer.parseInt(id));
+        return ResponseEntity.created(URI.create("/banks")).build();
+    }
 
-    //TODO
-    public void deleteBank(Integer id){
-        bankService.removeBank(id);
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value="/banks/{id}")
+    public @ResponseBody
+    ResponseEntity updateBank(@RequestBody Bank bank, @PathVariable String id){
+        bankService.updateBank(bank);
+        return ResponseEntity.created(URI.create("/banks")).build();
     }
 }

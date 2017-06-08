@@ -34,4 +34,14 @@ public class BankService {
     public void removeBank(int id) {
         this.bankDao.removeBank(id);
     }
+
+    @Transactional
+    public void updateBank(Bank bank) {
+        this.bankDao.updateBank(bank);
+    }
+
+//    @Transactional
+//    public Bank getBankById(int id) {
+//        return this.bankDao.getBankById(id);
+//    }
 }

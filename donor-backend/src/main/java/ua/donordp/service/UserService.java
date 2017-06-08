@@ -26,8 +26,19 @@ public class UserService {
 
     @Transactional
     public List<User> userList() {
-        return this.userDao.userList();
+        return this.userDao.listUsers();
     }
-
+    @Transactional
+    public void updateUser(User user) {
+        this.userDao.updateUser(user);
+    }
+    @Transactional
+    public void removeUser(int id) {
+        this.userDao.removeUser(id);
+    }
+    @Transactional
+    public User getUserById(int id) {
+        return this.userDao.getUserById(id);
+    }
 
 }

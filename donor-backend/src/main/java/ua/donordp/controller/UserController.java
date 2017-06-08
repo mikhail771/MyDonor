@@ -15,7 +15,7 @@ import java.net.URI;
 import java.util.List;
 
 /**
- * Created by user on 18.04.17.
+ * Created by user on 08.06.17.
  */
 @RestController
 @RequestMapping("/registration")
@@ -40,5 +40,21 @@ public class UserController {
     public ResponseEntity addUser(@RequestBody User user){
         this.userService.addUser(user);
         return ResponseEntity.created(URI.create("/registration")).build();
+    }
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    public @ResponseBody
+    ResponseEntity removeUser(@PathVariable String id) {
+        userService.removeUser(Integer.parseInt(id));
+        return ResponseEntity.created(URI.create("/users")).build();
+    }
+
+    @CrossOrigin
+    @RequestMapping("update/{id}")
+    public String updateUser(@PathVariable("id") int id, @RequestBody User user){
+        user.setId(id);
+        userService.updateUser(user);
+
+        return "users";
     }
 }

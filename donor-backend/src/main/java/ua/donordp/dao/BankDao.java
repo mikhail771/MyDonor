@@ -40,4 +40,16 @@ public class BankDao {
         if (bank != null)
             session.delete(bank);
     }
+
+    public void updateBank(Bank bank) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.update(bank);
+    }
+
+//    public Bank getBankById(int id) {
+//        Session session =this.sessionFactory.getCurrentSession();
+//        Bank bank = (Bank) session.load(Bank.class, new Integer(id));
+//        return bank;
+//    }
+
 }
