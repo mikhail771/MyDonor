@@ -13,7 +13,7 @@
                 </div>
                 <div class="block">
                     <label class="control-label" for="password_confirm">Подтверждение пароля *</label>
-                    <input type="password" v-model="userData.password_confirm" required id="password_confirm" placeholder="* * * * * * * *">
+                    <input type="password" :class="{ err: isPasErr }" @blur="checkPassword" v-model="password_confirm" required id="password_confirm" :placeholder="[isPasErr ? 'пароли не совпадают':'* * * * * * * *']">
                 </div>
                 <div class="block">
                     <label class="control-label" for="city">Город *</label>
@@ -69,6 +69,7 @@
     import VueAxios from 'vue-axios'
 
     Vue.use(VueAxios, axios);
+
     export default {
         data: function(){
             return{
@@ -84,13 +85,14 @@
                     login: "" ,
                     password:"" ,
                     city: "Днепр",
-                    password_confirm:"",
                     gender:"мужчина",
                     bloodType:"" ,
                     rhesus:"" ,
                     contact:"" ,
                     info: ""
-                }
+                },
+                password_confirm:"",
+                isPasErr: false
             }
         },
         methods:{
@@ -107,6 +109,15 @@
                             console.log(JSON.stringify(then.userData));
                             console.log(error);
                         });
+            },
+            checkPassword: function (e) {
+                if (this.password_confirm !== this.userData.password ){
+                    this.isPasErr = true;
+                    this.password_confirm = "";
+                   // e.target.focus();
+                } else {
+                    this.isPasErr = false;
+                }
             }
         }
     }
@@ -174,9 +185,6 @@
         width: 30%;
         display: inline-block;
     }
-    .radio {
-        margin-right: 25px;
-    }
     .button {
         width: 90%;
         height: 40px;
@@ -206,5 +214,8 @@
     }
     button:focus{
         outline: none;
+    }
+    .block .err{
+        box-shadow: 0 0 5px red;
     }
 </style>

@@ -1,6 +1,10 @@
 <template>
 	<div>
 		<feed-item v-for="elem in store" :elem="elem"> </feed-item>
+		<mugen-scroll :handler="retData" :should-handle="!loading">
+      <span  :class="{load:true, noload:hiddenLoad}">загрузка...</span>
+      <span  :class="{load:true, noload:!hiddenLoad}">заявок больше нет...</span>
+    </mugen-scroll>
 	</div>
 </template>
 
@@ -9,39 +13,59 @@
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FeedItem from './FeedItem.vue'
+import MugenScroll from 'vue-mugen-scroll'
 
 Vue.use(VueAxios, axios)
 export default {
  	data: function(){
   return{
-    store:['kf','sfgsfgs','sdfsdfsfs','sefsefsefse'],
+     store:[],
     currentItem: '',
+    container: document.querySelector(".container"),
+    counter: 0,
+    loading:false,
+    hiddenLoad:false
 
 
   }
  },
  components:{
- 	'feed-item': FeedItem
+ 	'feed-item': FeedItem,
+ 	MugenScroll
  },
- methods:{
+  methods:{
    retData: function(){
-      const api = 'https://dry-island-77618.herokuapp.com/bids'
+   	this.loading = true;
+      const api = 'https://dry-island-77618.herokuapp.com/bids?decimalcount=' + this.counter
       Vue.axios.get(api).then(response=> {
-        this.store = response.data
-        console.log(this.store);
+      	if(response.data.length == 0){
+      		this.loading = false;
+      		this.hiddenLoad = true;
+      	} else{
+      		if(this.store.length == 0){
+      		this.store = response.data;
+      		this.counter++;
+      	} else{
+      		// this.store = response.data;
+      		this.counter++;
+      		for(var i =0; i<response.data.length;i++){
+      			this.store.push(response.data[i]);
+      		}
+      	}
+      }
+      	
+
       }).catch(error=>{
         console.log('error')
         this.store = []
       })
+     this.loading = false;
     },
     select: function(index) {
         this.currentItem = this.store[index];
         console.log(this.currentItem); 
     }
- },
-  beforeMount(){
-    this.retData()
-  } 
+ } 
 }
 </script>
 
@@ -67,15 +91,7 @@ button{
 	background-color: rgba(20,133,204,0.4);
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
-/*.name:after{
-	content: '';
-    width: 95%;
-    border-bottom: solid 1px #570303;
-    position: absolute;
-    left: 2.5%;
-    top: 40px;
-    z-index: 1;
-}*/
+
 .post{
 	width:90%;
 	margin:0 auto;
@@ -134,7 +150,15 @@ button{
 	display:block;
 }
 
+.load{
+	display:flex;
+	width:100%;
+	justify-content:center;
+}
 
+.noload{
+	display:none;
+}
 
 @media only screen and (min-width: 600px){
 	.post{
