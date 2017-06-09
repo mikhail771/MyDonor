@@ -6,25 +6,33 @@
                 <router-view></router-view>
             </keep-alive>
         </transition>
-
+        <app-footer></app-footer>
 
     </div>
 </template>
 
 <script>
     import menu from './components/menu/App.vue'
+    import footer from './components/footer/Footer.vue'
 
     export default {
         components:{
-            'app-menu': menu
+            'app-menu': menu,
+            'app-footer': footer
         }
     }
 </script>
 
 <style lang="scss">
-    #app{
-        overflow: hidden;
-    }
+body{
+    margin:0;
+    padding:0;
+}
+#app{
+    margin:0;
+    padding:0;
+}
+
     .slide-fade-enter-active {
         transition: all 0.5s ease;
     }
