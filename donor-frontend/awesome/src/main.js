@@ -7,6 +7,8 @@ import Feed from './components/feed/App.vue';
 import Login from './components/login/login.vue';
 import notFound from './components/notFound/NotFound.vue';
 
+import Autorisation from './components/autorizastion/App.vue';
+
 
 Vue.use(VueRouter);
 
@@ -17,7 +19,8 @@ var router = new VueRouter({
     {path: "/bids", component: Bids},
     {path: "/", component: Feed},
     {path:"/login", component: Login},
-    {path: "*", component: notFound}
+    {path: "*", component: notFound},
+    {path: "/autorisation", component: Autorisation}
   ]
 });
 

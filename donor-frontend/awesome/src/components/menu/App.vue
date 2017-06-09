@@ -4,6 +4,7 @@
 			<li><router-link to="/">Главная/Заявки</router-link></li>
 			<li><router-link to="/bids">Подать заявку</router-link></li>
 			<li><router-link to="/login">Login</router-link></li>
+			<li><router-link to="/autorisation">autorisation</router-link></li>
 		</ul>
 </div>
 </template>
