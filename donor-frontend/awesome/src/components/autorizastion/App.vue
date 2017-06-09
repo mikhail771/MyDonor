@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h2>Lorem3  </h2>
         <notation></notation>
         <ul>
             <li><a href="#" @click.prevent="changeView('login')">Login</a></li>
