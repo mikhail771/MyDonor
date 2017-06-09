@@ -48,7 +48,7 @@
 			<div class="category ">Поддержать проект <div class="support"></div></div>
 		</div>
 	</transition>
-		
+
 </div>
 </template>
 
@@ -118,7 +118,7 @@
 	}
 	}
 
-	
+
 	.logo{
 		width:40px;
 		height: 40px;
@@ -150,20 +150,20 @@
 		justify-content:space-between;
 		overflow: hidden;
 		flex-wrap:wrap;
-		
+
 	}
-	
+
 	.subcategory{
 		width:100%;
 	}
-	
+
 	.sub{
 		width:100%;
 		padding:10px;
 		color:#454647;
 		font-size: 14px;
 	}
-	
+
 
 	.extend{
 		width:30px;
