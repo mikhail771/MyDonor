@@ -81,9 +81,8 @@
 <style lang="scss" scoped>
 	.app{
 		width:100%;
-		position:fixed;
-		// position: -webkit-sticky;
-		//   position: sticky;
+		 position: -webkit-sticky;
+		position: sticky;
 		  top:0;
 		  z-index:1000;
 		background-color: white;
