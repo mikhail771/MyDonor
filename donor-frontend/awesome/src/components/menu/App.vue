@@ -1,15 +1,14 @@
 <template>
 <div class="app">
-<<<<<<< Updated upstream
 	<div class="nav">
 		<div  @click="toggleMenu" :class="{menuButton:!seeMenu, backButton:seeMenu}"></div>
 		<router-link to="/"><div class="logo"></div>  </router-link>
 	</div>
 	<transition name="slide-fade">
-		<div class="menu" v-if="seeMenu">
+		<div :class="{menu:true}" v-if="seeMenu">
 			<div class="category" @click="toggleSub('donor')">Процесс донорства <div :class="{extend:!subList.donor, extendReverse: subList.donor}"></div>
 				<div class="subcategory" v-if="subList.donor">
-					<div class="sub"> <router-link to="/registration">Регистрация на сайте </router-link></div>
+					<div class="sub enabled"> <router-link to="/registration">Регистрация на сайте </router-link></div>
 					<div class="sub">Могу ли я сдать кровь?</div>
 					<div class="sub">Перед забором крови</div>
 					<div class="sub">Подготовка в день сдачи крови</div>
@@ -24,45 +23,31 @@
 			</div>
 			<div class="category" @click="toggleSub('help')">Адресная помощь (реципиенты) <div :class="{extend:!subList.help, extendReverse: subList.help}"></div>
 				<div class="subcategory" v-if="subList.help">
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
+					<div class="sub enabled"><router-link to="/registration">Регистрация на сайте</router-link></div>
+					<div class="sub enabled"><router-link to="/">Помочь конкретному реципиенту</router-link></div>
+					<div class="sub">Создать заявку реципиента</div>
 				</div>
 			</div>
 			<div class="category" @click="toggleSub('stories')">Удивительные истории <div :class="{extend:!subList.stories, extendReverse: subList.stories}"></div>
 				<div class="subcategory" v-if="subList.stories">
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
+					<div class="sub">Ярослав</div>
+					<div class="sub">Алла</div>
+					<div class="sub">Миша и Юля</div>
 				</div>
 			</div>
 			<div class="category" @click="toggleSub('info')">О крови <div :class="{extend:!subList.info, extendReverse: subList.info}"></div>
 				<div class="subcategory" v-if="subList.info">
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
-					<div class="sub">Lorem ipsum dolor sit.</div>
+					<div class="sub">Типы крови</div>
+					<div class="sub">Как хранится кровь?</div>
+					<div class="sub">Текущие уровни запасов крови</div>
+					<div class="sub">Компоненты крови</div>
+					<div class="sub">Переливание крови</div>
 				</div>
 			</div>
 			<div class="category ">Поддержать проект <div class="support"></div></div>
 		</div>
 	</transition>
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
-		<ul class="nav" id="nav">
-			<li><router-link to="/">Главная/Заявки</router-link></li>
-			<li><router-link to="/bids">Подать заявку</router-link></li>
-			<li><router-link to="/login">Login</router-link></li>
-		</ul>
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> master
+		
 </div>
 </template>
 
@@ -96,8 +81,9 @@
 <style lang="scss" scoped>
 	.app{
 		width:100%;
-		position: -webkit-sticky;
-		  position: sticky;
+		position:fixed;
+		// position: -webkit-sticky;
+		//   position: sticky;
 		  top:0;
 		  z-index:1000;
 		background-color: white;
@@ -132,7 +118,7 @@
 	}
 	}
 
-
+	
 	.logo{
 		width:40px;
 		height: 40px;
@@ -143,7 +129,6 @@
 	}
 
 	.menu{
-		// display: none;
 		position: absolute;
 		width:100%;
 		z-index:1000;
@@ -153,6 +138,8 @@
 		display:block;
 		background-color: white;
 	}
+
+
 
 	.category{
 		font-size:16px;
@@ -164,20 +151,25 @@
 		justify-content:space-between;
 		overflow: hidden;
 		flex-wrap:wrap;
-
+		
 	}
-
+	
 	.subcategory{
 		width:100%;
 	}
-
+	
 	.sub{
 		width:100%;
 		padding:10px;
-		color:#454647;
+		color:#c9c9c9;
 		font-size: 14px;
 	}
-
+	
+	.enabled{
+		a{
+			color:#454647;;
+		}
+	}
 
 	.extend{
 		width:30px;
