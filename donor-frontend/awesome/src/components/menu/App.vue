@@ -1,5 +1,6 @@
 <template>
 <div class="app">
+<<<<<<< Updated upstream
 	<div class="nav">
 		<div  @click="toggleMenu" :class="{menuButton:!seeMenu, backButton:seeMenu}"></div>
 		<router-link to="/"><div class="logo"></div>  </router-link>
@@ -49,6 +50,13 @@
 		</div>
 	</transition>
 
+=======
+		<ul class="nav" id="nav">
+			<li><router-link to="/">Главная/Заявки</router-link></li>
+			<li><router-link to="/bids">Подать заявку</router-link></li>
+			<li><router-link to="/login">Login</router-link></li>
+		</ul>
+>>>>>>> Stashed changes
 </div>
 </template>
 
