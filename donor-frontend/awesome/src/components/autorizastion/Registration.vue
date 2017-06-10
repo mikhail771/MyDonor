@@ -13,7 +13,7 @@
             </div>
             <div class="reg-field__wrap">
                 <label for="date">Дата рождения<br>
-                    <input type="text" required class="reg-field__input" id="date" v-model="userData.date" placeholder="Введите дату рождения">
+                    <input type="text" :class="{ err: isDateErr }" @blur="checkDate" required class="reg-field__input" id="date" v-model="userData.date" placeholder="Введите дату рождения dd.mm.yyyy">
                 </label>
             </div>
             <div class="reg-field__wrap">
@@ -60,8 +60,8 @@
                     gender:"",
                     date:""
                 },
-                password_confirm:"",
-                isPasErr: false
+
+                isDateErr: false
             }
         },
         methods:{
@@ -79,13 +79,26 @@
                             console.log(error);
                         });
             },
-            checkPassword: function (e) {
-                if (this.password_confirm !== this.userData.password ){
-                    this.isPasErr = true;
-                    this.password_confirm = "";
-                } else {
-                    this.isPasErr = false;
+            checkDate: function (e) {
+                var arr = this.userData.date.split(/[-\/,.]/);
+                if (arr.length < 3 && this.userData.date.length !== 0){
+                    this.isDateErr = true;
+                    return false;
                 }
+                if (+arr[1] == 0 || +arr[1] > 12 || +arr[0] > 31 || +arr[2] > 2018 || +arr[2] < 1800) {
+                    this.isDateErr = true;
+                    return false;
+                }
+                if (+arr[1] === 2 && +arr[0] > 29) {
+                    this.isDateErr = true;
+                    return false;
+                }
+                if ((+arr[1] === 4 || +arr[1] === 6 || +arr[1] === 9 || +arr[1] === 11) && +arr[0] > 30){
+                    this.isDateErr = true;
+                    return false;
+                }
+                this.isDateErr = false;
+                return true;
             }
         }
     }
@@ -133,6 +146,9 @@
     }
     .reg-radio__label{
         flex-grow: 1;
+    }
+    .err{
+        box-shadow: 0 0 5px 2px red;
     }
 
 </style>
