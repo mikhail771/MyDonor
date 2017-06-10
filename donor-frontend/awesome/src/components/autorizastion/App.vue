@@ -1,9 +1,13 @@
 <template>
-    <div>
+    <div class="autorization-wrapper">
         <notation></notation>
-        <ul>
-            <li><a href="#" @click.prevent="changeView('login')">Login</a></li>
-            <li><a href="#" @click.prevent="changeView('registration')">Registration</a></li>
+        <ul class="autorization__list">
+            <li class="autorization__item">
+                <a class="autorization__link" :class="{ active: currentView == 'login' }" href="#" @click.prevent="changeView('login')">Личный кабинет</a>
+            </li>
+            <li class="autorization__item">
+                <a class="autorization__link" :class="{ active: currentView == 'registration' }" href="#" @click.prevent="changeView('registration')">Регистрация</a>
+            </li>
         </ul>
         <component :is="currentView"></component>
 
@@ -34,7 +38,6 @@
         },
         methods:{
             changeView: function (view){
-                console.log("switch");
                 this.currentView = view;
             }
         }
@@ -43,5 +46,23 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .autorization__list{
+        display: flex;
+        list-style: none;
+        padding: 0;
+        align-items: center;
+        justify-content: space-around;
+        margin: 10px;
+    }
+    .autorization__item{
+        margin:10px;
+    }
+    .autorization__link{
+        text-decoration: none;
+        color: black;
+        font-size: 1.3em;
+    }
+    .autorization__link.active{
+        border-bottom: 2px solid red;
+    }
 </style>
