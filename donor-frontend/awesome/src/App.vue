@@ -6,7 +6,7 @@
                 <router-view></router-view>
             </keep-alive>
         </transition>
-
+        <app-footer></app-footer>
 
     </div>
 </template>
