@@ -17,8 +17,6 @@
 <style lang="scss" scoped>
 	.app{
 		width:100%;
-		position:absolute;
-		bottom:0;
 		background-color: #454647;
 		margin:0;
 		padding:16px 16px 10px 16px;
