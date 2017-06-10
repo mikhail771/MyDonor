@@ -2,10 +2,10 @@
 <div class="app">
 	<div class="nav">
 		<div  @click="toggleMenu" :class="{menuButton:!seeMenu, backButton:seeMenu}"></div>
-		<router-link to="/"><div class="logo"></div>  </router-link>
+		<router-link to="/"><div class="logo" @click="toggleMenu"></div>  </router-link>
 	</div>
 	<transition name="slide-fade">
-		<div :class="{menu:true}" v-if="seeMenu">
+		<div :class="{menu:true}" v-if="seeMenu" @click="toggleMenu">
 			<div class="category" @click="toggleSub('donor')">Процесс донорства <div :class="{extend:!subList.donor, extendReverse: subList.donor}"></div>
 				<div class="subcategory" v-if="subList.donor">
 					<div class="sub enabled"> <router-link to="/registration">Регистрация на сайте </router-link></div>
@@ -66,8 +66,11 @@
 			}
 		},
 		methods:{
-			toggleMenu: function(){
+			toggleMenu: function(e){
+				if (e.target.classList.contains("logo")) this.seeMenu = true;
+				if (e.target.classList.contains("sub")|| e.target.classList.contains("category")) return;
 				this.seeMenu = !this.seeMenu;
+
 
 			},
 			toggleSub: function(which){
