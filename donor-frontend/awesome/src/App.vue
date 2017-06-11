@@ -6,6 +6,10 @@
                 <router-view></router-view>
             </keep-alive>
         </transition>
+
+         <transition name="fade">
+   <a href="#top" class="toTop" v-if="scrolled"></a>
+   </transition>
         <app-footer></app-footer>
 
     </div>
@@ -16,10 +20,27 @@
     import footer from './components/footer/Footer.vue'
 
     export default {
+        data: function(){
+            return{
+                scrolled: false
+            }
+        },
         components:{
             'app-menu': menu,
             'app-footer': footer
-        }
+        },
+        methods: {
+  handleScroll () {
+      this.scrolled = window.scrollY > 100;
+    
+  }
+},
+created () {
+  window.addEventListener('scroll', this.handleScroll);
+},
+destroyed () {
+  window.removeEventListener('scroll', this.handleScroll);
+}
     }
 </script>
 
@@ -48,5 +69,40 @@ body{
     .slide-fade-leave-to{
         transform: translateX(400px);
         opacity: 0;
+    }
+
+    .toTop{
+  display: block;
+  width:57px;
+  height:57px;
+  border-radius:5px;
+  background-color: white;
+  background-image: url('~./assets/css_sprites.png');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: -11px -88px;
+  position:fixed;
+  bottom:10px;
+  right:120px;
+  z-index:10000;
+  cursor: pointer;
+  @media screen and (min-width:300px) and (max-width:1100px){
+      right:10px;
+      bottom:50px;
+    }
+}
+
+// To top button animation
+.fade-enter-active {
+      transition: all 1.5s ease;
+    }
+    .fade-leave-active {
+      transition: all 1.5s ease;
+    }
+    .fade-enter{
+      opacity: 0;
+    }
+     .fade-leave-to{
+      opacity: 0;
     }
 </style>
