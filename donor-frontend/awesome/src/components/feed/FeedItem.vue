@@ -56,7 +56,7 @@ hr{
 	background-color: white;
 	position:relative;
 	box-sizing:border-box;
-	margin-bottom:10px;
+	margin-bottom:5px;
 	padding-bottom: 10px;
 	padding-top: 10px;
 	box-shadow: 0 0 5px rgba(100, 100, 100, 0.4);
@@ -114,6 +114,7 @@ hr{
 		border: 10px solid transparent;
 		border-top: 10px solid #F77777;
 		position:absolute;
+		transform: translateY(-1px);
 	}
 }
 

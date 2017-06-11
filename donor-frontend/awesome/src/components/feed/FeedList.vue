@@ -72,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 	.list{
     background-color: rgba(247,119,119,0.3);
-    padding-top:10px;
+    padding-top:5px;
     margin:0 auto;
   }
 .show{
