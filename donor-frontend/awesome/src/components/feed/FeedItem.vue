@@ -69,6 +69,7 @@ hr{
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
+	box-shadow: 0 0 5px grey;
 }
 
 .detailImage{
@@ -95,6 +96,7 @@ hr{
 		border: 10px solid transparent;
 		border-top: 10px solid #F77777;
 		position:absolute;
+		transform: translateY(-1px);
 	}
 }
 
