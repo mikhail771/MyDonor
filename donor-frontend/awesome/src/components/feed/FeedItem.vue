@@ -1,5 +1,7 @@
 <template>
 	<div class="post" @click="toggleDetails">
+
+	<div class="container">
 			<div class="image"></div>
 			<div>
 				<span class="name">{{elem.bidUserName}}</span>
@@ -18,7 +20,7 @@
 			 	<router-link to="/"><div class="goToBid"></div></router-link>
 			 </div>
 			<hr v-if="!extend">
-
+		</div>
 	</div>
 </template>
 
@@ -50,10 +52,26 @@ hr{
 }
 .post{
 	width:100%;
+	margin:0 auto;
+	background-color: white;
 	position:relative;
 	box-sizing:border-box;
 	margin-bottom:10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	box-shadow: 0 0 5px rgba(100, 100, 100, 0.4);
 
+}
+
+.container{
+	width:98%;
+	height:98%;
+	border:1px solid rgba(247,119,119,0.2);
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	box-shadow:inset 0 0 10px 0 rgba(170,140,140,0.1);
 }
 
 .name, .age, .info{

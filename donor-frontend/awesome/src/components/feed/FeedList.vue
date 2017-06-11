@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="list">
 		<feed-item v-for="elem in store" :elem="elem"> </feed-item>
 		<mugen-scroll :handler="retData" :should-handle="!loading">
       <span  :class="{load:true, noload:hiddenLoad}">загрузка...</span>
@@ -70,7 +70,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	
+	.list{
+    background-color: rgba(247,119,119,0.3);
+    padding-top:10px;
+    margin:0 auto;
+  }
 .show{
 	display:block;
 }
