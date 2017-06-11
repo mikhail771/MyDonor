@@ -69,6 +69,7 @@ hr{
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
+	box-shadow: 0 0 5px grey;
 }
 
 .detailImage{
@@ -100,7 +101,7 @@ hr{
 
 .hide{
 	@extend .extend;
-	transform:scaleY(-1);
+	transform:scaleY(-1) translateY(-1px);
 }
 
 .details{
