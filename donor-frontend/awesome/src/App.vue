@@ -32,19 +32,21 @@ body{
     margin:0;
     padding:0;
 }
-
+    // #app{
+    //     overflow: hidden;
+    // }
     .slide-fade-enter-active {
-        transition: all 0.5s ease;
+        transition: all 0.2s ease;
     }
     .slide-fade-leave-active {
-        transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        transition: all 0.2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
     .slide-fade-enter{
-        transform: translateX(-400px) scale(0.8, 0.8);
+        transform: translateX(-400px);
         opacity: 0;
     }
     .slide-fade-leave-to{
-        transform: translateX(400px) scale(0.8, 0.8);
+        transform: translateX(400px);
         opacity: 0;
     }
 </style>
