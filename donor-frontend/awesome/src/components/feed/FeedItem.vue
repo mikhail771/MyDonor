@@ -96,7 +96,6 @@ hr{
 		border: 10px solid transparent;
 		border-top: 10px solid #F77777;
 		position:absolute;
-		transform: translateY(-1px);
 	}
 }
 
