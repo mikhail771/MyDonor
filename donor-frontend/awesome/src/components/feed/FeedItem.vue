@@ -1,10 +1,11 @@
 <template>
 	<div class="post" @click="toggleDetails">
-<hr>
 	<div class="container">
-				<div class="image"> </div>
-	
-			<div>
+	<div class="title">
+		<div class="image"> </div>
+	</div>
+	<div class="general">
+		<div>
 				<span class="name">{{elem.bidUserName}}</span>
 			</div>
 			<div>
@@ -13,14 +14,15 @@
 			<div class="info">
 				<span>{{elem.bidInfo}}</span>
 			</div>
+			<hr v-if="!extend">
 			<div :class="{extend:!extend, hide:extend}"></div>	
 		</div>
+	</div>
 		<div class="details" v-if="extend">
 				<div class="detailImage"></div>
 			 	<div class="detail-description">{{elem.bidComments}}</div>
 			 	<router-link to="/"><div class="goToBid"></div></router-link>
 			 </div>
-		<hr v-if="!extend">
 	</div>
 </template>
 
@@ -48,10 +50,11 @@ hr{
 	width:100%;
 	height:1px;
 	border:none;
-	background-color: rgba(247,119,119,0.4);
+	background-color: rgba(90,90,90,0.2);
+	transform:translateY(20px);
 }
 .post{
-	width:100%;
+	width:93%;
 	margin:0 auto;
 	background-color: white;
 	position:relative;
@@ -63,6 +66,8 @@ hr{
 
 }
 
+
+
 .container{
 	width:98%;
 	height:98%;
@@ -71,9 +76,16 @@ hr{
 	padding:10px;
 	box-sizing: border-box;
 	border-radius: 2px;
+	display:flex;
+}
+.title{
+	width:100px;
+	height:100%;
 }
 
-
+.general{
+	width:80%;
+}
 .name, .age, .info{
 	padding-left:10px;
 }
@@ -81,7 +93,6 @@ hr{
 	width:90px;
 	height:90px;
 	border-radius: 50%;
-	margin:0 auto;
 	background-color: grey;
 	background-image: url("~../assets/face.svg");
 	background-repeat: no-repeat;
@@ -94,6 +105,7 @@ hr{
 	@extend .image;
 	width:200px;
 	height:200px;
+	margin: 0 auto;
 }
 
 .detail-description{
@@ -106,10 +118,31 @@ hr{
 }
 
 .extend{
-	width:20px;
-	height:10px;
+	width:30px;
+	height:20px;
 	margin:0 auto;
 	position:relative;
+	background-image: url("~../assets/Spisok.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	transform:translateY(20px);
+	// &:before{
+	// 	content:"";
+	// 	display:block;
+	// 	width:1px;
+	// 	height:1px;
+	// 	border: 10px solid transparent;
+	// 	border-top: 10px solid #F77777;
+	// 	position:absolute;
+	// 	transform: translateY(-1px);
+	// }
+}
+
+.hide{
+	@extend .extend;
+	transform:scaleY(-1) translateY(-20px);
+	background-image: none;
 	&:before{
 		content:"";
 		display:block;
@@ -120,11 +153,7 @@ hr{
 		position:absolute;
 		transform: translateY(-1px);
 	}
-}
 
-.hide{
-	@extend .extend;
-	transform:scaleY(-1) translateY(-10px);
 }
 
 .details{
