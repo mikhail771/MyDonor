@@ -37,6 +37,11 @@
 
                 </div>
             </div>
+            <div class="reg-field__wrap">
+                <label for="info">Инфо<br>
+                    <input type="text" v-model="userData.info" class="reg-field__input" id="info" placeholder="Введите информацию о себе">
+                </label>
+            </div>
             <button class="button">Войти</button>
         </form>
     </div>
@@ -58,7 +63,8 @@
                     login:"", //email
                     password:"",
                     gender:"",
-                    date:""
+                    date:"",
+                    info:""
                 },
 
                 isDateErr: false
