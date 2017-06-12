@@ -76,16 +76,18 @@ body{
   width:57px;
   height:57px;
   border-radius:5px;
-  background-color: white;
-  background-image: url('~./assets/css_sprites.png');
-  background-size: auto;
+  background-color: red;
+  background-image: url('~./assets/Spisok.png');
+  background-size: 70%;
   background-repeat: no-repeat;
-  background-position: -11px -88px;
+  background-position: 50% 50%;
   position:fixed;
+  border-radius: 50%;
   bottom:10px;
   right:120px;
   z-index:10000;
   cursor: pointer;
+  box-shadow: 1px 1px 6px 1px rgba(40,40,40, 0.9);
   @media screen and (min-width:300px) and (max-width:1100px){
       right:10px;
       bottom:50px;
