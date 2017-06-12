@@ -11,6 +11,19 @@
 	<div class="name">Владимир Купец</div>
 	<div class="city">Украина, Днепр</div>
 	<div class="blood"> A (II) Rh-</div>
+	<hr/>
+	<div class="about">
+		<div class="caption">О себе</div>
+		<div class="description">
+			К сожалению, пока не могу сдавать
+			из-за медицинских противопоказаний.
+			Активный донор, Почетный донор 
+			Украины 57 крово-, тромбоцито- и
+			плазмодач. Быстрее связаться со 
+			мной можно по телефону или через 
+			Фэйсбук.
+		</div>
+	</div>
 	</div>
 </template>
 
@@ -87,5 +100,21 @@
 		align-items:center;
 		font-size: 16px;
 		margin:12px;
+	}
+
+	hr{
+		width:92%;
+		border:none;
+		height:1px;
+		background-color:#95989A;
+	}
+
+	.about{
+		padding: 12px;
+		padding-top:0;
+	}
+	.caption{
+		font-weight: bold;
+		margin-bottom:4px;
 	}
 </style>
