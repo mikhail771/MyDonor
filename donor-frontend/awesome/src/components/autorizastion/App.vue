@@ -3,14 +3,13 @@
         <notation></notation>
         <ul class="autorization__list">
             <li class="autorization__item">
-                <a class="autorization__link" :class="{ active: currentView == 'login' }" href="#" @click.prevent="changeView('login')">Личный кабинет</a>
+                <a class="autorization__link" :class="{ active: currentView == 'login' }" href="#" @click.prevent="changeView('login')">Личный&nbsp;кабинет</a>
             </li>
             <li class="autorization__item">
                 <a class="autorization__link" :class="{ active: currentView == 'registration' }" href="#" @click.prevent="changeView('registration')">Регистрация</a>
             </li>
         </ul>
         <component :is="currentView"></component>
-
     </div>
 </template>
 
