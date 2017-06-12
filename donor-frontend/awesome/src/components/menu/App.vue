@@ -6,6 +6,7 @@
 	</div>
 	<transition name="slide-fade">
 		<div :class="{menu:true}" v-if="seeMenu" @click="toggleMenu">
+			<div class="category"> <router-link to="/profile"> <div class="user-image"></div> Владимир Купец (профиль) </router-link></div>
 			<div class="category" @click="toggleSub('donor')">Процесс донорства <div :class="{extend:!subList.donor, extendReverse: subList.donor}"></div>
 				<div class="subcategory" v-if="subList.donor">
 					<div class="sub enabled"> <router-link to="/registration">Регистрация на сайте </router-link></div>
@@ -154,12 +155,35 @@
 		color:#DB3328;
 		border-top:1px solid rgba(0,101,189,0.3);
 		padding:10px;
+		padding-left:48px;
 		display:flex;
 		align-items:center;
 		justify-content:space-between;
 		overflow: hidden;
 		flex-wrap:wrap;
+		&:nth-of-type(1){
+			display:block;
+			padding:18px 10px 18px 10px;
+			background-color: rgba(0,101,189,0.1);
+			color:black;
+			font-weight:bold;
+		}
 		
+	}
+
+	.user-image{
+		width:25px;
+		height:25px;
+		background-color: grey;
+		border-radius: 50%;
+		display:inline-block;
+		margin-right:10px;
+		vertical-align: middle;
+		background-image: url("~../assets/111.jpg");
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: cover;
+		box-shadow: 0 0 5px grey;
 	}
 	
 	.subcategory{
@@ -192,7 +216,7 @@
 			border-top:11px solid #F77777;
 			position:absolute;
 			top:45%;
-			left:0;
+			left:10px;
 		}
 
 	}
@@ -204,6 +228,7 @@
 
 	.support{
 		@extend .extend;
+		left:10px;
 		&:before{
 			display:none;
 		}

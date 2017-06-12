@@ -8,6 +8,7 @@ import Login from './components/login/login.vue';
 import notFound from './components/notFound/NotFound.vue';
 import authorization from './components/autorizastion/App.vue';
 import request from './components/request/App.vue';
+import profile from './components/profile/App.vue';
 
 
 Vue.use(VueRouter);
@@ -20,6 +21,7 @@ var router = new VueRouter({
     {path: "/", component: Feed},
     {path:"/login", component: Login},
     {path:"/request", component: request},
+    {path: "/profile", component: profile},
     {path: "*", component: notFound}
   ]
 });

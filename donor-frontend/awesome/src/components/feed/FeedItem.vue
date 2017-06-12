@@ -1,5 +1,6 @@
 <template>
 	<div class="post" @click="toggleDetails">
+	<div class="date"> {{day}}</div>
 	<div class="container">
 	<div class="title">
 		<div class="image"> </div>
@@ -15,9 +16,9 @@
 				<span>{{elem.bidInfo}}</span>
 			</div>
 			<hr v-if="!extend">
-			<div :class="{extend:!extend, hide:extend}"></div>	
-		</div>
+		</div>	
 	</div>
+	<div :class="{extend:!extend, hide:extend}"></div>
 		<div class="details" v-if="extend">
 				<div class="detailImage"></div>
 			 	<div class="detail-description">{{elem.bidComments}}</div>
@@ -32,14 +33,30 @@ export default{
 	props:['elem'],
 	data:function(){
 		return{
-			extend: false
+			extend: false,
+			day:0,
+			month:"",
+			year: 0
 		}
 	},
 	methods:{
 		toggleDetails: function(){
 			this.extend = !this.extend;
+		},
+		// TEMPORARY I GET CURRENT DATE FOR EACH BID
+		getDate:function(){
+			var getDate = new Date();
+			var totalDate = getDate.getTime();
+			var formattedDate = new Date(totalDate);
+			var finalDate = formattedDate.toString().split(" ");
+			var currentDate = finalDate.splice(0,5);
+			this.day = currentDate.join(" ");
+
 		}
 
+	},
+	beforeMount(){
+		this.getDate();
 	}
 }
 </script>
@@ -63,10 +80,17 @@ hr{
 	padding-bottom: 10px;
 	padding-top: 10px;
 	box-shadow: 0 0 5px rgba(100, 100, 100, 0.4);
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:flex-end;
 
 }
 
-
+.date{
+	padding-right:10px;
+	font-size: 11px;
+	color:rgba(140,140,140,0.8);
+}
 
 .container{
 	width:98%;
@@ -94,7 +118,7 @@ hr{
 	height:90px;
 	border-radius: 50%;
 	background-color: grey;
-	background-image: url("../assets/face.svg");
+	background-image: url("~../assets/face.svg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
@@ -120,13 +144,13 @@ hr{
 .extend{
 	width:30px;
 	height:20px;
-	margin:0 auto;
 	position:relative;
-	background-image: url("../assets/Spisok.svg");
+	left:-5px;
+	background-image: url("~../assets/Spisok.svg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
-	transform:translateY(20px);
+	// transform:translateY(20px);
 	// &:before{
 	// 	content:"";
 	// 	display:block;
@@ -141,8 +165,9 @@ hr{
 
 .hide{
 	@extend .extend;
-	transform:scaleY(-1) translateY(-20px);
+	transform:scaleY(-1);
 	background-image: none;
+	left:0;
 	&:before{
 		content:"";
 		display:block;
@@ -168,7 +193,7 @@ hr{
 .goToBid{
 	width:30px;
 	height: 15px;
-	background-image: url("../assets/StrelaWhite.svg");
+	background-image: url("~../assets/StrelaWhite.svg");
 	background-size: 80%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
