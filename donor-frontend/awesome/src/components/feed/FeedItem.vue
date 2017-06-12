@@ -1,6 +1,6 @@
 <template>
 	<div class="post" @click="toggleDetails">
-	<div class="date"> {{date}}</div>
+	<div class="date"> {{day}}</div>
 	<div class="container">
 	<div class="title">
 		<div class="image"> </div>
@@ -16,9 +16,9 @@
 				<span>{{elem.bidInfo}}</span>
 			</div>
 			<hr v-if="!extend">
-			<div :class="{extend:!extend, hide:extend}"></div>	
-		</div>
+		</div>	
 	</div>
+	<div :class="{extend:!extend, hide:extend}"></div>
 		<div class="details" v-if="extend">
 				<div class="detailImage"></div>
 			 	<div class="detail-description">{{elem.bidComments}}</div>
@@ -34,7 +34,9 @@ export default{
 	data:function(){
 		return{
 			extend: false,
-			date:0
+			day:0,
+			month:"",
+			year: 0
 		}
 	},
 	methods:{
@@ -48,7 +50,7 @@ export default{
 			var formattedDate = new Date(totalDate);
 			var finalDate = formattedDate.toString().split(" ");
 			var currentDate = finalDate.splice(0,5);
-			this.date = currentDate.join(" ");
+			this.day = currentDate.join(" ");
 
 		}
 
@@ -148,7 +150,7 @@ hr{
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
-	transform:translateY(20px);
+	// transform:translateY(20px);
 	// &:before{
 	// 	content:"";
 	// 	display:block;
