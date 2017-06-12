@@ -83,7 +83,7 @@ hr{
 	border-radius: 50%;
 	margin:0 auto;
 	background-color: grey;
-	background-image: url("/src/assets/face.svg");
+	background-image: url("~../assets/face.svg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
@@ -139,7 +139,7 @@ hr{
 .goToBid{
 	width:30px;
 	height: 15px;
-	background-image: url("/src/assets/StrelaWhite.svg");
+	background-image: url("~../assets/StrelaWhite.svg");
 	background-size: 80%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
