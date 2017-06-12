@@ -54,7 +54,7 @@ hr{
 	transform:translateY(20px);
 }
 .post{
-	width:93%;
+	width:97%;
 	margin:0 auto;
 	background-color: white;
 	position:relative;
@@ -94,7 +94,7 @@ hr{
 	height:90px;
 	border-radius: 50%;
 	background-color: grey;
-	background-image: url("~../assets/face.svg");
+	background-image: url("../assets/face.svg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
@@ -122,7 +122,7 @@ hr{
 	height:20px;
 	margin:0 auto;
 	position:relative;
-	background-image: url("~../assets/Spisok.svg");
+	background-image: url("../assets/Spisok.svg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -168,7 +168,7 @@ hr{
 .goToBid{
 	width:30px;
 	height: 15px;
-	background-image: url("~../assets/StrelaWhite.svg");
+	background-image: url("../assets/StrelaWhite.svg");
 	background-size: 80%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
