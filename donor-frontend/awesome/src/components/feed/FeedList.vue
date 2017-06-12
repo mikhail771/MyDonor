@@ -71,7 +71,7 @@ export default {
 
 <style lang="scss" scoped>
 	.list{
-    background-color: rgba(247,119,119,0.3);
+    background-color: #0065BD;
     padding-top:5px;
     margin:0 auto;
   }
@@ -83,6 +83,8 @@ export default {
 	display:flex;
 	width:100%;
 	justify-content:center;
+  color:white;
+  padding:7px;
 }
 
 .noload{
