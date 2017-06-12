@@ -124,7 +124,7 @@ hr{
 
 .hide{
 	@extend .extend;
-	transform:scaleY(-1) translateY(-1px);
+	transform:scaleY(-1) translateY(-10px);
 }
 
 .details{
