@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="app">
 	<feed-list> </feed-list>
 </div>
  
@@ -22,5 +22,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.app{
+	overflow: hidden;
+}
 </style>

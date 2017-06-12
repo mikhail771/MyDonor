@@ -70,7 +70,10 @@
 				if (e.target.classList.contains("logo")) this.seeMenu = true;
 				if (e.target.classList.contains("sub")|| e.target.classList.contains("category")) return;
 				this.seeMenu = !this.seeMenu;
-
+				// reset opened subcategories
+				for( var key in this.subList){
+					this.subList[key] = false;
+				}
 
 			},
 			toggleSub: function(which){
@@ -84,6 +87,7 @@
 <style lang="scss" scoped>
 	.app{
 		width:100%;
+		height:65px;
 		 position: -webkit-sticky;
 		position: sticky;
 		  top:0;
@@ -101,12 +105,12 @@
 	.nav{
 		display:flex;
 		width:100%;
-		height:40px;
+		height:65px;
 		justify-content:center;
 	.menuButton{
-	width:40px;
-	height:40px;
-	background-image: url("/src/assets/hamburger.png");
+	width:65px;
+	height:65px;
+	background-image: url("~../assets/hamburger.png");
 	background-size: 100%;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
@@ -116,16 +120,16 @@
 
 	.backButton{
 		@extend .menuButton;
-		background-image: url("/src/assets/Strela.svg");
+		background-image: url("~../assets/Strela.svg");
 		background-size: 65%;
 	}
 	}
 
 	
 	.logo{
-		width:40px;
-		height: 40px;
-		background-image: url("/src/assets/LogoDonor2.svg");
+		width:65px;
+		height: 65px;
+		background-image: url("~../assets/LogoDonor2.svg");
 		background-size: 100%;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
@@ -203,7 +207,7 @@
 		&:before{
 			display:none;
 		}
-		background-image: url("/src/assets/heart.svg");
+		background-image: url("~../assets/heart.svg");
 		background-size: 80%;
 		background-repeat: no-repeat;
 	}
