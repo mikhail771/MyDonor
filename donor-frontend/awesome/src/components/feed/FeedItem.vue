@@ -1,5 +1,6 @@
 <template>
 	<div class="post" @click="toggleDetails">
+	<div class="date"> {{date}}</div>
 	<div class="container">
 	<div class="title">
 		<div class="image"> </div>
@@ -32,14 +33,28 @@ export default{
 	props:['elem'],
 	data:function(){
 		return{
-			extend: false
+			extend: false,
+			date:0
 		}
 	},
 	methods:{
 		toggleDetails: function(){
 			this.extend = !this.extend;
+		},
+		// TEMPORARY I GET CURRENT DATE FOR EACH BID
+		getDate:function(){
+			var getDate = new Date();
+			var totalDate = getDate.getTime();
+			var formattedDate = new Date(totalDate);
+			var finalDate = formattedDate.toString().split(" ");
+			var currentDate = finalDate.splice(0,5);
+			this.date = currentDate.join(" ");
+
 		}
 
+	},
+	beforeMount(){
+		this.getDate();
 	}
 }
 </script>
@@ -63,10 +78,17 @@ hr{
 	padding-bottom: 10px;
 	padding-top: 10px;
 	box-shadow: 0 0 5px rgba(100, 100, 100, 0.4);
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:flex-end;
 
 }
 
-
+.date{
+	padding-right:10px;
+	font-size: 11px;
+	color:rgba(140,140,140,0.8);
+}
 
 .container{
 	width:98%;
@@ -94,7 +116,7 @@ hr{
 	height:90px;
 	border-radius: 50%;
 	background-color: grey;
-	background-image: url("../assets/face.svg");
+	background-image: url("~../assets/face.svg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
@@ -122,7 +144,7 @@ hr{
 	height:20px;
 	margin:0 auto;
 	position:relative;
-	background-image: url("../assets/Spisok.svg");
+	background-image: url("~../assets/Spisok.svg");
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -168,7 +190,7 @@ hr{
 .goToBid{
 	width:30px;
 	height: 15px;
-	background-image: url("../assets/StrelaWhite.svg");
+	background-image: url("~../assets/StrelaWhite.svg");
 	background-size: 80%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
