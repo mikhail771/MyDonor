@@ -106,7 +106,7 @@
 	.menuButton{
 	width:40px;
 	height:40px;
-	background-image: url("/src/assets/hamburger.png");
+	background-image: url("~../assets/hamburger.png");
 	background-size: 100%;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
@@ -116,7 +116,7 @@
 
 	.backButton{
 		@extend .menuButton;
-		background-image: url("/src/assets/Strela.svg");
+		background-image: url("~../assets/Strela.svg");
 		background-size: 65%;
 	}
 	}
@@ -125,7 +125,7 @@
 	.logo{
 		width:40px;
 		height: 40px;
-		background-image: url("/src/assets/LogoDonor2.svg");
+		background-image: url("~../assets/LogoDonor2.svg");
 		background-size: 100%;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
@@ -203,7 +203,7 @@
 		&:before{
 			display:none;
 		}
-		background-image: url("/src/assets/heart.svg");
+		background-image: url("~../assets/heart.svg");
 		background-size: 80%;
 		background-repeat: no-repeat;
 	}

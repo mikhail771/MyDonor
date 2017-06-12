@@ -72,7 +72,7 @@ a{
 }
 
 .facebook{
-	background-image: url("/src/assets/Facebook.svg");
+	background-image: url("~../assets/Facebook.svg");
 	background-size: auto;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -80,7 +80,7 @@ a{
 
 .vk{
 	@extend .facebook;
-	background-image: url("/src/assets/VK.svg");
+	background-image: url("~../assets/VK.svg");
 }
 .year{
 	display:flex;
