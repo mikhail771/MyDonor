@@ -1,8 +1,9 @@
 <template>
 	<div class="post" @click="toggleDetails">
-
+<hr>
 	<div class="container">
-			<div class="image"></div>
+				<div class="image"> </div>
+	
 			<div>
 				<span class="name">{{elem.bidUserName}}</span>
 			</div>
@@ -12,15 +13,14 @@
 			<div class="info">
 				<span>{{elem.bidInfo}}</span>
 			</div>
-			<div :class="{extend:!extend, hide:extend}"></div>
-			
-			<div class="details" v-if="extend">
+			<div :class="{extend:!extend, hide:extend}"></div>	
+		</div>
+		<div class="details" v-if="extend">
 				<div class="detailImage"></div>
-			 	<div>{{elem.bidComments}}</div>
+			 	<div class="detail-description">{{elem.bidComments}}</div>
 			 	<router-link to="/"><div class="goToBid"></div></router-link>
 			 </div>
-			<hr v-if="!extend">
-		</div>
+		<hr v-if="!extend">
 	</div>
 </template>
 
@@ -45,10 +45,10 @@ export default{
 <style lang="scss" scoped>
 
 hr{
-	width:90%;
+	width:100%;
 	height:1px;
 	border:none;
-	background-color: #F77777;
+	background-color: rgba(247,119,119,0.4);
 }
 .post{
 	width:100%;
@@ -66,13 +66,13 @@ hr{
 .container{
 	width:98%;
 	height:98%;
-	border:1px solid rgba(247,119,119,0.2);
+	background-color: white;
 	margin: 0 auto;
 	padding:10px;
 	box-sizing: border-box;
 	border-radius: 2px;
-	box-shadow:inset 0 0 10px 0 rgba(170,140,140,0.1);
 }
+
 
 .name, .age, .info{
 	padding-left:10px;
@@ -96,6 +96,10 @@ hr{
 	height:200px;
 }
 
+.detail-description{
+	border-left: 1px solid white;
+	padding-left: 5px;
+}
 .name{
 	font-size: 20px;
 	color:#F77777;
