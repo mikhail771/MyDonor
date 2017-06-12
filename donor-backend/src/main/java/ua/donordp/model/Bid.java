@@ -1,11 +1,7 @@
 package ua.donordp.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
-/**
- * Created by Alexander on 19.04.2017.
- */
 @Entity
 @Table(name = "bids")
 public class Bid {

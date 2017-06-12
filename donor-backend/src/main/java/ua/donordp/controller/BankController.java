@@ -1,5 +1,6 @@
 package ua.donordp.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +13,6 @@ import ua.donordp.service.SecurityService;
 import java.net.URI;
 import java.util.List;
 
-/**
- * Created by Alexander on 19.04.2017.
- */
 @RestController
 @RequestMapping("/banks")
 public class BankController {
@@ -65,5 +63,13 @@ public class BankController {
     ResponseEntity updateBank(@RequestBody Bank bank, @PathVariable String id){
         bankService.updateBank(bank);
         return ResponseEntity.created(URI.create("/banks")).build();
+    }
+
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.GET, value="{id}")
+    public @ResponseBody
+    Bank getBankById(@PathVariable String id){
+        Bank bankId = bankService.getBankById(Integer.parseInt(id));
+        return bankId;
     }
 }

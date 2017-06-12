@@ -49,4 +49,12 @@ public class BidController {
         bidService.updateBid(bid);
         return ResponseEntity.created(URI.create("/bids")).build();
     }
+
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.GET, value="{id}")
+    public @ResponseBody
+    Bid getBidById(@PathVariable String id){
+        Bid bidId = bidService.getBidById(Integer.parseInt(id));
+        return bidId;
+    }
 }

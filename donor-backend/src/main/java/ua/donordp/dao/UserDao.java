@@ -1,10 +1,5 @@
 package ua.donordp.dao;
 
-/**
- * Created by user on 21.04.17.
- */
-
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -52,7 +47,6 @@ public class UserDao {
         if (user != null) {
             session.delete(user);
         }
-
     }
 
     public User getUserById(int id) {
@@ -62,6 +56,4 @@ public class UserDao {
 
         return user;
     }
-
-
 }

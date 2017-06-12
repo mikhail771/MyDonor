@@ -1,6 +1,5 @@
 package ua.donordp.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.MediaType;
@@ -14,9 +13,6 @@ import ua.donordp.service.UserService;
 import java.net.URI;
 import java.util.List;
 
-/**
- * Created by user on 08.06.17.
- */
 @RestController
 @RequestMapping("/registration")
 public class UserController {
@@ -54,7 +50,14 @@ public class UserController {
     public String updateUser(@PathVariable("id") int id, @RequestBody User user){
         user.setId(id);
         userService.updateUser(user);
-
         return "users";
+    }
+
+    @CrossOrigin
+    @RequestMapping(method = RequestMethod.GET, value="{id}")
+    public @ResponseBody
+    User getUserById(@PathVariable String id){
+        User userId = userService.getUserById(Integer.parseInt(id));
+        return userId;
     }
 }
