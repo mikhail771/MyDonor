@@ -91,6 +91,7 @@
 		background-color: white;
 		margin:0;
 		top:0;
+		box-shadow: 0 1px 4px 0 rgba(100,100,100,0.5);
 	}
 
 	a{
@@ -135,6 +136,7 @@
 		width:100%;
 		z-index:1000;
 		background-color: white;
+		box-shadow: 0 1px 4px 0 rgba(100,100,100,0.5);
 		}
 	.showMenu{
 		display:block;
@@ -205,6 +207,7 @@
 		background-size: 80%;
 		background-repeat: no-repeat;
 	}
+
 
 	// ANIMATION
 	.slide-fade-enter-active {
