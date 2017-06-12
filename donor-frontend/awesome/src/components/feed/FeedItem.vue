@@ -145,6 +145,7 @@ hr{
 	width:30px;
 	height:20px;
 	position:relative;
+	left:-5px;
 	background-image: url("~../assets/Spisok.svg");
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -166,6 +167,7 @@ hr{
 	@extend .extend;
 	transform:scaleY(-1);
 	background-image: none;
+	left:0;
 	&:before{
 		content:"";
 		display:block;
