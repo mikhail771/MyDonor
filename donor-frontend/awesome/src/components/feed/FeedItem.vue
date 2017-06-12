@@ -51,7 +51,7 @@ hr{
 	background-color: #F77777;
 }
 .post{
-	width:100%;
+	width:97%;
 	margin:0 auto;
 	background-color: white;
 	position:relative;
