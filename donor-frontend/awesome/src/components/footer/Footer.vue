@@ -1,15 +1,21 @@
 <template>
 	<div class="app">
+		<app-search></app-search>
 		<div class="title">Свяжитесь с нами</div>
 		<div class="mail">Email: <a href="mailto:DonorDnepr@gmail.com">DonorDnepr@gmail.com</a></div>
 		<div class="socials">или через <div class="soc-labels"><div class="facebook"></div> <div class="vk"></div></div></div>
 		<hr/>
 		<div class="year">2017</div>
+		
 	</div>
 </template>
 
 <script>
+import search from "../Maps/SearchMap.vue"
 	export default{
+		components:{
+			'app-search': search
+		}
 
 	}
 </script>

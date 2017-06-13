@@ -77,7 +77,7 @@ body{
   height:57px;
   border-radius:5px;
   background-color: red;
-  background-image: url('./components/assets/Spisok.png');
+  background-image: url('./assets/Spisok.png');
   background-size: 70%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
