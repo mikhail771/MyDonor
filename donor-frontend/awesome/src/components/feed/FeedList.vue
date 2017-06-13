@@ -1,16 +1,16 @@
 <template>
-  <div class="list">
+	<div class="list">
   <app-search class="test"></app-search>
-    <feed-item v-for="elem in store" :elem="elem"> </feed-item>
-    <mugen-scroll :handler="retData" :should-handle="!loading">
+		<feed-item v-for="elem in store" :elem="elem"> </feed-item>
+		<mugen-scroll :handler="retData" :should-handle="!loading">
       <span  :class="{load:true, noload:hiddenLoad}">загрузка...</span>
       <span  :class="{load:true, noload:!hiddenLoad}">заявок больше нет...</span>
     </mugen-scroll>
-  </div>
+	</div>
 </template>
 
 <script>
-  import Vue from 'vue'
+	import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FeedItem from './FeedItem.vue'
@@ -19,7 +19,7 @@ import search from "../Maps/SearchMap.vue"
 
 Vue.use(VueAxios, axios)
 export default {
-  data: function(){
+ 	data: function(){
   return{
      store:[],
     currentItem: '',
@@ -32,31 +32,31 @@ export default {
   }
  },
  components:{
-  'feed-item': FeedItem,
+ 	'feed-item': FeedItem,
   'app-search': search,
-  MugenScroll
+ 	MugenScroll
  },
   methods:{
    retData: function(){
-    this.loading = true;
+   	this.loading = true;
       const api = 'https://dry-island-77618.herokuapp.com/bids?decimalcount=' + this.counter
       Vue.axios.get(api).then(response=> {
-        if(response.data.length == 0){
-          this.loading = false;
-          this.hiddenLoad = true;
-        } else{
-          if(this.store.length == 0){
-          this.store = response.data;
-          this.counter++;
-        } else{
-          // this.store = response.data;
-          this.counter++;
-          for(var i =0; i<response.data.length;i++){
-            this.store.push(response.data[i]);
-          }
-        }
+      	if(response.data.length == 0){
+      		this.loading = false;
+      		this.hiddenLoad = true;
+      	} else{
+      		if(this.store.length == 0){
+      		this.store = response.data;
+      		this.counter++;
+      	} else{
+      		// this.store = response.data;
+      		this.counter++;
+      		for(var i =0; i<response.data.length;i++){
+      			this.store.push(response.data[i]);
+      		}
+      	}
       }
-        
+      	
 
       }).catch(error=>{
         console.log('error')
@@ -73,25 +73,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .list{
+	.list{
     background-color: #0065BD;
     padding-top:5px;
     margin:0 auto;
   }
 .show{
-  display:block;
+	display:block;
 }
 
 .load{
-  display:flex;
-  width:100%;
-  justify-content:center;
+	display:flex;
+	width:100%;
+	justify-content:center;
   color:white;
   padding:7px;
 }
 
 .noload{
-  display:none;
+	display:none;
 }
 
 
@@ -100,8 +100,8 @@ export default {
   padding:20px;
 }
 @media only screen and (min-width: 600px){
-  .post{
-    width:700px;
-  }
+	.post{
+		width:700px;
+	}
 }
 </style>
