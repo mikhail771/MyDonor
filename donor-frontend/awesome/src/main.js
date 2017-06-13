@@ -11,6 +11,7 @@ import request from './components/request/App.vue';
 import profile from './components/profile/App.vue';
 import maps from './components/Maps/App.vue';
 import recipient from './components/recipient/App.vue';
+import protivopokazanija from './components/static/protivopokazanija.vue';
 
 
 Vue.use(VueRouter);
@@ -27,6 +28,7 @@ var router = new VueRouter({
     {path: "/profile", component: profile},
     {path: "/search", component: maps},
     {path: "/recipient", component: recipient},
+    {path: "/protivopokazanija", component: protivopokazanija},
     {path: "*", component: notFound}
   ]
 });
