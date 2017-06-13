@@ -92,6 +92,7 @@
         overflow: auto;
         margin: auto;
         right: 20%; left: 20%;
+        outline: 1px solid green;
     }
     #titleForProfileImg p{
         opacity: 1 !important;
@@ -99,6 +100,7 @@
         font-size: 18pt;
     }
     #imgWrap{
+        outline: 1px solid blue;
         position: relative;
         /*display: flex;*/
         /*align-items: center;*/

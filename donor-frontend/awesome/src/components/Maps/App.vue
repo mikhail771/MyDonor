@@ -11,17 +11,14 @@ import {store} from "../../store/store.js"
 		data:function(){
 			return{
 				place: store.state.place,
-				link: ""
+				link: store.state.link
 			}
 		
 		},
 		methods:{
 			query: function(){
-				this.link = "https://www.google.com/maps/embed/v1/search?q=станция+переливания+крови+возле+" + this.place + "&key=AIzaSyAO0Ju6FOiKKWYpbv-CDHJ9aq9Ff4NOy9g"
+				store.state.link = "https://www.google.com/maps/embed/v1/search?q=станция+переливания+крови+возле+" + this.place + "&key=AIzaSyAO0Ju6FOiKKWYpbv-CDHJ9aq9Ff4NOy9g"
 			}
-		},
-		beforeMount(){
-			this.query();
 		}
 	}
 </script>
