@@ -24,6 +24,10 @@ import {store} from "../../store/store.js"
 Vue.use(VueAxios, axios)
 var VueTouch = require('vue-touch')
 Vue.use(VueTouch, {name: 'v-touch'})
+
+VueTouch.config.swipe = {
+  direction: 'horizontal'
+}
 export default {
 	data: function(){
 		return{
