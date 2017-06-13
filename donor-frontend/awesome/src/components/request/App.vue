@@ -70,20 +70,6 @@
                     <input type="number" v-model="request.deadline" class="reg-field__input" id="deadline" placeholder="Введите сроки (от 2 до 10 дней от сегодня)">
                 </label>
             </div>
-            <div class="reg-field__wrap non-bottom-line">
-                <label for="photo">Фото реципеента<br>
-                    <input type="file" @change="processFile($event)" class="reg-field__input" id="photo" placeholder="Зугразить">
-                </label>
-            </div>
-            <div class="reg-field__wrap non-bottom-line ">
-                <p class="details">Укажите как можно больше деталей, которые помогут нам немедленно отреагировать на вашу заявку:</p>
-                    <textarea name="" v-model="request.details" rows="10" class="reg-field__input details-text-area" placeholder="Ваше сообщение"></textarea>
-
-             </div>
-            <div class="reg-field__wrap non-bottom-line">
-                <input type="checkbox"  v-model="agree" id="agree" required>
-                <label for="agree" class="agree-text">Даю согласие на обработку персональных данных (согласно закону Украины "О защите персональных данных") от 1 июня 2010 года, №2297-VI</label>
-            </div>
             <button class="button">Создать заявку</button>
         </form>
 
@@ -124,12 +110,9 @@
                     rhesus:"",
                     diagnostic:"",
                     hospitalName:"",
-                    deadline:"",
-                    photo:"",
-                    details:""
+                    deadline:""
                 },
-                isDateErr:"",
-                agree: false
+                isDateErr:""
             }
         },
         components:{
@@ -182,23 +165,18 @@
                 return true;
             },
             sendRequest: function(){
-                if (this.agree === false) return;
                 var then = this;
 
                 const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('request', then.request, config)
+                axios.post('request', JSON.stringify(this.request), config)
                         .then(function (response) {
                             console.log(response.data);
 
                         })
                         .catch(function (error) {
                             console.log(JSON.stringify(then.request));
-                            console.log(then.request.photo);
                             console.log(error);
                         });
-            },
-            processFile: function(e){
-                this.request.photo = e.target.files[0]
             }
         }
     }
@@ -226,18 +204,6 @@
     }
     .select{
         appearance: inherit;
-    }
-    .details{
-        text-transform:none;
-    }
-    .details-text-area{
-        border: 1px solid gray;
-    }
-    .agree-text{
-        text-transform: none;
-    }
-    .non-bottom-line{
-        border-bottom: none;
     }
     .button{
         background-color: #d80000;

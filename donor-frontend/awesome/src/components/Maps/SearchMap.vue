@@ -18,6 +18,7 @@ import {store} from "../../store/store.js"
 				this.place = this.place.split(" ").join("+");
 				store.state.place = this.place;
 				console.log(store.state.place);
+				store.state.link = "https://www.google.com/maps/embed/v1/search?q=станция+переливания+крови+возле+" + this.place + "&key=AIzaSyAO0Ju6FOiKKWYpbv-CDHJ9aq9Ff4NOy9g"
 			}
 		}
 	}
