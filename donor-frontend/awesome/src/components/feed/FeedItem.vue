@@ -22,7 +22,7 @@
 		<div class="details" v-if="extend">
 				<div class="detailImage"></div>
 			 	<div class="detail-description">{{elem.bidComments}}</div>
-			 	<router-link to="/"><div class="goToBid"></div></router-link>
+			 	<router-link to="/recipient"><div class="goToBid"></div></router-link>
 			 </div>
 	</div>
 </template>
