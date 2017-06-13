@@ -18,7 +18,7 @@
 					<div class="sub">После того, как покинете банк крови</div>
 					<div class="sub">Когда можно снова сдать кровь?</div>
 					<div class="sub">Процедура сдачи крови и компонентов</div>
-					<div class="sub">Противопоказания</div>
+					<div class="sub enabled"><router-link to="/contraindications">Противопоказания</router-link></div>
 
 				</div>
 			</div>

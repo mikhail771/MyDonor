@@ -34,7 +34,7 @@ scrollBehavior (to, from, savedPosition) {
     {path: "/profile", component: profile},
     {path: "/search", component: maps},
     {path: "/recipient", component: recipient},
-    {path: "/protivopokazanija", component: protivopokazanija},
+    {path: "/contraindications", component: protivopokazanija},
     {path: "*", component: notFound}
   ]
 });
