@@ -69,7 +69,7 @@
 		methods:{
 			toggleMenu: function(e){
 				if (e.target.classList.contains("logo")) this.seeMenu = true;
-				if (e.target.classList.contains("sub")|| e.target.classList.contains("category")) return;
+				if (e.target.classList.contains("sub")|| e.target.classList.contains("category") || e.target.classList.contains("extend") || e.target.classList.contains("extendReverse")) return;
 				this.seeMenu = !this.seeMenu;
 				// reset opened subcategories
 				for( var key in this.subList){
