@@ -95,9 +95,9 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .trombocity{
-        padding: 0 10px;
+        padding: 0 10px 20px 10px;
         color: #343434;
     }
     img{

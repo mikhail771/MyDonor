@@ -13,6 +13,7 @@ import maps from './components/Maps/App.vue';
 import recipient from './components/recipient/App.vue';
 import protivopokazanija from './components/static/protivopokazanija.vue';
 import trombocity from './components/static/trombocity.vue';
+import plazma from './components/static/plazma.vue';
 
 
 Vue.use(VueRouter);
@@ -37,6 +38,7 @@ var router = new VueRouter({
     {path: "/recipient", component: recipient},
     {path: "/contraindications", component: protivopokazanija},
     {path: "/trombocity", component: trombocity},
+    {path: "/plazma", component: plazma},
     {path: "*", component: notFound}
   ]
 });
