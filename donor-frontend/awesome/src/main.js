@@ -22,13 +22,7 @@ Vue.use(VueRouter);
 
 var router = new VueRouter({
   mode: 'history',
-  scrollBehavior (to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  },
+  saveScrollPosition: false,
   routes: [
     {path: "/registration", component: authorization},
     {path: "/bids", component: Bids},

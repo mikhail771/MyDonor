@@ -18,7 +18,7 @@
 					<div class="sub">После того, как покинете банк крови</div>
 					<div class="sub">Когда можно снова сдать кровь?</div>
 					<div class="sub">Процедура сдачи крови и компонентов</div>
-					<div class="sub enabled"><router-link to="/contraindications">Противопоказания</router-link></div>
+					<div class="sub">Противопоказания</div>
 
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 		methods:{
 			toggleMenu: function(e){
 				if (e.target.classList.contains("logo")) this.seeMenu = true;
-				if (e.target.classList.contains("sub")|| e.target.classList.contains("category") || e.target.classList.contains("extend") || e.target.classList.contains("extendReverse")) return;
+				if (e.target.classList.contains("sub")|| e.target.classList.contains("category")) return;
 				this.seeMenu = !this.seeMenu;
 				// reset opened subcategories
 				for( var key in this.subList){
