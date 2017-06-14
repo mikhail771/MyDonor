@@ -12,19 +12,20 @@ import profile from './components/profile/App.vue';
 import maps from './components/Maps/App.vue';
 import recipient from './components/recipient/App.vue';
 import protivopokazanija from './components/static/protivopokazanija.vue';
+import trombocity from './components/static/trombocity.vue';
 
 
 Vue.use(VueRouter);
 
 var router = new VueRouter({
   mode: 'history',
-scrollBehavior (to, from, savedPosition) {
-  if (savedPosition) {
-    return savedPosition
-  } else {
-    return { x: 0, y: 0 }
-  }
-},
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {path: "/registration", component: authorization},
     {path: "/bids", component: Bids},
@@ -35,6 +36,7 @@ scrollBehavior (to, from, savedPosition) {
     {path: "/search", component: maps},
     {path: "/recipient", component: recipient},
     {path: "/contraindications", component: protivopokazanija},
+    {path: "/trombocity", component: trombocity},
     {path: "*", component: notFound}
   ]
 });
