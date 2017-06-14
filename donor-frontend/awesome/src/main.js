@@ -45,7 +45,6 @@ var router = new VueRouter({
     {path: "*", component: notFound}
   ]
 });
-
 new Vue({
   el: '#app',
   render: h => h(App),
