@@ -213,6 +213,7 @@
         text-transform: uppercase;
         color: #9a9a9a;
         padding: 10px;
+        padding-bottom:45px;
     }
     .reg-field__wrap {
         border-bottom: 1px solid #9a9a9a;
