@@ -15,6 +15,7 @@ import protivopokazanija from './components/static/protivopokazanija.vue';
 import trombocity from './components/static/trombocity.vue';
 import plazma from './components/static/plazma.vue';
 import wholeBlood from './components/static/whole-blood.vue';
+import bloodComponent from './components/static/komponenty-i-krov.vue';
 
 
 Vue.use(VueRouter);
@@ -41,6 +42,7 @@ var router = new VueRouter({
     {path: "/trombocity", component: trombocity},
     {path: "/plazma", component: plazma},
     {path: "/whole-blood", component: wholeBlood},
+    {path: "/blood-component", component: bloodComponent},
     {path: "*", component: notFound}
   ]
 });
