@@ -17,7 +17,6 @@ import plazma from './components/static/plazma.vue';
 import wholeBlood from './components/static/whole-blood.vue';
 import bloodComponent from './components/static/komponenty-i-krov.vue';
 
-
 Vue.use(VueRouter);
 
 var router = new VueRouter({
