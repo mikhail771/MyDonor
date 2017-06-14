@@ -19,11 +19,13 @@
 		</div>	
 	</div>
 	<div :class="{extend:!extend, hide:extend}"></div>
+	<router-link to="/recipient">
 		<div class="details" v-if="extend">
 				<div class="detailImage"></div>
 			 	<div class="detail-description">{{elem.bidComments}}</div>
-			 	<router-link to="/"><div class="goToBid"></div></router-link>
+			 	<div class="goToBid"></div>
 			 </div>
+			 </router-link>
 	</div>
 </template>
 
@@ -69,6 +71,10 @@ hr{
 	border:none;
 	background-color: rgba(90,90,90,0.2);
 	transform:translateY(20px);
+}
+
+a{
+	text-decoration:none;
 }
 .post{
 	width:97%;
