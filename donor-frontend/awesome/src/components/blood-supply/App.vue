@@ -67,10 +67,10 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   #app{
     margin: 0 auto;
-    width: 500px;
+    width: 100%;
     padding: 0 10px;
   }
 
