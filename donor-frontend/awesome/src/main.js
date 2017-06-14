@@ -11,13 +11,23 @@ import request from './components/request/App.vue';
 import profile from './components/profile/App.vue';
 import maps from './components/Maps/App.vue';
 import recipient from './components/recipient/App.vue';
+import protivopokazanija from './components/static/protivopokazanija.vue';
+import trombocity from './components/static/trombocity.vue';
+import plazma from './components/static/plazma.vue';
+import wholeBlood from './components/static/whole-blood.vue';
 
 
 Vue.use(VueRouter);
 
 var router = new VueRouter({
   mode: 'history',
-  saveScrollPosition: false,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {path: "/registration", component: authorization},
     {path: "/bids", component: Bids},
@@ -27,6 +37,10 @@ var router = new VueRouter({
     {path: "/profile", component: profile},
     {path: "/search", component: maps},
     {path: "/recipient", component: recipient},
+    {path: "/contraindications", component: protivopokazanija},
+    {path: "/trombocity", component: trombocity},
+    {path: "/plazma", component: plazma},
+    {path: "/whole-blood", component: wholeBlood},
     {path: "*", component: notFound}
   ]
 });
