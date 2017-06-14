@@ -14,6 +14,7 @@ import recipient from './components/recipient/App.vue';
 import protivopokazanija from './components/static/protivopokazanija.vue';
 import trombocity from './components/static/trombocity.vue';
 import plazma from './components/static/plazma.vue';
+import wholeBlood from './components/static/whole-blood.vue';
 
 
 Vue.use(VueRouter);
@@ -39,6 +40,7 @@ var router = new VueRouter({
     {path: "/contraindications", component: protivopokazanija},
     {path: "/trombocity", component: trombocity},
     {path: "/plazma", component: plazma},
+    {path: "/whole-blood", component: wholeBlood},
     {path: "*", component: notFound}
   ]
 });
