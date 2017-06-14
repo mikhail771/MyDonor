@@ -70,8 +70,8 @@
                     bloodType:'Тромбоцитна масса',
                     place:'Национальный институт рака',
                     adress:'Киев, ул.Ломоносова, 33/43, первый этаж',
-                    redLine:'',
-                    diseaseDescription:''
+                    redLine:' ',
+                    diseaseDescription:' '
                 }
             }
         } //data
@@ -98,7 +98,6 @@
         justify-content:center;
     }
     #titleForProfileImg p{
-        opacity: 1 !important;
         color: red;
         font-size: 16px;
     }
