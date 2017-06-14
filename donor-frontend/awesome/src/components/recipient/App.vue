@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div id="imgWrap">
-            <img src="~../assets/girl.jpg" alt="girl" id="profilePicture">
+            <img src="assets/vinni-pyx.jpg" alt="Vinni" id="profilePicture">
             <div id="titleForProfileImg"><p>{{dataValue.name}}</p> </div>
         </div>
         <p id="date">Добавлено  {{dataValue.addDate}}  </p>
@@ -47,9 +47,9 @@
             <i v-model="diseaseDescription"> <b>Саркома Юинга</b> (лат. Myeloma endotheliale)‐ злокачественная опухоль костного скелета. Саркома Юинга, как правило, поражает нижнюю часть длинных трубчатых костей, ребра, таз, лопатку, позвоночник и ключицу.</i>
             <footer>
                 <ul>
-                    <li><a href="#"><img src="~../assets/32/facebook.png" alt=""></a></li>
-                    <li><a href="#"><img src="~../assets/32/skype.png" alt=""></a></li>
-                    <li><a href="#"><img src="~../assets/32/twitter.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/32/facebook.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/32/skype.png" alt=""></a></li>
+                    <li><a href="#"><img src="assets/32/twitter.png" alt=""></a></li>
                 </ul>
             </footer>
         </section>
@@ -80,29 +80,27 @@
 </script>
 
 <style scoped>
-
-
     #profilePicture{
         width: 100%;
     }
     #titleForProfileImg{
-        padding: 5px;
+        padding: 5px 40px;
         background-color: white;
         opacity: 0.7;
         position: absolute;
-        bottom: 12px;
+        bottom: 50px;
         overflow: auto;
         margin: auto;
         right: 20%; left: 20%;
-        display:flex;
-        justify-content:center;
+        outline: 1px solid green;
     }
     #titleForProfileImg p{
         opacity: 1 !important;
         color: red;
-        font-size: 16px;
+        font-size: 18pt;
     }
     #imgWrap{
+        outline: 1px solid blue;
         position: relative;
         /*display: flex;*/
         /*align-items: center;*/
@@ -143,7 +141,6 @@
     }
     #mainInfo{
         border-top: 1px solid rgba(0, 0, 0, 0.42);
-        padding:12px;
     }
     b{
         font-size: 110%;
