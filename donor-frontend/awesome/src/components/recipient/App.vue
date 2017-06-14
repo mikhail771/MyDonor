@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <div id="imgWrap">
-            <img src="assets/vinni-pyx.jpg" alt="Vinni" id="profilePicture">
+            <img src="~../assets/girl.jpg" alt="girl" id="profilePicture">
             <div id="titleForProfileImg"><p>{{dataValue.name}}</p> </div>
         </div>
         <p id="date">Добавлено  {{dataValue.addDate}}  </p>
@@ -39,17 +39,17 @@
             </p>
             <p>
                 Вот что пишут о девочке на сайте помощи онкобольным детям:
-            <p id="redLine" v-model="redLine">
+            <p id="redLine" v-model="dataValue.redLine">
                 "С лета 2016 года девочка периодически жаловалась на боли в ноге. В феврале 2017 уже стало больно становиться на ногу. Обратились к травматологу в поликлинике. Сделали рентген и направили ребенка в областную больницу. После недели обследования предположили три диагноза и порекомендовали родителям искать клинику. Приехали в НИР. Оформили статус переселенца и с марта 2017 года Ксения начала лечение в отделении детской онкологии Национального института рака."
             </p>
             </p>
 
-            <i v-model="diseaseDescription"> <b>Саркома Юинга</b> (лат. Myeloma endotheliale)‐ злокачественная опухоль костного скелета. Саркома Юинга, как правило, поражает нижнюю часть длинных трубчатых костей, ребра, таз, лопатку, позвоночник и ключицу.</i>
+            <i v-model="dataValue.diseaseDescription"> <b>Саркома Юинга</b> (лат. Myeloma endotheliale)‐ злокачественная опухоль костного скелета. Саркома Юинга, как правило, поражает нижнюю часть длинных трубчатых костей, ребра, таз, лопатку, позвоночник и ключицу.</i>
             <footer>
                 <ul>
-                    <li><a href="#"><img src="assets/32/facebook.png" alt=""></a></li>
-                    <li><a href="#"><img src="assets/32/skype.png" alt=""></a></li>
-                    <li><a href="#"><img src="assets/32/twitter.png" alt=""></a></li>
+                    <li><a href="#"><img src="~../assets/32/facebook.png" alt=""></a></li>
+                    <li><a href="#"><img src="~../assets/32/skype.png" alt=""></a></li>
+                    <li><a href="#"><img src="~../assets/32/twitter.png" alt=""></a></li>
                 </ul>
             </footer>
         </section>
@@ -80,27 +80,29 @@
 </script>
 
 <style scoped>
+
+
     #profilePicture{
         width: 100%;
     }
     #titleForProfileImg{
-        padding: 5px 40px;
+        padding: 5px;
         background-color: white;
         opacity: 0.7;
         position: absolute;
-        bottom: 50px;
+        bottom: 12px;
         overflow: auto;
         margin: auto;
         right: 20%; left: 20%;
-        outline: 1px solid green;
+        display:flex;
+        justify-content:center;
     }
     #titleForProfileImg p{
         opacity: 1 !important;
         color: red;
-        font-size: 18pt;
+        font-size: 16px;
     }
     #imgWrap{
-        outline: 1px solid blue;
         position: relative;
         /*display: flex;*/
         /*align-items: center;*/
@@ -141,6 +143,7 @@
     }
     #mainInfo{
         border-top: 1px solid rgba(0, 0, 0, 0.42);
+        padding:12px;
     }
     b{
         font-size: 110%;

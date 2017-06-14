@@ -10,7 +10,6 @@ import {store} from "../../store/store.js"
 	export default{
 		data:function(){
 			return{
-				place: store.state.place,
 				link: store.state.link
 			}
 		
