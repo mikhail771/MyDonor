@@ -1,7 +1,7 @@
 <template>
 	<div class="app">
 		<div class="caption">Узнайте, где вы можете сдать кровь</div>
-		<form class="input"> <input type="text" placeholder="Введите ваш город, улицу, дом" v-model="place"> <router-link to="/search"><button class="search" @click="getPlace"></button></router-link></form>
+		<form class="input"> <input type="text" placeholder="Введите ваш город, улицу, дом" v-model="place"><router-link to="/search"> <button class="search" @click="getPlace"></button></router-link></form>
 	</div>
 </template>
 
@@ -19,7 +19,6 @@ import {store} from "../../store/store.js"
 				store.state.place = this.place;
 				console.log(store.state.place);
 				store.state.link = "https://www.google.com/maps/embed/v1/search?q=станция+переливания+крови+возле+" + this.place + "&key=AIzaSyAO0Ju6FOiKKWYpbv-CDHJ9aq9Ff4NOy9g"
-				console.log(store.state.link);
 			}
 		}
 	}
