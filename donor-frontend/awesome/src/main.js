@@ -24,8 +24,14 @@ import questions from './components/quiz//App.vue';
 Vue.use(VueRouter);
 
 var router = new VueRouter({
+  scrollBehavior (to, from, savedPosition) {
+  if (savedPosition) {
+    return savedPosition
+  } else {
+    return { x: 0, y: 0 }
+  }
+},
   mode: 'history',
-  saveScrollPosition: false,
   routes: [
     {path: "/registration", component: authorization},
     {path: "/bids", component: Bids},
