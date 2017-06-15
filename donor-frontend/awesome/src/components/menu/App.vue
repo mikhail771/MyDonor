@@ -20,7 +20,7 @@
 				<div class="subcategory" v-if="subList.help">
 					<div class="sub enabled"><router-link to="/registration">Регистрация на сайте</router-link></div>
 					<div class="sub enabled"><router-link to="/">Помочь конкретному реципиенту</router-link></div>
-					<div class="sub">Создать заявку реципиента</div>
+					<div class="sub enabled"> <router-link to="/request">Создать заявку реципиента</router-link></div>
 				</div>
 			</div>
 			
