@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {store} from "../../store/store.js"
+import { store } from "../../store/store.js"
 	export default{
 		data:function(){
 			return{
@@ -17,11 +17,16 @@ import {store} from "../../store/store.js"
 			getPlace: function(){
 				this.place = this.place.split(" ").join("+");
 				store.state.place = this.place;
-				console.log(store.state.place);
-				store.state.link = "https://www.google.com/maps/embed/v1/search?q=станция+переливания+крови+возле+" + this.place + "&key=AIzaSyAO0Ju6FOiKKWYpbv-CDHJ9aq9Ff4NOy9g"
-				console.log(store.state.link);
+				store.commit("formLink");
+
 			}
-		}
+		},
+
+		// computed:{
+		// 	getLink: function(){
+		// 		 return this.$store.getters.linkform
+		// 	}
+		// }
 	}
 </script>
 

@@ -6,20 +6,16 @@
 </template>
 
 <script>
-import {store} from "../../store/store.js"
+import { store } from "../../store/store.js"
 	export default{
-		data:function(){
-			return{
-				link: store.state.link
-			}
 		
-		},
-		methods:{
-			query: function(){
-				store.state.link = "https://www.google.com/maps/embed/v1/search?q=станция+переливания+крови+возле+" + this.place + "&key=AIzaSyAO0Ju6FOiKKWYpbv-CDHJ9aq9Ff4NOy9g"
+			computed:{
+				link: function(){
+					return store.state.link;
+				} 
 			}
 		}
-	}
+
 </script>
 
 <style lang="scss" scoped>

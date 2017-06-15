@@ -18,6 +18,7 @@ import wholeBlood from './components/static/whole-blood.vue';
 import bloodComponent from './components/static/komponenty-i-krov.vue';
 import bloodSuply from './components/blood-supply/App.vue';
 import donationProcess from './components/blood-donation-process/App.vue';
+import quiz from './components/quiz/App.vue';
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,7 @@ var router = new VueRouter({
     {path: "/blood-component", component: bloodComponent},
     {path: "/blood-supply", component: bloodSuply},
     {path: "/donation-process", component: donationProcess},
+     {path: "/quiz", component: quiz},
     {path: "*", component: notFound}
   ]
 });
