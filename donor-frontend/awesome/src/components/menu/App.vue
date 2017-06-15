@@ -10,7 +10,7 @@
 			<div class="category" @click="toggleSub('donor')">Процесс донорства <div :class="{extend:!subList.donor, extendReverse: subList.donor}"></div>
 				<div class="subcategory" v-if="subList.donor">
 					<div class="sub enabled"> <router-link to="/registration">Регистрация на сайте </router-link></div>
-					<div class="sub">Могу ли я сдать кровь?</div>
+					<div class="sub enabled"><router-link to="/quiz">Могу ли я сдать кровь?</router-link></div>
 					<div class="sub">Перед забором крови</div>
 					<div class="sub">Подготовка в день сдачи крови</div>
 					<div class="sub">Как происходит забор крови?</div>
