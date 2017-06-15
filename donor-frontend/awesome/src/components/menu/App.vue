@@ -11,13 +11,7 @@
 				<div class="subcategory" v-if="subList.donor">
 					<div class="sub enabled"> <router-link to="/registration">Регистрация на сайте </router-link></div>
 					<div class="sub enabled"><router-link to="/quiz">Могу ли я сдать кровь?</router-link></div>
-					<div class="sub">Перед забором крови</div>
-					<div class="sub">Подготовка в день сдачи крови</div>
-					<div class="sub">Как происходит забор крови?</div>
-					<div class="sub">Что делать сразу после сдачи крови?</div>
-					<div class="sub">После того, как покинете банк крови</div>
-					<div class="sub">Когда можно снова сдать кровь?</div>
-					<div class="sub">Процедура сдачи крови и компонентов</div>
+					<div class="sub enabled"><router-link to="/donation-process">Процедура сдачи крови и компонентов</router-link></div>
 					<div class="sub enabled"><router-link to="/contraindications">Противопоказания</router-link></div>
 
 				</div>
@@ -29,20 +23,13 @@
 					<div class="sub">Создать заявку реципиента</div>
 				</div>
 			</div>
-			<div class="category" @click="toggleSub('stories')">Удивительные истории <div :class="{extend:!subList.stories, extendReverse: subList.stories}"></div>
-				<div class="subcategory" v-if="subList.stories">
-					<div class="sub">Ярослав</div>
-					<div class="sub">Алла</div>
-					<div class="sub">Миша и Юля</div>
-				</div>
-			</div>
+			
 			<div class="category" @click="toggleSub('info')">О крови <div :class="{extend:!subList.info, extendReverse: subList.info}"></div>
 				<div class="subcategory" v-if="subList.info">
 					<div class="sub">Типы крови</div>
 					<div class="sub">Как хранится кровь?</div>
 					<div class="sub enabled"> <router-link to="/blood-supply">Текущие уровни запасов крови</router-link></div>
-					<div class="sub">Компоненты крови</div>
-					<div class="sub">Переливание крови</div>
+					<div class="sub enabled"><router-link to="/blood-component">Компоненты крови</router-link></div>
 				</div>
 			</div>
 			<div class="category ">Поддержать проект <div class="support"></div></div>
