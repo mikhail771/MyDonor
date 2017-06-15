@@ -72,6 +72,8 @@
     margin: 0 auto;
     width: 100%;
     padding: 0 10px;
+    box-sizing:border-box;
+    padding-bottom:35px;
   }
 
   header{
@@ -113,12 +115,13 @@
   }
 
   #moreAboutTypeBlood{
-    font-size: 1.3em;
+    font-size: 16px;
     background-color: #DB3328;
     color: white;
     padding: 15px 30px;
     border-radius: 20px;
     cursor: pointer;
+    border:none;
   }
 
 </style>
