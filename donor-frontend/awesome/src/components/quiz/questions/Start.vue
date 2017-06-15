@@ -3,7 +3,7 @@
 		<div class="image"></div>
 		<div class="title">Могу ли я сдать кровь?</div>
 
-		<button class="start">Ознакомительная викторина</button>
+		<router-link to="/questions"><button class="start">Ознакомительная викторина</button></router-link>
 	</div>
 </template>
 

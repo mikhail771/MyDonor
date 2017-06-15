@@ -346,6 +346,8 @@
     margin: 0 auto;
     width: 100%;
     padding: 0 10px;
+    box-sizing:border-box;
+    padding-bottom: 35px;
   }
   #donorImg{
     width: 100%;
