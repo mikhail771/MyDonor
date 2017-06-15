@@ -5,32 +5,32 @@
       <h3>Текущие уровни запасов крови в Украине</h3>
       <section>
         <figure>
-          <img src="./assets/Blood.svg" alt="blood O-" />
+          <img src="../assets/Blood.svg" alt="blood O-" />
           <p>O-</p>
           <figcaption> {{dataValue.o0}} дней</figcaption>
         </figure>
         <figure>
-          <img src="./assets/Blood.svg" alt="blood AB-" />
+          <img src="../assets/Blood.svg" alt="blood AB-" />
           <p>AB-</p>
           <figcaption> {{dataValue.a0}} дней</figcaption>
         </figure>
         <figure>
-          <img src="./assets/Blood.svg" alt="blood O+" />
+          <img src="../assets/Blood.svg" alt="blood O+" />
           <p>O+</p>
           <figcaption> {{dataValue.o1}} дней</figcaption>
         </figure>
         <figure>
-          <img src="./assets/Blood.svg" alt="blood A+" />
+          <img src="../assets/Blood.svg" alt="blood A+" />
           <p>A+</p>
           <figcaption> {{dataValue.a1}} дней</figcaption>
         </figure>
         <figure>
-          <img src="./assets/Blood.svg" alt="blood B+" />
+          <img src="../assets/Blood.svg" alt="blood B+" />
           <p>B+</p>
           <figcaption> {{dataValue.b1}} дней</figcaption>
         </figure>
         <figure>
-          <img src="./assets/Blood.svg" alt="blood AB+" />
+          <img src="../assets/Blood.svg" alt="blood AB+" />
           <p>AB+</p>
           <figcaption> {{dataValue.ab1}} дней</figcaption>
         </figure>

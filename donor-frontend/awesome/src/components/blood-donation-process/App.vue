@@ -2,7 +2,7 @@
   <div id="app">
    <section>
      <h3>Что происходит, когда я сдаю кровь?</h3>
-     <img src="./assets/Kristiina-Klemm-DoonoriFoorumis1.jpg" alt="Donor" id="donorImg">
+     <img src="../assets/Kristiina-Klemm-DoonoriFoorumis1.jpg" alt="Donor" id="donorImg">
    </section>
     <article>
       <header>
