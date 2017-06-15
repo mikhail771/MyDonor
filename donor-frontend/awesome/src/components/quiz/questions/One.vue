@@ -36,8 +36,10 @@ import { store } from "../../../store/store.js"
 			failed: function(){
 				if(this.counter<3){
 				store.commit("answer");
-			} else{
+			}else if(this.counter< 8){
 				store.commit("cNext");
+			} else{
+				store.commit("final");
 			}
 			}
 		}

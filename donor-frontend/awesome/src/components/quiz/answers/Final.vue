@@ -1,8 +1,7 @@
 <template>
 	<div class="app">
-		<div class="image" :style="{backgroundImage:image}"></div>
-		<div class="count">Вопрос {{counter}} из 8</div>
-		<div class="title">{{title}}</div>
+		<div class="image"></div>
+		<div class="title">Поздравляем! Вы можете быть донором крови.</div>
 <div class="controls">
 <button ><router-link to="/contraindications">Узнать больше</router-link></button>	<button @click="freshStart">Обновить данные</button>
 </div>
@@ -13,17 +12,7 @@
 <script>
 import { store } from "../../../store/store.js"
 	export default{
-		computed:{
-			title: function(){
-				return store.state.quiz[this.counter].answer.title
-			},
-			image: function(){
-				return store.state.quiz[this.counter].answer.image
-			},
-			counter:function(){
-				return store.state.quizCounter
-			}
-		},
+		
 		methods:{
 			freshStart: function(){
 				store.commit("refresh");
@@ -50,19 +39,13 @@ a{
 		width:200px;
 		height:200px;
 		margin:30px auto;
-		// border-radius: 50%;
-		// background-image: url("~../../assets/calendar.svg");
+		background-image: url("~../../assets/hearts.svg");
 		background-repeat: no-repeat, no-repeat;
-		background-size: 50%, 80%;
-		background-position: 110% 0, 50% 50%;
+		background-size: auto;
+		background-position: 50% 50%;
 	}
 
-	.count{
-		width:100%;
-		padding:10px;
-		color:grey;
-		font-size: 14px;
-	}
+	
 	.title{
 		width:90%;
 		display:flex;

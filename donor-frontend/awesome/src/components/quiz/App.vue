@@ -8,6 +8,8 @@
 import { store } from "../../store/store.js"
 import start from "./questions/One.vue"
 import answers from "./answers/App.vue"
+import final from './answers/Final.vue';
+
 	export default{
 		computed:{
 			current: function(){
@@ -16,7 +18,8 @@ import answers from "./answers/App.vue"
 		},
 		components:{
 			'q-start': start,
-			'q-answer': answers
+			'q-answer': answers,
+			'q-final': final
 		}
 	}
 </script>

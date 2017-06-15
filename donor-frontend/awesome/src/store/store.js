@@ -85,6 +85,9 @@ export const store = new Vuex.Store({
 			state.quizCounter = 1;
 			state.quizComponent = "q-start"
 		},
+		final(state){
+			state.quizComponent = "q-final"
+		},
 		cNext(state){
 			state.quizCounter++;
 		},
