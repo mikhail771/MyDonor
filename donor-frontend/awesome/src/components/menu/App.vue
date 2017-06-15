@@ -40,7 +40,7 @@
 				<div class="subcategory" v-if="subList.info">
 					<div class="sub">Типы крови</div>
 					<div class="sub">Как хранится кровь?</div>
-					<div class="sub">Текущие уровни запасов крови</div>
+					<div class="sub enabled"> <router-link to="/blood-supply">Текущие уровни запасов крови</router-link></div>
 					<div class="sub">Компоненты крови</div>
 					<div class="sub">Переливание крови</div>
 				</div>
