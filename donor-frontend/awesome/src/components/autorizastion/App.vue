@@ -1,5 +1,6 @@
 <template>
     <div class="autorization-wrapper">
+    <div class="container">
         <notation></notation>
         <ul class="autorization__list">
             <li class="autorization__item">
@@ -10,6 +11,7 @@
             </li>
         </ul>
         <component :is="currentView"></component>
+        </div>
     </div>
 </template>
 
@@ -45,13 +47,17 @@
 </script>
 
 <style lang="scss" scoped>
+.autorization-wrapper{
+    background-color: #3A63A2;
+}
     .autorization__list{
         display: flex;
         list-style: none;
+        background-color: white;
         padding: 0;
         align-items: center;
         justify-content: space-around;
-        margin: 10px;
+        margin: 0px;
     }
     .autorization__item{
         margin:10px;
@@ -64,4 +70,11 @@
     .autorization__link.active{
         border-bottom: 2px solid red;
     }
+
+@media only screen and (min-width: 600px){
+  .container{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 </style>

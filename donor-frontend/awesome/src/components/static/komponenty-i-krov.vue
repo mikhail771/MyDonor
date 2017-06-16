@@ -1,4 +1,5 @@
 <template>
+<div class="app">
     <div class="wrap">
         <div class="whole-blood">
             <div class="img-wrap">
@@ -49,16 +50,9 @@
                 <h3>Тромбоциты</h3>
             </div>
         </div>
+        </div>
         <component :is="currentView"></component>
 
-
-
- <!--       <router-link to="/contraindications">
-            Абсолютные противопоказания к донорству
-        </router-link>
-
-        Временные противопоказания к
-        донорству-->
 
     </div>
 </template>
@@ -92,6 +86,10 @@
 </script>
 
 <style lang="scss" scoped>
+.app{
+    width:100%;
+    background-color: #e98282;
+}
     .wrap{
         color: #fff;
     }
@@ -144,6 +142,7 @@
     }
     .switch-line{
         display: flex;
+        background-color: white;
         padding: 0 10px 20px 10px;
         color: #e98282;
 
@@ -188,5 +187,10 @@
     .head-title{
         color: #343434;
     }
-
+@media only screen and (min-width: 600px){
+  .wrap{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 </style>

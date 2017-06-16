@@ -40,6 +40,7 @@
         background-color: #e98282;
         padding: 10px 10px 30px 10px;
         position: relative;
+        color:white;
     }
     .arrow{
         cursor: pointer;
@@ -68,5 +69,12 @@
         max-height: 100%;
         display: block;
     }
+
+@media only screen and (min-width: 600px){
+  .plazma-preview-wrap{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 
 </style>

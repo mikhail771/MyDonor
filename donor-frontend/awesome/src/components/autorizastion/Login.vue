@@ -63,6 +63,7 @@
 <style lang="scss" scoped>
     .login-wrap{
         padding: 10px;
+        background-color: white;
     }
     .login-form {
         text-transform: uppercase;

@@ -254,4 +254,11 @@
         color: #d20000;
         padding-right: 10px;
     }
+
+@media only screen and (min-width: 600px){
+  .wrap{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 </style>

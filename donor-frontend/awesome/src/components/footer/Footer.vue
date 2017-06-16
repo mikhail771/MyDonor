@@ -1,12 +1,13 @@
 <template>
 	<div class="app">
+	<div class="container">
 		<app-search></app-search>
 		<div class="title">Свяжитесь с нами</div>
 		<div class="mail">Email: <a href="mailto:DonorDnepr@gmail.com">DonorDnepr@gmail.com</a></div>
 		<div class="socials">или через <div class="soc-labels"><div class="facebook"></div> <div class="vk"></div></div></div>
 		<hr/>
 		<div class="year">2017</div>
-		
+		</div>
 	</div>
 </template>
 
@@ -95,5 +96,12 @@ a{
 	width:100%;
 	height:40px;
 	font-size:14px;
+}
+
+@media only screen and (min-width: 600px){
+  .container{
+    width:700px;
+    margin: 0 auto;
+  }
 }
 </style>

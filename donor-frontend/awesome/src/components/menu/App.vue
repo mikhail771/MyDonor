@@ -287,4 +287,10 @@
         &:nth-child(2) { top: 8px; }
         &:nth-child(3) { top: 16px; }
 }
+
+@media only screen and (min-width: 600px){
+  .menu{
+    width:400px;
+  }
+}
 </style>

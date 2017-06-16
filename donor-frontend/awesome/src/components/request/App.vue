@@ -1,4 +1,5 @@
 <template>
+<div class="app">
     <div class="request-wrap">
         <notation></notation>
 
@@ -87,6 +88,7 @@
             <button class="button">Создать заявку</button>
         </form>
 
+    </div>
     </div>
 </template>
 
@@ -209,11 +211,17 @@
 /*    .request-wrap{
         padding: 10px;
     }*/
+
+    .app{
+        background-color: #3A63A2;
+        width:100%
+    }
     .request-form {
         text-transform: uppercase;
         color: #9a9a9a;
         padding: 10px;
         padding-bottom:45px;
+        background-color: white;
     }
     .reg-field__wrap {
         border-bottom: 1px solid #9a9a9a;
@@ -255,4 +263,13 @@
     .err{
         box-shadow: 0 0 5px 2px red;
     }
+
+
+@media only screen and (min-width: 600px){
+  .request-wrap{
+    width:700px;
+    margin: 0 auto;
+  }
+}
+
 </style>

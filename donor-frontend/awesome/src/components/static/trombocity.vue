@@ -122,5 +122,10 @@
     .head-title{
         color: #343434;
     }
-
+@media only screen and (min-width: 600px){
+  .trombocity{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 </style>

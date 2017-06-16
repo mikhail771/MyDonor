@@ -125,5 +125,10 @@
     .head-title{
         color: #343434;
     }
-
+@media only screen and (min-width: 600px){
+  .plazma{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 </style>

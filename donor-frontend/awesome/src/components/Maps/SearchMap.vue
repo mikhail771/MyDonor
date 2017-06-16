@@ -20,13 +20,9 @@ import { store } from "../../store/store.js"
 				store.commit("formLink");
 
 			}
-		},
+		}
 
-		// computed:{
-		// 	getLink: function(){
-		// 		 return this.$store.getters.linkform
-		// 	}
-		// }
+		
 	}
 </script>
 
@@ -78,4 +74,11 @@ import { store } from "../../store/store.js"
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 	}
+
+@media only screen and (min-width: 600px){
+  .app{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 </style>

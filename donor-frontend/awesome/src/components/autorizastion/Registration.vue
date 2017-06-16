@@ -114,6 +114,7 @@
 <style lang="scss" scoped>
     .reg-wrap{
         padding: 10px;
+        background-color: white;
     }
     .login-form {
         text-transform: uppercase;
