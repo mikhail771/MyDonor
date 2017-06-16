@@ -99,6 +99,7 @@
 		width:100%;
 		height:65px;
 		justify-content:center;
+		position: relative;
 	.menuButton{
 	width:65px;
 	height:65px;

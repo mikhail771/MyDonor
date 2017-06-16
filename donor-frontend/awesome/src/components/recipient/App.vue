@@ -148,4 +148,11 @@
     b{
         font-size: 110%;
     }
+
+@media only screen and (min-width: 600px){
+  #app{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 </style>
