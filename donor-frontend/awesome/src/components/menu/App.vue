@@ -1,7 +1,11 @@
 <template>
 <div class="app">
 	<div class="nav">
-		<div  @click="toggleMenu" :class="{menuButton:!seeMenu, backButton:seeMenu}"></div>
+	<div class="icon--hamburger" @click="toggleMenu" :class="{menuButton:!seeMenu, backButton:seeMenu}">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+  </div>
 		<router-link to="/"><div class="logo" @click="toggleMenu"></div>  </router-link>
 	</div>
 	<transition name="slide-fade">
@@ -98,18 +102,39 @@
 	.menuButton{
 	width:65px;
 	height:65px;
-	background-image: url("~../assets/hamburger.png");
-	background-size: 100%;
-	background-position: 50% 50%;
-	background-repeat: no-repeat;
+	 cursor: pointer;
 	position:absolute;
-	left:0;
+	left:20px;
+	top:40%;
 	}
 
 	.backButton{
 		@extend .menuButton;
-		background-image: url("~../assets/Strela.svg");
-		background-size: 65%;
+		 span:nth-child(1) {
+        -webkit-transform: rotate(-45deg);
+        left: -1px;
+        top: 2px;
+        transition: 0.4s ease all;
+        width: 17px;
+            
+    }
+  
+   span:nth-child(2) {
+        
+        -webkit-transform: rotate(180deg);
+        transition: 0.4s ease all;
+            
+    }
+        
+     span:nth-child(3) {
+        
+        -webkit-transform: rotate(45deg);
+        left: -1px;
+        top: 14px;
+        transition: 0.4s ease all;
+        width: 17px;
+            
+    }
 	}
 	}
 
@@ -240,4 +265,25 @@
 		  transform:translateY(-300px) !important;
 		  opacity: 0;
 		}
+
+		.icon--hamburger {
+    
+    cursor: pointer;
+    position: relative;
+    height: 19px;
+    width: 28px;
+
+}
+
+.line{
+	background-color: black;
+        display: block;
+        height: 4px;
+        position: absolute;
+        width: 28px;
+
+        &:nth-child(1) { top: 0; }
+        &:nth-child(2) { top: 8px; }
+        &:nth-child(3) { top: 16px; }
+}
 </style>
