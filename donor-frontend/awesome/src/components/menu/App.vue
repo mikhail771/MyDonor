@@ -106,6 +106,10 @@
 	position:absolute;
 	left:20px;
 	top:40%;
+	transition:all 1s;
+	span{
+		transition: 0.5s;
+	}
 	}
 
 	.backButton{
@@ -114,16 +118,14 @@
         -webkit-transform: rotate(-45deg);
         left: -1px;
         top: 2px;
-        transition: 0.4s ease all;
+
         width: 17px;
             
     }
   
    span:nth-child(2) {
-        
-        -webkit-transform: rotate(180deg);
-        transition: 0.4s ease all;
-            
+       -webkit-transform: rotate(180deg);
+          
     }
         
      span:nth-child(3) {
@@ -131,7 +133,6 @@
         -webkit-transform: rotate(45deg);
         left: -1px;
         top: 14px;
-        transition: 0.4s ease all;
         width: 17px;
             
     }
