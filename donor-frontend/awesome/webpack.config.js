@@ -8,6 +8,8 @@ module.exports = {
     publicPath: 'dist/',
     filename: 'build.js'
   },
+   
+
   module: {
     rules: [
       {
@@ -29,16 +31,18 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
+      
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: '[name].[ext]'
         }
       }
     ]
   },
   resolve: {
+   
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }

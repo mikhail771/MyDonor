@@ -1,6 +1,6 @@
 <template>
 	<div class="app">
-		<div class="image" :style="{backgroundImage:image}"></div>
+		<img class="image" :src="image"></img>
 		<div class="count">Вопрос {{counter}} из 8</div>
 		<div class="title">{{title}}</div>
 <div class="controls">
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 import { store } from "../../../store/store.js"
 	export default{
 		
@@ -61,7 +62,7 @@ import { store } from "../../../store/store.js"
 		height:200px;
 		margin:30px auto;
 		border-radius: 50%;
-		// background-image: url("~../../assets/calendar.svg");
+		display:block;
 		background-repeat: no-repeat;
 		background-size: auto;
 		background-position: 50% 50%;
