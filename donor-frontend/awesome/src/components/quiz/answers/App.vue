@@ -1,7 +1,9 @@
 <template>
 	<div class="app">
-		<div class="image" :style="{backgroundImage:image}"></div>
-		<div class="count">Вопрос {{counter}} из 8</div>
+	<div class="img-container">
+		<img class="image" :src="image"> <div class="warning"></div>
+		</div>
+		
 		<div class="title">{{title}}</div>
 <div class="controls">
 <button ><router-link to="/contraindications">Узнать больше</router-link></button>	<button @click="freshStart">Обновить данные</button>
@@ -18,7 +20,7 @@ import { store } from "../../../store/store.js"
 				return store.state.quiz[this.counter].answer.title
 			},
 			image: function(){
-				return store.state.quiz[this.counter].answer.image
+				return store.state.quiz[this.counter].image
 			},
 			counter:function(){
 				return store.state.quizCounter
@@ -46,15 +48,34 @@ a{
 	box-sizing:border-box;
 	overflow: hidden;
 }
+.img-container{
+	width:200px;
+		height:200px;
+		position:relative;
+		margin:30px auto;
+}
 	.image{
+		display:block;
 		width:200px;
 		height:200px;
-		margin:30px auto;
-		// border-radius: 50%;
-		// background-image: url("~../../assets/calendar.svg");
+		position:absolute;
+		z-index:1;
 		background-repeat: no-repeat, no-repeat;
 		background-size: 50%, 80%;
 		background-position: 110% 0, 50% 50%;
+	}
+
+	.warning{
+		position:absolute;
+		right:-20px;
+		z-index:2;
+		width:85px;
+		height:85px;
+		background-image: url("~../../assets/error.svg");
+		background-size: auto;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+
 	}
 
 	.count{
