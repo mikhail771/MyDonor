@@ -361,14 +361,14 @@
     position: relative;
     display: inline;
     float: right;
-    margin-top: -63px;
-    margin-right: 40px;
+    margin-top: -43px;
+    right:20px;
   }
   .block::after {
     content: '';
     position: absolute; /* Абсолютное позиционирование */
-    border: 20px solid transparent; /* Прозрачные границы */
-    border-bottom: 20px solid #F77777; /* Добавляем треугольник */
+    border: 10px solid transparent; /* Прозрачные границы */
+    border-bottom: 10px solid #F77777; /* Добавляем треугольник */
   }
   span{
     color: #2467B0;
