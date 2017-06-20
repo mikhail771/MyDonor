@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <security:http entry-point-ref="authenticationEntryPoint">
+        <security:intercept-url pattern="/registration" method="DELETE" access="ROLE_ADMIN"/>
+        <security:form-login
+                authentication-success-handler-ref="authSuccessHandler"
+                authentication-failure-handler-ref="authFailureHandler"/>
+        <security:logout/>
+    </security:http>
+
+    <bean id="authenticationEntryPoint" class="ua.donordp.security.AuthenticationEntryPoint"/>
+    <bean id="authSuccessHandler" class="ua.donordp.security.AuthenticationSuccessHandler"/>
+    <bean id="authFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"/>
+
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="john" authorities="ROLE_ADMIN"/>
+                <security:user name="jessica" authorities="ROLE_USER"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+</beans>
