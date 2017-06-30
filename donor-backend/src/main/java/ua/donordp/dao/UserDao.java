@@ -1,12 +1,9 @@
 package ua.donordp.dao;
 
-/**
- * Created by user on 21.04.17.
- */
-
-
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +49,13 @@ public class UserDao {
         if (user != null) {
             session.delete(user);
         }
+    }
 
+    public User userByName(String userName){
+        Session session = this.sessionFactory.getCurrentSession();
+        Criteria criteria = session.createCriteria(User.class).add(Restrictions.eq("login", userName));
+        Object result = criteria.uniqueResult();
+        return (User) result;
     }
 
     public User getUserById(int id) {
@@ -62,6 +65,4 @@ public class UserDao {
 
         return user;
     }
-
-
 }

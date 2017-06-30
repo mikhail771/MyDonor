@@ -2,9 +2,6 @@ package ua.donordp.model;
 
 import javax.persistence.*;
 
-/**
- * Created by Alexander on 19.04.2017.
- */
 @Entity
 @Table(name = "banks")
 public class Bank {

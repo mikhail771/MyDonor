@@ -1,5 +1,6 @@
 package ua.donordp.dao;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,6 @@ import ua.donordp.model.Bank;
 
 import java.util.List;
 
-/**
- * Created by Alexander on 19.04.2017.
- */
 @Repository
 public class BankDao {
     private SessionFactory sessionFactory;
@@ -46,10 +44,10 @@ public class BankDao {
         session.update(bank);
     }
 
-//    public Bank getBankById(int id) {
-//        Session session =this.sessionFactory.getCurrentSession();
-//        Bank bank = (Bank) session.load(Bank.class, new Integer(id));
-//        return bank;
-//    }
-
+    public Bank getBankById(int id) {
+        Session session =this.sessionFactory.getCurrentSession();
+        Bank bank = (Bank) session.load(Bank.class, new Integer(id));
+        Hibernate.initialize(bank);
+        return bank;
+    }
 }

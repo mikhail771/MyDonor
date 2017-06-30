@@ -7,8 +7,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <import resource="appconfig-data.xml"/>
-
+    <import resource="appconfig-security.xml"/>
 
     <context:property-placeholder location="classpath:database.properties"/>
+    <context:component-scan base-package="ua.donordp"/>
 
 </beans>

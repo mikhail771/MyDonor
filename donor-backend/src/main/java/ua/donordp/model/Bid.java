@@ -2,9 +2,6 @@ package ua.donordp.model;
 
 import javax.persistence.*;
 
-/**
- * Created by Alexander on 19.04.2017.
- */
 @Entity
 @Table(name = "bids")
 public class Bid {
@@ -36,6 +33,17 @@ public class Bid {
 
     @Column(name = "BID_COMMENTS")
     private String bidComments;
+
+    @Column(name = "BID_DATE")
+    private String bidDate;
+
+    public String getBidDate() {
+        return bidDate;
+    }
+
+    public void setBidDate(String bidDate) {
+        this.bidDate = bidDate;
+    }
 
     public int getId() {
         return id;
@@ -114,12 +122,14 @@ public class Bid {
         return "Bid{" +
                 "id=" + id +
                 ", bidUserName='" + bidUserName + '\'' +
+                ", bidHospital='" + bidHospital + '\'' +
                 ", bidContacts='" + bidContacts + '\'' +
-                ", bidQuantity=" + bidQuantity +
+                ", bidQuantity='" + bidQuantity + '\'' +
                 ", bidInfo='" + bidInfo + '\'' +
                 ", bidGroup='" + bidGroup + '\'' +
-                ", bidPrice=" + bidPrice +
-                ", bidComments=" + bidComments +
+                ", bidPrice='" + bidPrice + '\'' +
+                ", bidComments='" + bidComments + '\'' +
+                ", bidDate='" + bidDate + '\'' +
                 '}';
     }
 }

@@ -8,9 +8,6 @@ import ua.donordp.model.Bank;
 
 import java.util.List;
 
-/**
- * Created by Alexander on 19.04.2017.
- */
 @Service
 public class BankService {
     private BankDao bankDao;
@@ -40,8 +37,8 @@ public class BankService {
         this.bankDao.updateBank(bank);
     }
 
-//    @Transactional
-//    public Bank getBankById(int id) {
-//        return this.bankDao.getBankById(id);
-//    }
+    @Transactional
+    public Bank getBankById(int id) {
+        return this.bankDao.getBankById(id);
+    }
 }

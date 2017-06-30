@@ -1,61 +1,32 @@
 <template>
-<div>
-		<div class="post" v-if="!classLogic">
-		
-			<div>
+	<div class="post" @click="toggleDetails">
+	<div class="date"> {{day}}</div>
+	<div class="container">
+	<div class="title">
+		<div class="image"> </div>
+	</div>
+	<div class="general">
+		<div>
 				<span class="name">{{elem.bidUserName}}</span>
 			</div>
 			<div>
-				<span class="post-title">Банк крови: </span> <span>{{elem.bidHospital}}</span>
+				<span class="age">18 лет</span>
 			</div>
-			
-			<div>
-				<span class="post-title">Количество крови (мл): </span><span>{{elem.bidQuantity}}</span>
+			<div class="info">
+				<span>{{elem.bidInfo}}</span>
 			</div>
-			
-			<div>
-				<span class="post-title">Группа крови: </span><span>{{elem.bidGroup}}</span>
-			</div>
-			<div>
-				<span class="post-title">Цена: </span><span>{{elem.bidPrice}}</span>
-			</div>
-			
-			<button class="details" @click="classLogic = !classLogic" :class="{redO: classLogic}">Подробнее...</button>
-		
+			<hr v-if="!extend">
+		</div>	
 	</div>
-
-	<div class="post"  v-if="classLogic">
-		
-			<div>
-				<span class="name">{{elem.bidUserName}}</span>
-			</div>
-			<div>
-				<span class="post-title">Банк крови: </span> <span>{{elem.bidHospital}}</span>
-			</div>
-			<div>
-				<span class="post-title">Контакты: </span><span>{{elem.bidContacts}}</span>
-			</div>
-			<div>
-				<span class="post-title">Количество крови (мл): </span><span>{{elem.bidQuantity}}</span>
-			</div>
-			<div>
-				<span class="post-title">Дополнительная информация: </span><span>{{elem.bidInfo}}</span>
-			</div>
-			<div>
-				<span class="post-title">Группа крови: </span><span>{{elem.bidGroup}}</span>
-			</div>
-			<div>
-				<span class="post-title">Цена: </span><span>{{elem.bidPrice}}</span>
-			</div>
-			<div>
-				<span class="post-title">Комментарии: </span><span>{{elem.bidComments}}</span>
-			</div> 
-
-			<button class="details" @click="classLogic = !classLogic" :class="{redO: classLogic}">Скрыть подробности...</button>
-		
+	<div :class="{extend:!extend, hide:extend}"></div>
+	<router-link to="/recipient">
+		<div class="details" v-if="extend">
+				<div class="detailImage"></div>
+			 	<div class="detail-description">{{elem.bidComments}}</div>
+			 	<div class="goToBid"></div>
+			 </div>
+			 </router-link>
 	</div>
-	
-</div>
 </template>
 
 <script>
@@ -64,108 +35,179 @@ export default{
 	props:['elem'],
 	data:function(){
 		return{
-			classLogic: false
+			extend: false,
+			day:0,
+			month:"",
+			year: 0
 		}
+	},
+	methods:{
+		toggleDetails: function(){
+			this.extend = !this.extend;
+		},
+		// TEMPORARY I GET CURRENT DATE FOR EACH BID
+		getDate:function(){
+			var getDate = new Date();
+			var totalDate = getDate.getTime();
+			var formattedDate = new Date(totalDate);
+			var finalDate = formattedDate.toString().split(" ");
+			var currentDate = finalDate.splice(0,5);
+			this.day = currentDate.join(" ");
+
+		}
+
+	},
+	beforeMount(){
+		this.getDate();
 	}
 }
 </script>
 
 <style lang="scss" scoped>
-$buttun-color: rgba(80,171,204,0.4);
-	body{
-	background-color: #f7eee7;
-	font-size:24px;
-	color:#5b2b19;
-}
 
-button{
+hr{
+	width:100%;
+	height:1px;
 	border:none;
+	background-color: rgba(90,90,90,0.2);
+	transform:translateY(20px);
 }
 
-.name{
-	display:flex;
-	align-items: center;
-	/*width:100%;*/
-	transform:translate(0,0);
-	height:45px;
-	padding-left:15px;
-	margin-bottom:15px;
-	background-color: rgba(20,133,204,0.4);
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-}
-/*.name:after{
-	content: '';
-    width: 95%;
-    border-bottom: solid 1px #570303;
-    position: absolute;
-    left: 2.5%;
-    top: 40px;
-    z-index: 1;
-}*/
-.post{
-	width:90%;
-	margin:0 auto;
-	text-align:justify;
-	/*padding:20px;*/
-	margin-bottom:10px;
-	background-color: rgba(138,7,7,0.4);
-	transition:all 0.7s;
-	position:relative;
-	padding-bottom:10px;
-	border: 1px solid rgba(0,0,0,0.2);
-
-}
-
-.post:hover{
-	transform:scale(1.04,1.04);
-	box-shadow:0 0 12px 2px rgba(80,80,80,0.6);
-}
-
-
-.post div{
-	padding-left:45px;
-}
-
-.post div:nth-of-type(1){
-	font-style: italic;
-	padding:0;
-	color:#f7eee7;
-}
-
-.post-title{
-	font-weight:bold;
-}
-
-.details, .back{
-	display:block;
-	width:190px;
-	padding:8px;
-	text-align:center;
-	border-radius:4px;
-	background-color: $buttun-color;
-	color:#f7eee7;
-	font-size: 18px;
+a{
 	text-decoration:none;
-	margin-top:10px;
-	transform:translate(245%, -30%);
-	/*box-shadow: 0 0 15px 1px rgba(80,80,80,0.2),inset 0 0 17px 4px rgba(215,190,169,0.9) ;*/
+}
+.post{
+	width:97%;
+	margin:0 auto;
+	background-color: white;
+	position:relative;
+	box-sizing:border-box;
+	margin-bottom:5px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	box-shadow: 0 0 5px rgba(100, 100, 100, 0.4);
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:flex-end;
+
 }
 
-.back{
-	width:190px;
-	transform:translateX(225%);
+.date{
+	padding-right:10px;
+	font-size: 11px;
+	color:rgba(140,140,140,0.8);
 }
 
-.show{
-	display:block;
+.container{
+	width:98%;
+	height:98%;
+	background-color: white;
+	margin: 0 auto;
+	padding:10px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	display:flex;
+}
+.title{
+	width:100px;
+	height:100%;
 }
 
-.redO{
-	background-color: saturate($buttun-color, 50%);
+.general{
+	width:80%;
+}
+.name, .age, .info{
+	padding-left:10px;
+}
+.image{
+	width:90px;
+	height:90px;
+	border-radius: 50%;
+	background-color: grey;
+	background-image: url("~../assets/face.svg");
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: auto;
+	box-shadow: 0 0 5px grey;
 }
 
+.detailImage{
+	@extend .image;
+	width:200px;
+	height:200px;
+	margin: 0 auto;
+}
 
+.detail-description{
+	border-left: 1px solid white;
+	padding-left: 5px;
+}
+.name{
+	font-size: 20px;
+	color:#F77777;
+}
 
+.extend{
+	width:30px;
+	height:20px;
+	position:relative;
+	left:-5px;
+	background-image: url("~../assets/Spisok.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	// transform:translateY(20px);
+	// &:before{
+	// 	content:"";
+	// 	display:block;
+	// 	width:1px;
+	// 	height:1px;
+	// 	border: 10px solid transparent;
+	// 	border-top: 10px solid #F77777;
+	// 	position:absolute;
+	// 	transform: translateY(-1px);
+	// }
+}
+
+.hide{
+	@extend .extend;
+	transform:scaleY(-1);
+	background-image: none;
+	left:0;
+	&:before{
+		content:"";
+		display:block;
+		width:1px;
+		height:1px;
+		border: 10px solid transparent;
+		border-top: 10px solid #F77777;
+		position:absolute;
+		transform: translateY(-1px);
+	}
+
+}
+
+.details{
+	width:100%;
+	background-color: #F77777;
+	color:white;
+	padding:16px;
+	box-sizing:border-box;
+	position:relative;
+}
+
+.goToBid{
+	width:30px;
+	height: 15px;
+	background-image: url("~../assets/StrelaWhite.svg");
+	background-size: 80%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	position:absolute;
+	right:12px;
+	bottom:0px;
+	margin-bottom:10px;
+}
 @media only screen and (min-width: 600px){
 	.post{
 		width:700px;
