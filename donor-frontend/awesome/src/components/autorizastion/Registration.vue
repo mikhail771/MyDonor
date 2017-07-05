@@ -75,7 +75,7 @@
                 var then = this;
 
                 const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('registration', JSON.stringify(this.userData), config)
+                axios.post('https://dry-island-77618.herokuapp.com/registration', JSON.stringify(this.userData), config)
                         .then(function (response) {
                             console.log(response.data);
 
