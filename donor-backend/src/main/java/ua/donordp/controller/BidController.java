@@ -27,6 +27,7 @@ public class BidController {
         return bidList;
     }
 
+    @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity addBid(@RequestBody Bid bid) {
