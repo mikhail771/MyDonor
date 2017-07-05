@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <header>{{dataValue.day}} {{dataValue.date}}</header>
+   <header>{{day}}<!--  {{month}} {{year}} --></header>
     <article>
       <h3>Текущие уровни запасов крови в Украине</h3>
       <section>
@@ -50,8 +50,9 @@
         data: function () {
             return {
                 dataValue: {
-                    day: 'четверг',
-                    date: '25 мая 2017',
+                    day: '',
+                    month: '',
+                    year:"",
                     o0:'7',
                     a0:'8',
                     b0:' 5',
@@ -62,9 +63,25 @@
                     ab1:'4'
                 }
             }
-        } //data
+        },
+        methods:{
+          getDate:function(){
+      var getDate = new Date();
+      var totalDate = getDate.getTime();
+      var formattedDate = new Date(totalDate);
+      var finalDate = formattedDate.toString().split(" ");
+      var currentDate = finalDate.splice(0,3);
+      this.day = currentDate.join(" ");
 
     }
+
+  },
+  beforeMount(){
+    this.getDate();
+  }
+        }
+
+    
 </script>
 
 <style lang="scss" scoped>

@@ -88,9 +88,6 @@ a{
 	padding-bottom: 10px;
 	padding-top: 10px;
 	box-shadow: 0 0 5px rgba(100, 100, 100, 0.4);
-	// display:flex;
-	// flex-wrap:wrap;
-	// justify-content:flex-end;
 
 }
 
@@ -159,17 +156,6 @@ a{
 	background-size: 5%;
 	background-repeat: no-repeat;
 	background-position: 100% 50%;
-	// transform:translateY(20px);
-	// &:before{
-	// 	content:"";
-	// 	display:block;
-	// 	width:1px;
-	// 	height:1px;
-	// 	border: 10px solid transparent;
-	// 	border-top: 10px solid #F77777;
-	// 	position:absolute;
-	// 	transform: translateY(-1px);
-	// }
 }
 
 .hide{
