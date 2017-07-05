@@ -124,7 +124,8 @@
                     bidInfo:"",
                     bidHospital:"",
                     bidComments:"",
-                    bidDate:""
+                    bidDate:"",
+                    bidTime:""
 
                 },
                 isDateErr:"",
@@ -159,7 +160,15 @@
             }
         },
         methods:{
+            getDate:function(){
+            var getDate = new Date();
+            var totalDate = getDate.getTime();
+            var formattedDate = new Date(totalDate);
+            var finalDate = formattedDate.toString().split(" ");
+            var currentDate = finalDate.splice(0,5);
+            this.request.bidTime = currentDate.join(" ");
 
+        },
             checkDate: function (e) {
                 var arr = e.target.value.split(/[-\/,.]/);
                 if (arr.length < 3 && e.target.value.length !== 0){
@@ -184,7 +193,7 @@
             sendRequest: function(){
                 if (this.agree === false) return;
                 var then = this;
-
+                this.getDate();
                 const config = { headers: {'Content-Type': 'application/json'}};
                 axios.post('https://dry-island-77618.herokuapp.com/bids', then.request, config)
                         .then(function (response) {

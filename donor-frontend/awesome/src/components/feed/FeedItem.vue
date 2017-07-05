@@ -1,6 +1,6 @@
 <template>
 	<div class="post" @click="toggleDetails">
-	<div class="date"> {{day}}</div>
+	<div class="date"> {{elem.bidTime}}</div>
 	<div class="container">
 	<div class="title">
 		<div class="image"> </div>
