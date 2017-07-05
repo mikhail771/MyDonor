@@ -2,11 +2,11 @@
     <div id="app">
         <div id="imgWrap">
             <img src="~../assets/girl.jpg" alt="girl" id="profilePicture">
-            <div id="titleForProfileImg"><p>{{dataValue.name}}</p> </div>
+            <div id="titleForProfileImg"><p>{{user.bidUserName}}</p> </div>
         </div>
         <p id="date">Добавлено  {{dataValue.addDate}}  </p>
         <section id="mainInfo">
-            <p>{{dataValue.disease}}</p>
+            <p>{{user.bidInfo}}</p>
             <p><b>Кроводачи</b> <br />
                 <span id="heartFull">&hearts;</span>
                 <span id="heartFull">&hearts;</span>
@@ -20,31 +20,24 @@
                 <span id="heartEmpty">&hearts;</span>
                 <span id="heartEmpty">&hearts;</span>
             </p>
-            <p><b>Возраст:</b> <br />
-                {{dataValue.age}} лет
+            <p><b>Дата рождения:</b> <br />
+                {{user.recipientBirthDate}} 
             </p>
 
             <p><b>Нужны доноры:</b><br />
-                {{dataValue.bloodGroup}} <br />
-                {{dataValue.bloodType}}
+                {{user.bidGroup}}, резус - {{user.bidRhesusFactor}} <br />
+                {{user.bidType}}
+            </p>
+            <p><b>Контактное лицо:</b><br />
+                {{user.bidContactName}} <br />
+               <b>Тел:</b> {{user.bidContactNumber}} <br>
+               <b>e-mail:</b> {{user.email}}
             </p>
             <p><b>Центр крови:</b><br />
-                {{dataValue.place}} <br />
-                {{dataValue.adress}}
+                {{user.bidHospital}} <br />
+               
             </p>
-            <p>Ребенок проходит курс интенсивной химиотерапии в детском отделении, проходит первый курс ﴾назначено всего
-                шесть﴿. Во время такого лечения очень быстро понижаются жизненно важные показатели крови ﴾тромбоциты,
-                гемоглобин﴿, организму очень трудно восстанавливаться самостоятельно. Для эффективного лечения на каждый курс
-                необходимо 5 доноров тромбоцитной массы.
-            </p>
-            <p>
-                Вот что пишут о девочке на сайте помощи онкобольным детям:
-            <p id="redLine" v-model="dataValue.redLine">
-                "С лета 2016 года девочка периодически жаловалась на боли в ноге. В феврале 2017 уже стало больно становиться на ногу. Обратились к травматологу в поликлинике. Сделали рентген и направили ребенка в областную больницу. После недели обследования предположили три диагноза и порекомендовали родителям искать клинику. Приехали в НИР. Оформили статус переселенца и с марта 2017 года Ксения начала лечение в отделении детской онкологии Национального института рака."
-            </p>
-            </p>
-
-            <i v-model="dataValue.diseaseDescription"> <b>Саркома Юинга</b> (лат. Myeloma endotheliale)‐ злокачественная опухоль костного скелета. Саркома Юинга, как правило, поражает нижнюю часть длинных трубчатых костей, ребра, таз, лопатку, позвоночник и ключицу.</i>
+            <p>{{user.bidComments}}</p>
             <footer>
                 <ul>
                     <li><a href="#"><img src="~../assets/32/facebook.png" alt=""></a></li>
@@ -58,6 +51,10 @@
 </template>
 
 <script>
+import { store } from "../../store/store.js"
+ import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
     export default {
         data: function () {
             return {
@@ -72,11 +69,33 @@
                     adress:'Киев, ул.Ломоносова, 33/43, первый этаж',
                     redLine:'',
                     diseaseDescription:''
-                }
+                },
+                user: ""
             }
-        } //data
+        },
+        methods:{
+             retData: function(){
+      const api = 'https://dry-island-77618.herokuapp.com/bids/' + store.state.userId
+      Vue.axios.get(api).then(response=> {
+        // if(response.data.length == 0){
+        //   this.loading = false;
+        //   this.hiddenLoad = true;
+      //   } else{
+         this.user = response.data;
+         console.log(this.user);
 
+        
+
+      }).catch(error=>{
+        console.log('error')
+        })
+        }
+    },
+    beforeMount(){
+        this.retData();
     }
+
+}
 </script>
 
 <style scoped>

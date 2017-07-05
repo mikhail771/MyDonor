@@ -30,7 +30,7 @@
 </template>
 
 <script>
-
+import { store } from "../../store/store.js"
 export default{
 	props:['elem'],
 	data:function(){
@@ -38,12 +38,14 @@ export default{
 			extend: false,
 			day:0,
 			month:"",
-			year: 0
+			year: 0,
+			id: this.elem.id
 		}
 	},
 	methods:{
 		toggleDetails: function(){
 			this.extend = !this.extend;
+			store.state.userId = this.id;
 		},
 		// TEMPORARY I GET CURRENT DATE FOR EACH BID
 		getDate:function(){
@@ -86,9 +88,6 @@ a{
 	padding-bottom: 10px;
 	padding-top: 10px;
 	box-shadow: 0 0 5px rgba(100, 100, 100, 0.4);
-	display:flex;
-	flex-wrap:wrap;
-	justify-content:flex-end;
 
 }
 
@@ -96,6 +95,8 @@ a{
 	padding-right:10px;
 	font-size: 11px;
 	color:rgba(140,140,140,0.8);
+	display:flex;
+	justify-content:flex-end;
 }
 
 .container{
@@ -148,25 +149,13 @@ a{
 }
 
 .extend{
-	width:30px;
+	width:98%;
 	height:20px;
 	position:relative;
-	left:-5px;
 	background-image: url("~../assets/Spisok.svg");
-	background-size: 100%;
+	background-size: 5%;
 	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	// transform:translateY(20px);
-	// &:before{
-	// 	content:"";
-	// 	display:block;
-	// 	width:1px;
-	// 	height:1px;
-	// 	border: 10px solid transparent;
-	// 	border-top: 10px solid #F77777;
-	// 	position:absolute;
-	// 	transform: translateY(-1px);
-	// }
+	background-position: 100% 50%;
 }
 
 .hide{
@@ -182,7 +171,7 @@ a{
 		border: 10px solid transparent;
 		border-top: 10px solid #F77777;
 		position:absolute;
-		transform: translateY(-1px);
+		right:1px;
 	}
 
 }

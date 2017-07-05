@@ -11,15 +11,11 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!-- Разрешаем использование аннотаций Spring MVC (то есть @Controller и.т.д) -->
-    <annotation-driven />
 
-    <beans:import resource="appconfig-data.xml"/>
 
-    <context:component-scan base-package="ua.donordp"/>
-    <mvc:resources mapping="/**" location="/public/"/>
+    <beans:bean name="/applicationSwaggerConfig" class="ua.donordp.config.ApplicationSwaggerConfig"/>
+
+    <mvc:resources mapping="/**" location="/public/, classpath:/META-INF/resources/, /webjars/"/>
     <mvc:default-servlet-handler/>
-
-    <context:property-placeholder location="classpath:database.properties"/>
 
 </beans:beans>

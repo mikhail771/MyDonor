@@ -74,7 +74,8 @@ export const store = new Vuex.Store({
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
 		title:"Вы можете стать донором через 1 год после трансфузии компонентов крови (за исключением ожоговых реконвалесцетов и лиц, иммунизированных к резус-фактору)",
 		}},
-		]
+		],
+		userId:""
 	},
 
 	mutations: {

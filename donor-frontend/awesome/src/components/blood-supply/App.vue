@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <header>{{dataValue.day}} {{dataValue.date}}</header>
+   <header>{{day}}<!--  {{month}} {{year}} --></header>
     <article>
       <h3>Текущие уровни запасов крови в Украине</h3>
       <section>
@@ -39,7 +39,7 @@
         <h3>Об уровне запасов крови</h3>
         <p>Несчастья невозможно спрогнозировать заранее. Поэтому в критической ситуации Центр крови вынужден приглашать на сдачу крови больше доноров, чем обычно. В Украине меньше доноров, чем должно было бы быть для того, чтобы покрывать нужды больниц в любой ситуации. Спрос крови непредсказуем и даже отличается с каждым типом крови. Например O‐ кровь может назначаться пациентам со всеми типами крови. AB+ подходит только для пациентов с АВ+.</p>
         <p>Срок хранения различных компонентов крови небольшой: эритроцитов, или суспензии красных кровяных телец, – примерно 35 дней; тромбоцитов, или кровяных пластинок, – семь дней, а свежезамороженной плазмы – до трех лет. По этой причине заранее надолго запастись кровью в большом количестве невозможно.</p>
-        <button id="moreAboutTypeBlood">Узнать больше о типах крови</button>
+       <router-link id="moreAboutTypeBlood" to="/blood-component"> Узнать больше о типах крови</router-link>
       </section>
     </article>
   </div>
@@ -50,8 +50,9 @@
         data: function () {
             return {
                 dataValue: {
-                    day: 'четверг',
-                    date: '25 мая 2017',
+                    day: '',
+                    month: '',
+                    year:"",
                     o0:'7',
                     a0:'8',
                     b0:' 5',
@@ -62,9 +63,25 @@
                     ab1:'4'
                 }
             }
-        } //data
+        },
+        methods:{
+          getDate:function(){
+      var getDate = new Date();
+      var totalDate = getDate.getTime();
+      var formattedDate = new Date(totalDate);
+      var finalDate = formattedDate.toString().split(" ");
+      var currentDate = finalDate.splice(0,3);
+      this.day = currentDate.join(" ");
 
     }
+
+  },
+  beforeMount(){
+    this.getDate();
+  }
+        }
+
+    
 </script>
 
 <style lang="scss" scoped>
@@ -122,6 +139,14 @@
     border-radius: 20px;
     cursor: pointer;
     border:none;
+    text-decoration: none;
   }
+
+  @media only screen and (min-width: 600px){
+  #app{
+    width:700px;
+    margin: 0 auto;
+  }
+}
 
 </style>
