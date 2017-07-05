@@ -30,7 +30,7 @@
 </template>
 
 <script>
-
+import { store } from "../../store/store.js"
 export default{
 	props:['elem'],
 	data:function(){
@@ -38,12 +38,14 @@ export default{
 			extend: false,
 			day:0,
 			month:"",
-			year: 0
+			year: 0,
+			id: this.elem.id
 		}
 	},
 	methods:{
 		toggleDetails: function(){
 			this.extend = !this.extend;
+			store.state.userId = this.id;
 		},
 		// TEMPORARY I GET CURRENT DATE FOR EACH BID
 		getDate:function(){
