@@ -6,69 +6,69 @@
         <form class="request-form" @submit.prevent="sendRequest">
             <div class="reg-field__wrap">
                 <label for="name-rec">Имя и фамилия реципиента<br>
-                    <input type="text" required v-model="nameRec" class="reg-field__input" id="name-rec" placeholder="Введите имя и фамилию">
+                    <input type="text" required v-model="request.bidUserName" class="reg-field__input" id="name-rec" placeholder="Введите имя и фамилию">
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="date">Дата рождения реципиента<br>
-                    <input type="text" :class="{ err: isDateErr }" @blur="checkDate" required class="reg-field__input" id="date" v-model="request.date" placeholder="Введите дату рождения dd.mm.yyyy">
+                    <input type="text" :class="{ err: isDateErr }" @blur="checkDate" required class="reg-field__input" id="date" v-model="request.recipientBirthDate" placeholder="Введите дату рождения dd.mm.yyyy">
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="email">Введите Ваш Email<br>
-                    <input type="mail" required v-model="request.login"class="reg-field__input" id="email" placeholder="Введите Ваш Email">
+                    <input type="mail" required v-model="request.email"class="reg-field__input" id="email" placeholder="Введите Ваш Email">
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="name-contact">Контактный человек<br>
-                    <input type="text" required v-model="nameContact" class="reg-field__input" id="name-contact" placeholder="Введите ФИО">
+                    <input type="text" required v-model="request.bidContactName" class="reg-field__input" id="name-contact" placeholder="Введите ФИО">
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="phone-contact">Телефон<br>
-                    <input type="tel" required v-model="request.phoneContact" class="reg-field__input" id="phone-contact" placeholder="Телефон контактного человека">
+                    <input type="tel" required v-model="request.bidContactNumber" class="reg-field__input" id="phone-contact" placeholder="Телефон контактного человека">
                 </label>
             </div>
 
             <div class="reg-field__wrap">
                 <label for="donation-type">Тип кроводачи<br>
-                    <select v-model="request.donationType" id="donation-type" class="reg-field__input select" required placeholder="Выберите из списка">
+                    <select v-model="request.bidType" id="donation-type" class="reg-field__input select" required placeholder="Выберите из списка">
                         <option v-for="item in formData.donationType">{{item}}</option>
                     </select>
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="blood-type">Группа крови<br>
-                    <select v-model="request.bloodType" id="blood-type" class="reg-field__input select" required placeholder="Выберите из списка">
+                    <select v-model="request.bidGroup" id="blood-type" class="reg-field__input select" required placeholder="Выберите из списка">
                         <option v-for="item in formData.bloodType">{{item}}</option>
                     </select>
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="rhesus">Резусфактор<br>
-                    <select v-model="request.rhesus" id="rhesus" class="reg-field__input select" required placeholder="Выберите из списка">
+                    <select v-model="request.bidRhesusFactor" id="rhesus" class="reg-field__input select" required placeholder="Выберите из списка">
                         <option v-for="item in formData.rhesus">{{item}}</option>
                     </select>
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="donor-quantity">Количество доноров<br>
-                    <input type="number" v-model="request.donorQuantity" class="reg-field__input" id="donor-quantity" placeholder="Необходимое количество доноров">
+                    <input type="number" v-model="request.bidQuantity" class="reg-field__input" id="donor-quantity" placeholder="Необходимое количество доноров">
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="diagnostic">Диагноз реципиента<br>
-                    <input type="text" v-model="request.diagnostic" class="reg-field__input" id="diagnostic" placeholder="Введите название болезни">
+                    <input type="text" v-model="request.bidInfo" class="reg-field__input" id="diagnostic" placeholder="Введите название болезни">
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="hospital-name">Центр крови<br>
-                    <input type="text" v-model="request.hospitalName" class="reg-field__input" id="hospital-name" placeholder="Введите название больницы реципиента">
+                    <input type="text" v-model="request.bidHospital" class="reg-field__input" id="hospital-name" placeholder="Введите название больницы реципиента">
                 </label>
             </div>
             <div class="reg-field__wrap">
                 <label for="deadline">Крайний срок сдачи<br>
-                    <input type="number" v-model="request.deadline" class="reg-field__input" id="deadline" placeholder="Введите сроки (от 2 до 10 дней от сегодня)">
+                    <input type="number" v-model="request.bidDate" class="reg-field__input" id="deadline" placeholder="Введите сроки (от 2 до 10 дней от сегодня)">
                 </label>
             </div>
             <div class="reg-field__wrap non-bottom-line">
@@ -78,7 +78,7 @@
             </div>
             <div class="reg-field__wrap non-bottom-line ">
                 <p class="details">Укажите как можно больше деталей, которые помогут нам немедленно отреагировать на вашу заявку:</p>
-                <textarea name="" v-model="request.details" rows="10" class="reg-field__input details-text-area" placeholder="Ваше сообщение"></textarea>
+                <textarea name="" v-model="request.bidComments" rows="10" class="reg-field__input details-text-area" placeholder="Ваше сообщение"></textarea>
 
             </div>
             <div class="reg-field__wrap non-bottom-line">
@@ -112,23 +112,19 @@
 
                 },
                 request:{
-                    name:"",
-                    surname:"",
-                    date:"",
-                    login:"",
-                    nameContact:"",
-                    surnameContact:"",
-                    middleNameContact:"",
-                    phoneContact:"",
-                    donationType:"",
-                    bloodType:"",
-                    donorQuantity:"",
-                    rhesus:"",
-                    diagnostic:"",
-                    hospitalName:"",
-                    deadline:"",
-                    photo:"",
-                    details:""
+                    bidUserName:"", 
+                    recipientBirthDate:"",
+                    email:"",
+                    bidContactName:"",
+                    bidContactNumber:"",
+                    bidType:"",
+                    bidGroup:"",
+                    bidQuantity:"",
+                    bidRhesusFactor:"",
+                    bidInfo:"",
+                    bidHospital:"",
+                    bidComments:"",
+                    bidDate:""
 
                 },
                 isDateErr:"",
@@ -163,6 +159,7 @@
             }
         },
         methods:{
+
             checkDate: function (e) {
                 var arr = e.target.value.split(/[-\/,.]/);
                 if (arr.length < 3 && e.target.value.length !== 0){
@@ -189,7 +186,7 @@
                 var then = this;
 
                 const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('request', then.request, config)
+                axios.post('https://dry-island-77618.herokuapp.com/bids', then.request, config)
                         .then(function (response) {
                             console.log(response.data);
 
