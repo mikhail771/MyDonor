@@ -57,6 +57,11 @@ body{
 .bluredApp{
   overflow: hidden;
     height:100vh;
+    // filter:blur(5px);
+}
+
+.mainBlur{
+  filter:blur(5px);
 }
     // #app{
     //     overflow: hidden;

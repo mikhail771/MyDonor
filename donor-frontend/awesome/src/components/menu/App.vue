@@ -67,10 +67,12 @@
 				this.blurBack = !this.blurBack;
 				if(this.seeMenu == true){
 				document.querySelector("body").classList.add("bluredApp");
-				// document.querySelector(".list").classList.add("bluredApp");
+				document.querySelector(".list").classList.add("mainBlur");
+				document.querySelector(".tabs").classList.add("mainBlur");
 			} else {
 				document.querySelector("body").classList.remove("bluredApp");
-				// document.querySelector(".list").classList.remove("bluredApp");
+				document.querySelector(".list").classList.remove("mainBlur");
+				document.querySelector(".tabs").classList.add("mainBlur");
 			}
 				// reset opened subcategories
 				for( var key in this.subList){
