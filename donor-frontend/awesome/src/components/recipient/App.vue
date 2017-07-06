@@ -99,7 +99,9 @@ import VueAxios from 'vue-axios'
 </script>
 
 <style scoped>
-
+/*#app{
+    background-color: #0065BD;
+}*/
 
     #profilePicture{
         width: 100%;
@@ -172,6 +174,13 @@ import VueAxios from 'vue-axios'
   #app{
     width:700px;
     margin: 0 auto;
+  }
+  #profilePicture{
+    width:50%;
+    border-radius: 50%;
+    margin: 30px auto;
+    display:block;
+    box-shadow: 0 1px 4px 0 rgba(100,100,100,0.5);
   }
 }
 </style>
