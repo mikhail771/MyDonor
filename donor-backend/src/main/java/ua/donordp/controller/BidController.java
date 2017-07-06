@@ -22,9 +22,9 @@ public class BidController {
 
     @CrossOrigin
     @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody List<Bid> listBids(){
-        List<Bid> bidList = this.bidService.listBids();
-        return bidList;
+    public @ResponseBody List<Bid> listBids(@RequestParam(name = "decimalcount", required = false, defaultValue = "0")
+                                                    String pagetoken){
+        return this.bidService.listBids(Integer.parseInt(pagetoken));
     }
 
     @CrossOrigin
