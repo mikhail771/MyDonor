@@ -220,7 +220,10 @@
 
     .app{
         background-color: #0065BD;
-        width:100%
+        width:100%;
+        background-image: url("~../assets/background.jpg");
+         background-size: auto;
+         background-repeat:repeat;
     }
     .request-form {
         text-transform: uppercase;

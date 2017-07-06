@@ -22,6 +22,9 @@
         background-color: #3a63a2;
         color:#fff;
         padding: 10px;
+             background-image: url("~../assets/background.jpg");
+  background-size: auto;
+  background-repeat:repeat;
     }
     .notation__list{
        list-style: circle;

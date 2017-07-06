@@ -77,6 +77,9 @@ export default {
     background-color: #0065BD;
     padding-top:5px;
     margin:0 auto;
+    background-image: url("~../assets/background.jpg");
+    background-size: auto;
+    background-repeat:repeat;
   }
 .show{
   display:block;

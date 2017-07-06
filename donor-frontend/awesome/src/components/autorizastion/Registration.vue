@@ -115,6 +115,7 @@
     .reg-wrap{
         padding: 10px;
         background-color: white;
+        padding-bottom:30px;
     }
     .login-form {
         text-transform: uppercase;

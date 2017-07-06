@@ -90,6 +90,9 @@ export default {
 	display:flex;
 	justify-content:center;
 	position:relative;
+	     background-image: url("~../assets/background.jpg");
+  background-size: auto;
+  background-repeat:repeat;
 	div{
 		display:flex;
 		align-items:center;
