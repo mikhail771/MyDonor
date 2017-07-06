@@ -72,7 +72,7 @@
 			} else {
 				document.querySelector("body").classList.remove("bluredApp");
 				document.querySelector(".list").classList.remove("mainBlur");
-				document.querySelector(".tabs").classList.add("mainBlur");
+				document.querySelector(".tabs").classList.remove("mainBlur");
 			}
 				// reset opened subcategories
 				for( var key in this.subList){
