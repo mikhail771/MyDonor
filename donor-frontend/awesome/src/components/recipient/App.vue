@@ -75,7 +75,7 @@ import VueAxios from 'vue-axios'
         },
         methods:{
              retData: function(){
-      const api = 'https://dry-island-77618.herokuapp.com/bids/' + store.state.userId
+      const api = store.state.baseRequestUrl + 'bids/' + store.state.userId
       Vue.axios.get(api).then(response=> {
         // if(response.data.length == 0){
         //   this.loading = false;

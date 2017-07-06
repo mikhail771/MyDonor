@@ -98,7 +98,7 @@
     import axios from 'axios';
     import VueAxios from 'vue-axios';
     import notation from './notation.vue';
-
+    import { store } from "../../store/store.js"
     Vue.use(VueAxios, axios);
 
     export default {
@@ -195,7 +195,7 @@
                 var then = this;
                 this.getDate();
                 const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('https://dry-island-77618.herokuapp.com/bids', then.request, config)
+                axios.post(store.state.baseRequestUrl +'bids', then.request, config)
                         .then(function (response) {
                             console.log(response.data);
 

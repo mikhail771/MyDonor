@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state:{
+		baseRequestUrl: "http://5.45.120.170/evo-donor/",
 		place:"",
 		link: "",
 		quizComponent: "q-start",

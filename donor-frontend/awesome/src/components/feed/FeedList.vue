@@ -15,7 +15,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FeedItem from './FeedItem.vue'
 import MugenScroll from 'vue-mugen-scroll'
-
+import { store } from "../../store/store.js"
 import search from "../Maps/SearchMap.vue"
 
 Vue.use(VueAxios, axios)
@@ -41,7 +41,7 @@ export default {
   methods:{
    retData: function(){
     this.loading = true;
-      const api = 'https://dry-island-77618.herokuapp.com/bids?decimalcount=' + this.counter
+      const api = store.state.baseRequestUrl + 'bids?decimalcount=' + this.counter
       Vue.axios.get(api).then(response=> {
         if(response.data.length == 0){
           this.loading = false;
