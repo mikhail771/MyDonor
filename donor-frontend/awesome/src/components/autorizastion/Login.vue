@@ -3,12 +3,12 @@
         <form class="login-form" @submit.prevent="regUser">
             <div class="login-field__wrap">
                 <label for="login">Логин<br>
-                    <input type="text" required v-model="userData.login" class="login-field__input" id="login" placeholder="Введите Ваш Email">
+                    <input type="text" required v-model="loginform.username" class="login-field__input" id="login" placeholder="Введите Ваш Email">
                 </label>
             </div>
             <div class="login-field__wrap">
                 <label for="password">Пароль<br>
-                    <input type="password" required v-model="userData.password" class="login-field__input" id="password" placeholder="Введите пароль">
+                    <input type="password" required v-model="loginform.password" class="login-field__input" id="password" placeholder="Введите пароль">
                 </label>
             </div>
             <button class="button">Войти</button>
@@ -20,14 +20,14 @@
     import Vue from 'vue'
     import axios from 'axios'
     import VueAxios from 'vue-axios'
-
+import { store } from "../../store/store.js"
     Vue.use(VueAxios, axios);
 
     export default {
         data: function(){
             return{
-                userData: {
-                    login: "" ,
+                loginform: {
+                    username: "" ,
                     password:"" ,
                 },
             }
@@ -37,7 +37,7 @@
                 var then = this;
 
                 const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('registration', JSON.stringify(this.userData), config)
+                axios.post(store.state.baseRequestUrl + '/registration', JSON.stringify(this.loginform), config)
                         .then(function (response) {
                             console.log(response.data);
 
