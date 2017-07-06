@@ -21,13 +21,6 @@
 
 				</div>
 			</div>
-			<div class="category" @click="toggleSub('help')">Адресная помощь (реципиенты) <div :class="{extend:!subList.help, extendReverse: subList.help}"></div>
-				<div class="subcategory" v-if="subList.help">
-					<div class="sub enabled"><router-link to="/registration">Регистрация на сайте</router-link></div>
-					<div class="sub enabled"><router-link to="/">Помочь конкретному реципиенту</router-link></div>
-					<div class="sub enabled"> <router-link to="/request">Создать заявку реципиента</router-link></div>
-				</div>
-			</div>
 			
 			<div class="category" @click="toggleSub('info')">О крови <div :class="{extend:!subList.info, extendReverse: subList.info}"></div>
 				<div class="subcategory" v-if="subList.info">

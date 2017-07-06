@@ -11,7 +11,7 @@
 
 <style lang="scss" scoped>
     .notation-request-wrapper{
-        background-color: #3a63a2;
+        background-color: #0065BD;
         color:#fff;
         padding: 10px;
     }

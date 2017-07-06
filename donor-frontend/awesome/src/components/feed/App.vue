@@ -1,7 +1,7 @@
 <template>
 <div class="app">
 <div class="tabs">
-	<div :class="{feed:true, selectedTab:tabs[0].tab.activated}" @click="setTab(0)">ЗАЯВКИ</div> <div :class="{stories:true, selectedTab:tabs[1].tab.activated}" @click="setTab(1)">ИСТОРИИ</div>
+	<div :class="{feed:true, selectedTab:tabs[0].tab.activated}" @click="setTab(0)">ЗАЯВКИ</div> <div :class="{stories:true, selectedTab:tabs[1].tab.activated}" @click="setTab(1)">ИСТОРИИ</div> <div :class="{stories:true, selectedTab:tabs[2].tab.activated}" @click="setTab(2)">ПОДАТЬ ЗАЯВКУ</div>
 </div>
 
 <v-touch v-on:swipeleft="toLeft" v-on:swiperight="toRight">
@@ -19,6 +19,8 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import FeedList from './FeedList.vue'
 import stories from '../stories/FeedList.vue'
+import request from '../request/App.vue'
+
 import {store} from "../../store/store.js"
 
 Vue.use(VueAxios, axios)
@@ -37,6 +39,10 @@ export default {
 			}, {tab:{
 				element: "stories",
 				activated: false}
+			},
+			{tab:{
+				element: "request",
+				activated:false}
 			}],
 			currentTab: "feedList",
 
@@ -45,6 +51,7 @@ export default {
  components:{
   'feedList': FeedList,
   'stories': stories,
+  'request':request
 
  },
  methods:{
