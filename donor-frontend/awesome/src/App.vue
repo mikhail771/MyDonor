@@ -53,6 +53,11 @@ body{
     margin:0;
     padding:0;
 }
+
+.bluredApp{
+  overflow: hidden;
+    height:100vh;
+}
     // #app{
     //     overflow: hidden;
     // }
