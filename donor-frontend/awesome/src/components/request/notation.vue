@@ -14,5 +14,8 @@
         background-color: #0065BD;
         color:#fff;
         padding: 10px;
+             background-image: url("~../assets/background.jpg");
+  background-size: auto;
+  background-repeat:repeat;
     }
 </style>
