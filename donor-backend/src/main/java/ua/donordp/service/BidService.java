@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.donordp.dao.BidDao;
 import ua.donordp.model.Bid;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,7 +42,14 @@ public class BidService {
     }
 
     @Transactional
-    public List<Bid> listBids() {
-        return this.bidDao.listBids();
+    public List<Bid> listBids(int decimalCount) {
+        List<Bid> bidList = bidDao.listBids();
+        if (bidList.size() < decimalCount * 10)
+            return new ArrayList<Bid>();
+        else {
+            if (bidList.size() < decimalCount * 10 + 10)
+                return bidList.subList(decimalCount * 10, bidList.size());
+            else return bidList.subList(decimalCount * 10, decimalCount * 10 + 10);
+        }
     }
 }
