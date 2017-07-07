@@ -92,7 +92,10 @@
 		background-color: white;
 		margin:0;
 		top:0;
-		box-shadow: 0 1px 4px 0 rgba(100,100,100,0.5);
+		box-shadow: 0 1px 2px 0 rgba(80,80,80,0.7);
+		background-image: url("~../assets/menubackground.jpg");
+    background-size: auto;
+    background-repeat:repeat;
 	}
 	.blur{
 		width:100vw;
@@ -116,6 +119,8 @@
 		height:65px;
 		justify-content:center;
 		position: relative;
+		// background-color: #DB3328;
+		box-shadow: 0 2px 6px 2px rgba(80,80,80,0.7);
 	.menuButton{
 	width:65px;
 	height:65px;
@@ -125,6 +130,7 @@
 	top:40%;
 	transition:all 1s;
 	z-index:10000;
+	// filter:invert(100%);
 	span{
 		transition: 0.5s;
 	}
@@ -132,6 +138,7 @@
 
 	.backButton{
 		@extend .menuButton;
+		// filter:invert(0);
 		 span:nth-child(1) {
         -webkit-transform: rotate(-45deg);
         left: -1px;
@@ -165,6 +172,7 @@
 		background-size: 100%;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
+		// filter:invert(100%) grayscale(1) brightness(3);
 	}
 
 	.menu{
