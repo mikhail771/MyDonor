@@ -99,9 +99,7 @@ import VueAxios from 'vue-axios'
 </script>
 
 <style scoped>
-/*#app{
-    background-color: #0065BD;
-}*/
+
 
     #profilePicture{
         width: 100%;

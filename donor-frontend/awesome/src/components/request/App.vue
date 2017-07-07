@@ -1,5 +1,6 @@
 <template>
-<div class="app">
+<!-- app uses class list as function blur identifier (together with list of bids and stories) -->
+<div class="app list">
     <div class="request-wrap">
         <notation></notation>
 
