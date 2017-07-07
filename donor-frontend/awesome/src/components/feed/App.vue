@@ -35,16 +35,19 @@ export default {
 		return{
 			tabs: [{tab:{
 				element: "feedList",
-				activated:true}
+				activated:true,
+				index:0}
 			}, {tab:{
 				element: "stories",
-				activated: false}
+				activated: false,
+				index:1}
 			},
 			{tab:{
 				element: "request",
-				activated:false}
+				activated:false,
+				index:2}
 			}],
-			currentTab: "feedList",
+			currentIndex:0,
 
 		}
 	},
@@ -54,6 +57,11 @@ export default {
   'request':request
 
  },
+ computed: {
+ 	currentTab: function(){
+ 		return this.tabs[this.currentIndex].tab.element	
+ 	}
+ },
  methods:{
  	setTab:function(e){
  		this.currentTab = this.tabs[e].tab.element;
@@ -61,17 +69,29 @@ export default {
  			this.tabs[i].tab.activated = false;
  		}
  		this.tabs[e].tab.activated = !this.tabs[e].tab.activated;
+ 		this.currentIndex = this.tabs[e].tab.index
  		
  	},
  	toLeft: function(){
- 		this.currentTab="stories";
- 		this.tabs[0].tab.activated = false
- 		this.tabs[1].tab.activated = true
+ 		if(this.currentIndex <2){
+ 			this.currentIndex++;
+ 		}
+ 		
+ 		for(var i =0; i<this.tabs.length; i++){
+ 			this.tabs[i].tab.activated = false;
+ 		}
+ 		this.tabs[this.currentIndex].tab.activated = true
  	},
  	toRight: function(){
- 		this.currentTab="feedList";
- 		this.tabs[0].tab.activated = true
- 		this.tabs[1].tab.activated = false
+ 		if(this.currentIndex > 0){
+ 			this.currentIndex--;
+ 		}
+ 		
+ 		for(var i =0; i<this.tabs.length; i++){
+ 			this.tabs[i].tab.activated = false;
+ 		}
+ 		this.tabs[this.currentIndex].tab.activated = true
+ 
  	}
  }
  
@@ -93,6 +113,7 @@ export default {
 	     background-image: url("~../assets/background.jpg");
   background-size: auto;
   background-repeat:repeat;
+  padding-top:20px;
 	div{
 		display:flex;
 		align-items:center;
