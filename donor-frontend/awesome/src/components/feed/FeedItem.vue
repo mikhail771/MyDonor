@@ -145,7 +145,7 @@ a{
 }
 .name{
 	font-size: 20px;
-	color:#F77777;
+	color:#2A5885;
 	// font-weight: bold;
 	font-family: 'Yeseva One', cursive;
 }
