@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+  <div class="mainTitle">Удивительные истории</div>
   <app-search class="test"></app-search>
     <feed-item v-for="elem in store" :elem="elem"> </feed-item>
     <mugen-scroll :handler="retData" :should-handle="!loading">
@@ -80,6 +81,19 @@ export default {
     background-image: url("~../assets/background.jpg");
     background-size: auto;
     background-repeat:repeat;
+  }
+
+    .mainTitle{
+    width:100%;
+    height:30px;
+    background-color: transparent;
+    padding:20px 0 0 0;
+    font-size: 20px;
+  color:white;
+  font-family: 'Yeseva One', cursive;
+  display:flex;
+  justify-content:center;
+
   }
 .show{
   display:block;

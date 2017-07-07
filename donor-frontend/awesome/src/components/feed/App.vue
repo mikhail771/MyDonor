@@ -1,8 +1,10 @@
 <template>
 <div class="app">
+<app-search class="searching"></app-search>
 <div class="tabs__container">
 <div class="tabs">
-	<div :class="{feed:true, selectedTab:tabs[0].tab.activated}" @click="setTab(0)">ЗАЯВКИ</div> <div :class="{stories:true, selectedTab:tabs[1].tab.activated}" @click="setTab(1)">ИСТОРИИ</div> <div :class="{stories:true, selectedTab:tabs[2].tab.activated}" @click="setTab(2)">ПОДАТЬ ЗАЯВКУ</div>
+	<div :class="{feed:true, selectedTab:tabs[0].tab.activated}" @click="setTab(0)"><i class="fa fa-id-card" aria-hidden="true"></i></div> <div :class="{stories:true, selectedTab:tabs[1].tab.activated}" @click="setTab(1)"><i class="fa fa-bullhorn" aria-hidden="true"></i></div> <div :class="{stories:true, selectedTab:tabs[2].tab.activated}" @click="setTab(2)"><i class="fa fa-medkit" aria-hidden="true"></i>
+</div>
 </div>
 </div>
 
@@ -22,6 +24,7 @@ import VueAxios from 'vue-axios'
 import FeedList from './FeedList.vue'
 import stories from '../stories/FeedList.vue'
 import request from '../request/App.vue'
+import search from "../Maps/SearchMap.vue"
 
 import {store} from "../../store/store.js"
 
@@ -56,7 +59,9 @@ export default {
  components:{
   'feedList': FeedList,
   'stories': stories,
-  'request':request
+  'request':request,
+    'app-search': search,
+
 
  },
  computed: {
@@ -101,8 +106,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .app{
 	overflow: hidden;
+	background-image: url("~../assets/background.jpg");
+  background-size: auto;
+  background-repeat:repeat;
+  padding-top:25px;
+}
+.searching{
+	width:85%;
+	margin:0 auto;
 }
 
 .tabs__container{
@@ -128,7 +142,7 @@ export default {
 	     background-image: url("~../assets/background.jpg");
   background-size: auto;
   background-repeat:repeat;
-  padding-top:20px;
+  padding-bottom:0px;
 	div{
 		display:flex;
 		align-items:center;
@@ -137,7 +151,7 @@ export default {
 		padding:0 20px;
 		height:100%;
 		color:white;
-		font-size: 14px;
+		font-size: 28px;
 		box-sizing:border-box;
 		width:33%;
 	}
@@ -148,7 +162,7 @@ export default {
 }
 
 @media only screen and (min-width: 600px){
-  .tabs{
+  .tabs, .searching{
     width:700px;
   }
 }

@@ -1,6 +1,7 @@
 <template>
 <!-- app uses class list as function blur identifier (together with list of bids and stories) -->
 <div class="app list">
+<div class="mainTitle">Подать новую заявку</div>
     <div class="request-wrap">
         <notation></notation>
 
@@ -226,6 +227,18 @@
          background-size: auto;
          background-repeat:repeat;
     }
+      .mainTitle{
+    width:100%;
+    height:30px;
+    padding:20px 0 0 0;
+    background-color: transparent;
+    font-size: 20px;
+  color:white;
+  font-family: 'Yeseva One', cursive;
+  display:flex;
+  justify-content:center;
+
+  }
     .request-form {
         text-transform: uppercase;
         color: #9a9a9a;

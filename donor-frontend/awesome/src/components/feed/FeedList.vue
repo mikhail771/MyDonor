@@ -1,7 +1,7 @@
 <template>
   <div class="list">
-  <app-search class="test"></app-search>
-    <feed-item v-for="elem in store" :elem="elem"> </feed-item>
+  <div class="mainTitle">Лента заявок</div>
+   <feed-item v-for="elem in store" :elem="elem"> </feed-item>
     <mugen-scroll :handler="retData" :should-handle="!loading">
       <div  :class="{load:true, noload:hiddenLoad}"></div>
       <span  :class="{end:true, noload:!hiddenLoad}">заявок больше нет...</span>
@@ -16,7 +16,7 @@ import VueAxios from 'vue-axios'
 import FeedItem from './FeedItem.vue'
 import MugenScroll from 'vue-mugen-scroll'
 import { store } from "../../store/store.js"
-import search from "../Maps/SearchMap.vue"
+// import search from "../Maps/SearchMap.vue"
 
 Vue.use(VueAxios, axios)
 export default {
@@ -35,7 +35,7 @@ export default {
  },
  components:{
   'feed-item': FeedItem,
-  'app-search': search,
+  // 'app-search': search,
   MugenScroll
  },
   methods:{
@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Yeseva+One&subset=cyrillic');
   .list{
     background-color: #0065BD;
     padding-top:5px;
@@ -82,6 +83,18 @@ export default {
      background-image: url("~../assets/background.jpg");
   background-size: auto;
   background-repeat:repeat;
+  }
+  .mainTitle{
+    width:100%;
+    height:30px;
+    background-color: transparent;
+    padding:20px 0 0 0;
+    font-size: 20px;
+  color:white;
+  font-family: 'Yeseva One', cursive;
+  display:flex;
+  justify-content:center;
+
   }
 .show{
   display:block;

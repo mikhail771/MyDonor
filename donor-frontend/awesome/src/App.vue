@@ -51,10 +51,12 @@ body{
     padding:0;
 font-family: 'Kurale', serif;
 
+
 }
 #app{
     margin:0;
     padding:0;
+
 }
 
 .bluredApp{
