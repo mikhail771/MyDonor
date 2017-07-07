@@ -118,10 +118,13 @@ export default {
 		display:flex;
 		align-items:center;
 		justify-content:center;
+		text-align: center;
 		padding:0 20px;
-		// margin: 0 35px;
 		height:100%;
 		color:white;
+		font-size: 14px;
+		box-sizing:border-box;
+		width:33%;
 	}
 }
 
