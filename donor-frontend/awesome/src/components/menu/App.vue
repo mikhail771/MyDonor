@@ -93,8 +93,8 @@
 		margin:0;
 		top:0;
 		box-shadow: 0 1px 2px 0 rgba(80,80,80,0.7);
-		background-image: url("~../assets/menubackground.jpg");
-    background-size: auto;
+		background-image: url("~../assets/lightpaperfibers.png");
+    background-size: 21%;
     background-repeat:repeat;
 	}
 	.blur{
