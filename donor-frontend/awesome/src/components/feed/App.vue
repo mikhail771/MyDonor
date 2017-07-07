@@ -1,7 +1,9 @@
 <template>
 <div class="app">
+<div class="tabs__container">
 <div class="tabs">
 	<div :class="{feed:true, selectedTab:tabs[0].tab.activated}" @click="setTab(0)">ЗАЯВКИ</div> <div :class="{stories:true, selectedTab:tabs[1].tab.activated}" @click="setTab(1)">ИСТОРИИ</div> <div :class="{stories:true, selectedTab:tabs[2].tab.activated}" @click="setTab(2)">ПОДАТЬ ЗАЯВКУ</div>
+</div>
 </div>
 
 <v-touch v-on:swipeleft="toLeft" v-on:swiperight="toRight">
@@ -103,6 +105,19 @@ export default {
 	overflow: hidden;
 }
 
+.tabs__container{
+	width:100%;
+	height:40px;
+	background-color: #0065bd;
+	display:flex;
+	justify-content:center;
+	position:relative;
+	     background-image: url("~../assets/background.jpg");
+  background-size: auto;
+  background-repeat:repeat;
+  padding-top:20px;
+}
+
 .tabs{
 	width:100%;
 	height:40px;
@@ -130,5 +145,11 @@ export default {
 
 .selectedTab{
 	border-bottom:2px solid white;
+}
+
+@media only screen and (min-width: 600px){
+  .tabs{
+    width:700px;
+  }
 }
 </style>

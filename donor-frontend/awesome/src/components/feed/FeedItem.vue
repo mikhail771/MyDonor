@@ -66,7 +66,7 @@ export default{
 </script>
 
 <style lang="scss" scoped>
-
+@import url('https://fonts.googleapis.com/css?family=Yeseva+One&subset=cyrillic');
 hr{
 	width:100%;
 	height:1px;
@@ -146,6 +146,8 @@ a{
 .name{
 	font-size: 20px;
 	color:#F77777;
+	// font-weight: bold;
+	font-family: 'Yeseva One', cursive;
 }
 
 .extend{
