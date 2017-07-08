@@ -1,12 +1,13 @@
 <template>
 <div class="app">
 	<div class="nav">
+	<div class="blur" v-if="blurBack"></div>
 	<div class="icon--hamburger" @click="toggleMenu" :class="{menuButton:!seeMenu, backButton:seeMenu}">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
   </div>
-		<router-link to="/"><div class="logo" @click="toggleMenu"></div>  </router-link>
+		<router-link to="/"><div class="logo"></div>  </router-link>
 	</div>
 	<transition name="slide-fade">
 		<div :class="{menu:true}" v-if="seeMenu" @click="toggleMenu">
@@ -18,13 +19,6 @@
 					<div class="sub enabled"><router-link to="/donation-process">Процедура сдачи крови и компонентов</router-link></div>
 					<div class="sub enabled"><router-link to="/contraindications">Противопоказания</router-link></div>
 
-				</div>
-			</div>
-			<div class="category" @click="toggleSub('help')">Адресная помощь (реципиенты) <div :class="{extend:!subList.help, extendReverse: subList.help}"></div>
-				<div class="subcategory" v-if="subList.help">
-					<div class="sub enabled"><router-link to="/registration">Регистрация на сайте</router-link></div>
-					<div class="sub enabled"><router-link to="/">Помочь конкретному реципиенту</router-link></div>
-					<div class="sub enabled"> <router-link to="/request">Создать заявку реципиента</router-link></div>
 				</div>
 			</div>
 			
@@ -49,6 +43,7 @@
 			return{
 				seeMenu:false,
 				target: '',
+				blurBack:false,
 				subList:{
 					donor:false,
 					help:false,
@@ -62,6 +57,16 @@
 				if (e.target.classList.contains("logo")) this.seeMenu = true;
 				if (e.target.classList.contains("sub")|| e.target.classList.contains("category") || e.target.classList.contains("extend") || e.target.classList.contains("extendReverse")) return;
 				this.seeMenu = !this.seeMenu;
+				this.blurBack = !this.blurBack;
+				if(this.seeMenu == true){
+				document.querySelector("body").classList.add("bluredApp");
+				document.querySelector(".list").classList.add("mainBlur");
+				document.querySelector(".tabs").classList.add("mainBlur");
+			} else {
+				document.querySelector("body").classList.remove("bluredApp");
+				document.querySelector(".list").classList.remove("mainBlur");
+				document.querySelector(".tabs").classList.remove("mainBlur");
+			}
 				// reset opened subcategories
 				for( var key in this.subList){
 					this.subList[key] = false;
@@ -87,8 +92,22 @@
 		background-color: white;
 		margin:0;
 		top:0;
-		box-shadow: 0 1px 4px 0 rgba(100,100,100,0.5);
+		box-shadow: 0 1px 2px 0 rgba(80,80,80,0.7);
+		background-image: url("~../assets/lightpaperfibers.png");
+    background-size: 21%;
+    background-repeat:repeat;
 	}
+	.blur{
+		width:100vw;
+		height:100vh;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:1;
+		background-color: rgba(255,255,255,0.7);
+		// filter:blur(30px);
+	}
+
 
 	a{
 		text-decoration:none;
@@ -100,6 +119,8 @@
 		height:65px;
 		justify-content:center;
 		position: relative;
+		// background-color: #DB3328;
+		box-shadow: 0 2px 6px 2px rgba(80,80,80,0.7);
 	.menuButton{
 	width:65px;
 	height:65px;
@@ -108,6 +129,8 @@
 	left:20px;
 	top:40%;
 	transition:all 1s;
+	z-index:10000;
+	// filter:invert(100%);
 	span{
 		transition: 0.5s;
 	}
@@ -115,6 +138,7 @@
 
 	.backButton{
 		@extend .menuButton;
+		// filter:invert(0);
 		 span:nth-child(1) {
         -webkit-transform: rotate(-45deg);
         left: -1px;
@@ -148,6 +172,7 @@
 		background-size: 100%;
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
+		// filter:invert(100%) grayscale(1) brightness(3);
 	}
 
 	.menu{

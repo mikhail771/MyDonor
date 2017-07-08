@@ -49,8 +49,12 @@
 <style lang="scss" scoped>
 .autorization-wrapper{
     background-color: #3A63A2;
+         background-image: url("~../assets/background.jpg");
+  background-size: auto;
+  background-repeat:repeat;
 }
-    .autorization__list{
+
+.autorization__list{
         display: flex;
         list-style: none;
         background-color: white;
