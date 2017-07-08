@@ -49,6 +49,7 @@
                 <value>ua.donordp.model.Bid</value>
                 <value>ua.donordp.model.Bank</value>
                 <value>ua.donordp.model.User</value>
+                <value>ua.donordp.model.Role</value>
             </list>
         </property>
         <property name="hibernateProperties">
