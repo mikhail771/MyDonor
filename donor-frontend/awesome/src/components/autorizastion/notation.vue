@@ -25,6 +25,9 @@
              background-image: url("~../assets/background.jpg");
   background-size: auto;
   background-repeat:repeat;
+  &__title{
+    text-align: center;
+  }
     }
     .notation__list{
        list-style: circle;
