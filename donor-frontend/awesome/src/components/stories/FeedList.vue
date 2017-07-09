@@ -1,7 +1,7 @@
 <template>
   <div class="list">
   <div class="mainTitle">Удивительные истории</div>
-  <app-search class="test"></app-search>
+  <!-- <app-search class="test"></app-search> -->
     <feed-item v-for="elem in store" :elem="elem"> </feed-item>
     <mugen-scroll :handler="retData" :should-handle="!loading">
       <div  :class="{load:true, noload:hiddenLoad}"></div>
