@@ -12,7 +12,8 @@
       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
     <http entry-point-ref="myAuthenticationEntryPoint">
-        <intercept-url pattern="/login/**" method="GET" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/registration/**" method="GET" access="hasRole('ROLE_USER')"/>
+
 
 		<csrf disabled="true" />
 
@@ -23,11 +24,11 @@
     </http>
 
     <beans:bean id="authFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"/>
-<!--
+
     <beans:bean id="myAuthenticationEntryPoint" class="ua.donordp.security.MyAuthenticationEntryPoint"/>
     <beans:bean id="authSuccessHandler" class="ua.donordp.security.AuthenticationSuccessHandler"/>
     <beans:bean id="myUserDetailsService" class="ua.donordp.security.MyUserDetailsService" autowire="constructor"/>
--->
+
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="myUserDetailsService"/>
     </authentication-manager>
