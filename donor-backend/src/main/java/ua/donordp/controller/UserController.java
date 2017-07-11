@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +20,13 @@ import java.util.List;
 public class UserController {
     private UserService userService;
 
+    private UsernamePasswordAuthenticationFilter filter;
+
+    @Autowired
+    public void setFilter(UsernamePasswordAuthenticationFilter filter) {
+        this.filter = filter;
+    }
+
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -27,6 +36,8 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
     List userList(){
+        String login = filter.getUsernameParameter();
+        String password = filter.getPasswordParameter();
         return this.userService.userList();
     }
 
