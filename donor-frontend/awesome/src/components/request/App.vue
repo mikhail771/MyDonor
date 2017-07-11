@@ -164,11 +164,15 @@
         methods:{
             getDate:function(){
             var getDate = new Date();
-            var totalDate = getDate.getTime();
-            var formattedDate = new Date(totalDate);
-            var finalDate = formattedDate.toString().split(" ");
-            var currentDate = finalDate.splice(0,5);
-            this.request.bidTime = currentDate.join(" ");
+            var curr_date = getDate.getDate();
+            var curr_month = getDate.getMonth();
+            var curr_year = getDate.getFullYear();
+            // var totalDate = getDate.getTime();
+            // var formattedDate = new Date(totalDate);
+            // var finalDate = formattedDate.toString().split(" ");
+            // var currentDate = finalDate.splice(0,5);
+            var currentDate =curr_date + "-" + (curr_month+1) + "-" + curr_year;
+            this.request.bidTime = currentDate;
 
         },
             checkDate: function (e) {
