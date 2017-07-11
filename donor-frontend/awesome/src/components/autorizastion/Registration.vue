@@ -51,7 +51,7 @@
     import Vue from 'vue'
     import axios from 'axios'
     import VueAxios from 'vue-axios'
-
+    import { store } from "../../store/store.js"
     Vue.use(VueAxios, axios);
 
     export default {
@@ -75,7 +75,7 @@
                 var then = this;
 
                 const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('registration', JSON.stringify(this.userData), config)
+                axios.post(store.state.baseRequestUrl + 'registration', JSON.stringify(this.userData), config)
                         .then(function (response) {
                             console.log(response.data);
 
@@ -115,6 +115,7 @@
     .reg-wrap{
         padding: 10px;
         background-color: white;
+        padding-bottom:30px;
     }
     .login-form {
         text-transform: uppercase;

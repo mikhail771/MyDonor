@@ -3,12 +3,12 @@
         <form class="login-form" @submit.prevent="regUser">
             <div class="login-field__wrap">
                 <label for="login">Логин<br>
-                    <input type="text" required v-model="userData.login" class="login-field__input" id="login" placeholder="Введите Ваш Email">
+                    <input type="text" required v-model="loginform.username" class="login-field__input" id="login" placeholder="Введите Ваш Email">
                 </label>
             </div>
             <div class="login-field__wrap">
                 <label for="password">Пароль<br>
-                    <input type="password" required v-model="userData.password" class="login-field__input" id="password" placeholder="Введите пароль">
+                    <input type="password" required v-model="loginform.password" class="login-field__input" id="password" placeholder="Введите пароль">
                 </label>
             </div>
             <button class="button">Войти</button>
@@ -20,26 +20,43 @@
     import Vue from 'vue'
     import axios from 'axios'
     import VueAxios from 'vue-axios'
-
+import { store } from "../../store/store.js"
     Vue.use(VueAxios, axios);
 
     export default {
         data: function(){
             return{
-                userData: {
-                    login: "" ,
+                loginform: {
+                    username: "" ,
                     password:"" ,
                 },
+            }
+        },
+        computed:{
+            assambleForm: function(){
+                return this.loginform;
+                // return formData;
             }
         },
         methods:{
             regUser: function(){
                 var then = this;
+                var boundary = String(Math.random()).slice(2);
+                var boundaryMiddle = '--' + boundary + '\r\n';
+                var boundaryLast = '--' + boundary + '--\r\n'
 
-                const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('registration', JSON.stringify(this.userData), config)
+                var body = ['\r\n'];
+                for (var key in this.loginform) {
+                  // добавление поля
+                  body.push('Content-Disposition: form-data; name="' + key + '"\r\n\r\n' + this.loginform[key] + '\r\n');
+                }
+                var b = 'boundary=' + boundary
+                body = body.join(boundaryMiddle) + boundaryLast;
+                const config = { headers: {'Content-Type': 'multipart/form-data', 'boundary':boundary}};
+                axios.post(store.state.baseRequestUrl + 'registration', body, config)
                         .then(function (response) {
                             console.log(response.data);
+                            console.log(this.assambleForm);
 
                         })
                         .catch(function (error) {
@@ -64,6 +81,7 @@
     .login-wrap{
         padding: 10px;
         background-color: white;
+        padding-bottom:30px;
     }
     .login-form {
         text-transform: uppercase;

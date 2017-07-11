@@ -1,5 +1,7 @@
 <template>
-<div class="app">
+<!-- app uses class list as function blur identifier (together with list of bids and stories) -->
+<div class="app list">
+<div class="mainTitle">Подать новую заявку</div>
     <div class="request-wrap">
         <notation></notation>
 
@@ -98,7 +100,7 @@
     import axios from 'axios';
     import VueAxios from 'vue-axios';
     import notation from './notation.vue';
-
+    import { store } from "../../store/store.js"
     Vue.use(VueAxios, axios);
 
     export default {
@@ -124,7 +126,8 @@
                     bidInfo:"",
                     bidHospital:"",
                     bidComments:"",
-                    bidDate:""
+                    bidDate:"",
+                    bidTime:""
 
                 },
                 isDateErr:"",
@@ -159,7 +162,19 @@
             }
         },
         methods:{
+            getDate:function(){
+            var getDate = new Date();
+            var curr_date = getDate.getDate();
+            var curr_month = getDate.getMonth();
+            var curr_year = getDate.getFullYear();
+            // var totalDate = getDate.getTime();
+            // var formattedDate = new Date(totalDate);
+            // var finalDate = formattedDate.toString().split(" ");
+            // var currentDate = finalDate.splice(0,5);
+            var currentDate =curr_date + "-" + (curr_month+1) + "-" + curr_year;
+            this.request.bidTime = currentDate;
 
+        },
             checkDate: function (e) {
                 var arr = e.target.value.split(/[-\/,.]/);
                 if (arr.length < 3 && e.target.value.length !== 0){
@@ -184,9 +199,9 @@
             sendRequest: function(){
                 if (this.agree === false) return;
                 var then = this;
-
+                this.getDate();
                 const config = { headers: {'Content-Type': 'application/json'}};
-                axios.post('https://dry-island-77618.herokuapp.com/bids', then.request, config)
+                axios.post(store.state.baseRequestUrl +'bids', then.request, config)
                         .then(function (response) {
                             console.log(response.data);
 
@@ -210,9 +225,24 @@
     }*/
 
     .app{
-        background-color: #3A63A2;
-        width:100%
+        background-color: #0065BD;
+        width:100%;
+        background-image: url("~../assets/background.jpg");
+         background-size: auto;
+         background-repeat:repeat;
     }
+      .mainTitle{
+    width:100%;
+    height:30px;
+    padding:20px 0 0 0;
+    background-color: transparent;
+    font-size: 20px;
+  color:white;
+  font-family: 'Yeseva One', cursive;
+  display:flex;
+  justify-content:center;
+
+  }
     .request-form {
         text-transform: uppercase;
         color: #9a9a9a;

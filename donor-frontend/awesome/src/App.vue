@@ -45,13 +45,28 @@ destroyed () {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Kurale&subset=cyrillic');
 body{
     margin:0;
     padding:0;
+font-family: 'Kurale', serif;
+
+
 }
 #app{
     margin:0;
     padding:0;
+
+}
+
+.bluredApp{
+  overflow: hidden;
+    height:100vh;
+    // filter:blur(5px);
+}
+
+.mainBlur{
+  filter:blur(5px);
 }
     // #app{
     //     overflow: hidden;

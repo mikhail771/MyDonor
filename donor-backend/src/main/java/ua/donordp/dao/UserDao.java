@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import ua.donordp.model.Role;
 import ua.donordp.model.User;
 
 import java.util.List;
@@ -25,6 +26,9 @@ public class UserDao {
 
     public void addUser(User user) {
         Session session = this.sessionFactory.getCurrentSession();
+        Role role = (Role) session.load(Role.class, new Integer(1));
+        user.getRoles().add(role);
+
         session.persist(user);
         logger.info("User successfully saved. User details: " + user);
     }

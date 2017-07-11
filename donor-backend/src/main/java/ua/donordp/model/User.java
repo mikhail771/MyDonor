@@ -1,6 +1,8 @@
 package ua.donordp.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by user on 09.04.17.
@@ -13,29 +15,39 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "surname")
+    private String surname;
+
     @Column(name = "login")
     private String login;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "city")
-    private String city;
-
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "bloodType")
-    private String bloodType;
-
-    @Column(name = "rhesusFactor")
-    private String rhesusFactor;
-
-    @Column(name = "contact")
-    private String contact;
+    @Column(name = "date")
+    private String date;
 
     @Column(name = "info")
     private String info;
+
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public int getId() {
         return id;
@@ -43,6 +55,22 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getLogin() {
@@ -61,14 +89,6 @@ public class User {
         this.password = password;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -77,28 +97,12 @@ public class User {
         this.gender = gender;
     }
 
-    public String getBloodType() {
-        return bloodType;
+    public String getDate() {
+        return date;
     }
 
-    public void setBloodType(String bloodType) {
-        this.bloodType = bloodType;
-    }
-
-    public String getRhesusFactor() {
-        return rhesusFactor;
-    }
-
-    public void setRhesusFactor(String rhesusFactor) {
-        this.rhesusFactor = rhesusFactor;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getInfo() {
@@ -113,13 +117,12 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", city='" + city + '\'' +
                 ", gender='" + gender + '\'' +
-                ", bloodType='" + bloodType + '\'' +
-                ", rhesusFactor='" + rhesusFactor + '\'' +
-                ", contact='" + contact + '\'' +
+                ", date='" + date + '\'' +
                 ", info='" + info + '\'' +
                 '}';
     }

@@ -20,7 +20,11 @@ public class BankController {
     private SecurityService securityService;
 
     @Autowired
-    public void setSecurityService(SecurityService securityService){this.securityService = securityService;};
+    public void setSecurityService(SecurityService securityService) {
+        this.securityService = securityService;
+    }
+
+    ;
 
     @Autowired
     public void setBankService(BankService bankService) {
@@ -37,38 +41,37 @@ public class BankController {
 
     @CrossOrigin
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody
+    public
+    @ResponseBody
     ResponseEntity addOrDeleteBank(@RequestBody Bank bank) {
-            bankService.addBank(bank);
-            return ResponseEntity.created(URI.create("/banks")).build();
+        bankService.addBank(bank);
+        return ResponseEntity.created(URI.create("/banks")).build();
     }
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.DELETE, value="{id}")
-    public @ResponseBody
-    ResponseEntity deleteBank(@PathVariable String id){
-        return securityService.operateWithRole(Role.ADMIN, new SecurityService.SecuredOperation<Void>() {
+    @RequestMapping(method = RequestMethod.DELETE, value = "{id}")
+    public
+    @ResponseBody
+    ResponseEntity deleteBank(@PathVariable String id) {
 
-            @Override
-            public ResponseEntity<Void> operate() {
-                bankService.removeBank(Integer.parseInt(id));
-                return ResponseEntity.created(URI.create("/banks")).build();
-            }
-        });
+        bankService.removeBank(Integer.parseInt(id));
+        return ResponseEntity.created(URI.create("/banks")).build();
     }
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value="{id}")
-    public @ResponseBody
-    ResponseEntity updateBank(@RequestBody Bank bank, @PathVariable String id){
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE, value = "{id}")
+    public
+    @ResponseBody
+    ResponseEntity updateBank(@RequestBody Bank bank, @PathVariable String id) {
         bankService.updateBank(bank);
         return ResponseEntity.created(URI.create("/banks")).build();
     }
 
     @CrossOrigin
-    @RequestMapping(method = RequestMethod.GET, value="{id}")
-    public @ResponseBody
-    Bank getBankById(@PathVariable String id){
+    @RequestMapping(method = RequestMethod.GET, value = "{id}")
+    public
+    @ResponseBody
+    Bank getBankById(@PathVariable String id) {
         Bank bankId = bankService.getBankById(Integer.parseInt(id));
         return bankId;
     }

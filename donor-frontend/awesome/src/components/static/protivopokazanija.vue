@@ -225,6 +225,7 @@
     .wrap{
         padding: 0 10px;
         color: #3e3e3e;
+        
     }
     h1{
         border-bottom: 1px solid gray;

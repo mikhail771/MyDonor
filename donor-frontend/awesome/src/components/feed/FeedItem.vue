@@ -1,6 +1,6 @@
 <template>
 	<div class="post" @click="toggleDetails">
-	<div class="date"> {{day}}</div>
+	<div class="date"> {{elem.bidTime}}</div>
 	<div class="container">
 	<div class="title">
 		<div class="image"> </div>
@@ -66,7 +66,7 @@ export default{
 </script>
 
 <style lang="scss" scoped>
-
+@import url('https://fonts.googleapis.com/css?family=Yeseva+One&subset=cyrillic');
 hr{
 	width:100%;
 	height:1px;
@@ -145,7 +145,9 @@ a{
 }
 .name{
 	font-size: 20px;
-	color:#F77777;
+	color:#2A5885;
+	// font-weight: bold;
+	font-family: 'Yeseva One', cursive;
 }
 
 .extend{

@@ -1,7 +1,7 @@
 <template>
     <div class="autorization-wrapper">
     <div class="container">
-        <notation></notation>
+        <!-- <notation></notation> -->
         <ul class="autorization__list">
             <li class="autorization__item">
                 <a class="autorization__link" :class="{ active: currentView == 'login' }" href="#" @click.prevent="changeView('login')">Личный&nbsp;кабинет</a>
@@ -11,6 +11,7 @@
             </li>
         </ul>
         <component :is="currentView"></component>
+        <notation></notation>
         </div>
     </div>
 </template>
@@ -49,8 +50,12 @@
 <style lang="scss" scoped>
 .autorization-wrapper{
     background-color: #3A63A2;
+         background-image: url("~../assets/background.jpg");
+  background-size: auto;
+  background-repeat:repeat;
 }
-    .autorization__list{
+
+.autorization__list{
         display: flex;
         list-style: none;
         background-color: white;
@@ -76,5 +81,10 @@
     width:700px;
     margin: 0 auto;
   }
+
+  .autorization-wrapper{
+    padding-top:40px;
+  }
+
 }
 </style>
