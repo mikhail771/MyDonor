@@ -3,7 +3,7 @@
         <form class="login-form" @submit.prevent="regUser">
             <div class="login-field__wrap">
                 <label for="login">Логин<br>
-                    <input type="text" required v-model="loginform.username" class="login-field__input" id="login" placeholder="Введите Ваш Email">
+                    <input type="text" required v-model="loginform.username" class="login-field__input" id="login" placeholder="Введите  Email">
                 </label>
             </div>
             <div class="login-field__wrap">
