@@ -12,8 +12,7 @@
       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
     <http entry-point-ref="myAuthenticationEntryPoint">
-        <intercept-url pattern="/login/**" method="POST" access="hasRole('ROLE_USER')"/>
-
+        <intercept-url pattern="/registration/**" method="GET" access="hasRole('ROLE_USER')"/>
 
 		<csrf disabled="true" />
 
