@@ -41,22 +41,24 @@ import { store } from "../../store/store.js"
         methods:{
             regUser: function(){
                 var then = this;
-                var boundary = String(Math.random()).slice(2);
-                var boundaryMiddle = '--' + boundary + '\r\n';
-                var boundaryLast = '--' + boundary + '--\r\n'
+                var body = 'login=' + encodeURIComponent(this.loginform.username) + '&password=' + encodeURIComponent(this.loginform.password) + '&submit=Login';
+                // var boundary = String(Math.random()).slice(2);
+                // var boundaryMiddle = '--' + boundary + '\r\n';
+                // var boundaryLast = '--' + boundary + '--\r\n'
 
-                var body = ['\r\n'];
-                for (var key in this.loginform) {
-                  // добавление поля
-                  body.push('Content-Disposition: form-data; name="' + key + '"\r\n\r\n' + this.loginform[key] + '\r\n');
-                }
-                var b = 'boundary=' + boundary
-                body = body.join(boundaryMiddle) + boundaryLast;
-                const config = { headers: {'Content-Type': 'multipart/form-data', 'boundary':boundary}};
-                axios.post(store.state.baseRequestUrl + 'registration', body, config)
+                // var body = ['\r\n'];
+                // for (var key in this.loginform) {
+                //   // добавление поля
+                //   body.push('Content-Disposition: form-data; name="' + key + '"\r\n\r\n' + this.loginform[key] + '\r\n');
+                // }
+                // var b = 'boundary=' + boundary
+                // body = body.join(boundaryMiddle) + boundaryLast;
+                console.log(body);
+                const config = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}};
+                axios.post(store.state.baseRequestUrl + 'login', body, config)
                         .then(function (response) {
                             console.log(response.data);
-                            console.log(this.assambleForm);
+                            
 
                         })
                         .catch(function (error) {
