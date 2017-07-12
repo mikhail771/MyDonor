@@ -16,14 +16,11 @@
 
 		<csrf disabled="true" />
 
-        <cors configuration-source-ref="corsSource" />
         <form-login
                 authentication-success-handler-ref="authSuccessHandler"
                 authentication-failure-handler-ref="authFailureHandler"/>
         <logout/>
     </http>
-
-    <beans:bean id="corsSource" class="org.springframework.web.cors.UrlBasedCorsConfigurationSource" />
 
     <beans:bean id="authFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"/>
 
