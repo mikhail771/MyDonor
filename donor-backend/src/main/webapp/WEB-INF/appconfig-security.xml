@@ -16,6 +16,7 @@
 
 		<csrf disabled="true" />
 
+        <cors/>
         <form-login
                 authentication-success-handler-ref="authSuccessHandler"
                 authentication-failure-handler-ref="authFailureHandler"/>
