@@ -36,6 +36,10 @@
                                     <targetPath>public/dist</targetPath>
                                 </resource>
                                 <resource>
+                                    <directory>../donor-frontend/awesome/src</directory>
+                                    <targetPath>public/src</targetPath>
+                                </resource>
+                                <resource>
                                     <directory>../donor-frontend/awesome</directory>
                                     <targetPath>public</targetPath>
                                     <includes>

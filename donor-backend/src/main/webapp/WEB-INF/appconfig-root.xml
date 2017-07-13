@@ -13,7 +13,6 @@
     <annotation-driven />
 
 
-
     <beans:import resource="appconfig-data.xml"/>
     <beans:import resource="appconfig-security.xml"/>
 
