@@ -11,8 +11,6 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <mvc:
-
     <beans:bean name="/applicationSwaggerConfig" class="ua.donordp.config.ApplicationSwaggerConfig"/>
 
     <mvc:resources mapping="/**" location="/public/, classpath:/META-INF/resources/, /webjars/"/>
