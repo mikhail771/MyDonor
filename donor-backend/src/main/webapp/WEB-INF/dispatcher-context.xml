@@ -16,4 +16,6 @@
     <mvc:resources mapping="/**" location="/public/, classpath:/META-INF/resources/, /webjars/"/>
     <mvc:default-servlet-handler/>
 
+    <mvc:view-controller path="/" view-name="index.html"/>
+
 </beans:beans>
