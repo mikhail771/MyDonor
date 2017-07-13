@@ -7,7 +7,7 @@
       <span class="line"></span>
       <span class="line"></span>
   </div>
-		<router-link to="/"><div class="logo"></div>  </router-link>
+		<router-link to="/evo-donor"><div class="logo"></div>  </router-link>
 	</div>
 	<transition name="slide-fade">
 		<div :class="{menu:true}" v-if="seeMenu" @click="toggleMenu">

@@ -36,7 +36,7 @@ var router = new VueRouter({
   routes: [
     {path: "/registration", component: authorization},
     {path: "/bids", component: Bids},
-    {path: "/", component: Feed},
+    {path: "/evo-donor", component: Feed},
     {path:"/login", component: Login},
     {path:"/request", component: request},
     {path: "/profile", component: profile},
