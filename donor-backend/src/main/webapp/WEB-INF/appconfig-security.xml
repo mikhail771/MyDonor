@@ -17,6 +17,7 @@
 		<csrf disabled="true" />
 
         <form-login
+                login-page="/login"
                 authentication-success-handler-ref="authSuccessHandler"
                 authentication-failure-handler-ref="authFailureHandler"/>
         <logout/>
