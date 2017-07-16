@@ -1,7 +1,7 @@
 <template>
     <div class="trombocity-preview-wrap">
         <div class="img-wrap">
-            <img src="../../assets/trombocity.jpg" alt="trombocity">
+            <img src="http://photodnepr.com.ua/dist/trombocity.jpg" alt="trombocity">
         </div>
         <p>Процедура сдачи тромбоцитов
             преимущественно занимает два дня и
@@ -38,7 +38,7 @@
         cursor: pointer;
         width: 30px;
         height: 30px;
-        background: url(../../assets/StrelaWhite.svg) center no-repeat;
+        background: url(http://photodnepr.com.ua/dist/StrelaWhite.svg) center no-repeat;
         position: absolute;
         bottom: 15px;
         right: 15px;

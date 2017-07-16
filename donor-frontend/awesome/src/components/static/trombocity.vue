@@ -1,6 +1,6 @@
 <template>
     <div class="trombocity">
-        <img src="../../assets/trombocity.jpg" alt="trobmocity">
+        <img src="http://photodnepr.com.ua/dist/trombocity.jpg" alt="trobmocity">
         <h1 >Тромбоциты</h1>
         <hr>
         <social></social>

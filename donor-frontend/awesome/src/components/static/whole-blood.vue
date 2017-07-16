@@ -1,6 +1,6 @@
 <template>
     <div class="whole-blood">
-        <img src="../../assets/whole-blood.jpg" alt="whole blood">
+        <img src="http://photodnepr.com.ua/dist/whole-blood.jpg" alt="whole blood">
         <h1 >Цельная кровь</h1>
         <hr>
         <social></social>
