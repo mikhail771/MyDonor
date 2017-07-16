@@ -42,17 +42,6 @@ import { store } from "../../store/store.js"
             regUser: function(){
                 var then = this;
                 var body = 'login=' + encodeURIComponent(this.loginform.username) + '&password=' + encodeURIComponent(this.loginform.password) + '&submit=Login';
-                // var boundary = String(Math.random()).slice(2);
-                // var boundaryMiddle = '--' + boundary + '\r\n';
-                // var boundaryLast = '--' + boundary + '--\r\n'
-
-                // var body = ['\r\n'];
-                // for (var key in this.loginform) {
-                //   // добавление поля
-                //   body.push('Content-Disposition: form-data; name="' + key + '"\r\n\r\n' + this.loginform[key] + '\r\n');
-                // }
-                // var b = 'boundary=' + boundary
-                // body = body.join(boundaryMiddle) + boundaryLast;
                 console.log(body);
                 const config = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}};
                 axios.post(store.state.baseRequestUrl + 'login', body, config)

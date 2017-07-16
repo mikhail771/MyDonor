@@ -5,7 +5,7 @@
     <feed-item v-for="n in 2"> </feed-item>
     <mugen-scroll :handler="retData" :should-handle="!loading">
       <div  :class="{load:true, noload:hiddenLoad}"></div>
-       <span  :class="{end:true, noload:!hiddenLoad}">заявок больше нет...</span>
+       <span  :class="{end:true, noload:!hiddenLoad}">историй больше нет...</span>
     </mugen-scroll>
   </div>
 </template>
