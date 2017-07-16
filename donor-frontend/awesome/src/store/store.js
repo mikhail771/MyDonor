@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state:{
-		baseRequestUrl: "http://5.45.120.170/evo-donor/",
+		baseRequestUrl: "https://crossorigin.me/http://5.45.120.170/evo-donor/",
 		place:"",
 		link: "",
 		quizComponent: "q-start",
@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
 		quiz:[
 		{technic: "technick"},
 		{question:1,
-		 image:'dist/calendar.svg',
+		 image:'http://photodnepr.com.ua/dist/calendar.svg',
 		title:"Вам от 18 до 60 лет?",
 		answer:{
 			image:'url("./src/components/assets/error.svg"),url("./src/components/assets/calendar.svg")',
