@@ -46,7 +46,7 @@
         cursor: pointer;
         width: 30px;
         height: 30px;
-        background: url(http://photodnepr.com.ua/dist/StrelaWhite.svg) center no-repeat;
+        background: url('http://photodnepr.com.ua/dist/StrelaWhite.svg') center no-repeat;
         position: absolute;
         bottom: 15px;
         right: 15px;
