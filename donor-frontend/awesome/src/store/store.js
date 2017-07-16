@@ -21,7 +21,7 @@ export const store = new Vuex.Store({
 		}},
 
 		{question:2,
-		 image:'dist/ageweight.svg',
+		 image:'http://photodnepr.com.ua/dist/ageweight.svg',
 		title:"Ваш вес больше 50 кг и рост выше 150 см?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -29,7 +29,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:3,
-		 image:'dist/plane.svg',
+		 image:'http://photodnepr.com.ua/dist/plane.svg',
 		title:"За последний год вы посещали малярийные страны?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -37,7 +37,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:4,
-		 image:'dist/heartcardio.svg',
+		 image:'http://photodnepr.com.ua/dist/heartcardio.svg',
 		title:"У вас были болезни сердца, инсульт или рак?",
 		answer:{
 			image:'/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -45,7 +45,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:5,
-		image:'dist/baby.svg',
+		image:'http://photodnepr.com.ua/dist/baby.svg',
 		title:"Вы родили, кормите в течении последнего года или беременны?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -53,7 +53,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:6,
-		 image:'dist/allicon.svg',
+		 image:'http://photodnepr.com.ua/dist/allicon.svg',
 		title:"Вы делали татуировку, пирсинг за последний год?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -61,7 +61,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:7,
-		image:'dist/endoscopy.svg',
+		image:'http://photodnepr.com.ua/dist/endoscopy.svg',
 		title:"За последние шесть месяцев Вам делали эндоскопию или колоноскопию?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -69,7 +69,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:8,
-		 image:'dist/transfusion.svg',
+		 image:'http://photodnepr.com.ua/dist/transfusion.svg',
 		title:"Вам переливали кровь за последний год?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',

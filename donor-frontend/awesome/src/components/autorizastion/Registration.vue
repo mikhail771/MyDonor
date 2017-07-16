@@ -18,7 +18,7 @@
             </div>
             <div class="reg-field__wrap">
                 <label for="email">Email<br>
-                    <input type="mail" required v-model="userData.login"class="reg-field__input" id="email" placeholder="Введите Email">
+                    <input type="mail" required v-model="userData.username"class="reg-field__input" id="email" placeholder="Введите Email">
                 </label>
             </div>
             <div class="reg-field__wrap">
@@ -60,7 +60,7 @@
                 userData: {
                     name: "" ,
                     surname:"" ,
-                    login:"", //email
+                    username:"", //email
                     password:"",
                     gender:"",
                     date:"",

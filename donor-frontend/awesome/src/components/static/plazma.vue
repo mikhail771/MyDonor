@@ -1,6 +1,6 @@
 <template>
     <div class="plazma">
-        <img src="../../assets/plazma.jpg" alt="plazma">
+        <img src="http://photodnepr.com.ua/dist/plazma.jpg" alt="plazma">
         <h1 >Плазма</h1>
         <hr>
         <social></social>
