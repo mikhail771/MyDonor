@@ -61,12 +61,20 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
+    public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
-        this.username = name;
+        this.name = name;
     }
 
     public String getSurname() {
@@ -75,14 +83,6 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
-    }
-
-    public String getLogin() {
-        return name;
-    }
-
-    public void setLogin(String login) {
-        this.name = login;
     }
 
     public String getPassword() {

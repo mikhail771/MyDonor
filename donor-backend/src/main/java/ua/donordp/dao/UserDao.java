@@ -57,7 +57,7 @@ public class UserDao {
 
     public User userByName(String userName){
         Session session = this.sessionFactory.getCurrentSession();
-        Criteria criteria = session.createCriteria(User.class).add(Restrictions.eq("login", userName));
+        Criteria criteria = session.createCriteria(User.class).add(Restrictions.eq("username", userName));
         Object result = criteria.uniqueResult();
         return (User) result;
     }

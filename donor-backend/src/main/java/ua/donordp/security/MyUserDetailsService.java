@@ -32,7 +32,7 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userDao.userByName(s);
 
-        return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), userAuthorities(user));
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), userAuthorities(user));
     }
 
     private List<GrantedAuthority> userAuthorities(User user){
