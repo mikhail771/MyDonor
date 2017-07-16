@@ -41,7 +41,7 @@ import { store } from "../../store/store.js"
         methods:{
             regUser: function(){
                 var then = this;
-                var body = 'login=' + encodeURIComponent(this.loginform.username) + '&password=' + encodeURIComponent(this.loginform.password) + '&submit=Login';
+                var body = 'username=' + encodeURIComponent(this.loginform.username) + '&password=' + encodeURIComponent(this.loginform.password) + '&submit=Login';
                 console.log(body);
                 const config = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}};
                 axios.post(store.state.baseRequestUrl + 'login', body, config)
