@@ -10,7 +10,8 @@
 				<span class="name">{{elem.bidUserName}}</span>
 			</div>
 			<div>
-				<span class="age">18 лет</span>
+				<span class="age">Дата рождения : {{elem.recipientBirthDate}}
+                    </span>
 			</div>
 			<div class="info">
 				<span>{{elem.bidInfo}}</span>

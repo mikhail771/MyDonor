@@ -42,7 +42,7 @@
                     <input type="text" v-model="userData.info" class="reg-field__input" id="info" placeholder="Введите информацию о себе">
                 </label>
             </div>
-            <button class="button">Войти</button>
+            <button class="button">Войти </button>
         </form>
     </div>
 </template>
@@ -51,8 +51,10 @@
     import Vue from 'vue'
     import axios from 'axios'
     import VueAxios from 'vue-axios'
+    import VueRouter from 'vue-router'
     import { store } from "../../store/store.js"
     Vue.use(VueAxios, axios);
+    Vue.use(VueRouter);
 
     export default {
         data: function(){
@@ -78,6 +80,7 @@
                 axios.post(store.state.baseRequestUrl + 'registration', JSON.stringify(this.userData), config)
                         .then(function (response) {
                             console.log(response.data);
+                            this.$router.push('/evo-donor');
 
                         })
                         .catch(function (error) {

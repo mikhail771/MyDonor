@@ -4,7 +4,7 @@
             <img src="~../assets/girl.jpg" alt="girl" id="profilePicture">
             <div id="titleForProfileImg"><p>{{user.bidUserName}}</p> </div>
         </div>
-        <p id="date">Добавлено  {{dataValue.addDate}}  </p>
+        <p id="date">Добавлено  {{user.bidTime}}  </p>
         <section id="mainInfo">
             <p>{{user.bidInfo}}</p>
             <p><b>Кроводачи</b> <br />
