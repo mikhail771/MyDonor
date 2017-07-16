@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state:{
-		baseRequestUrl: "http://5.45.120.170/evo-donor/",
+		baseRequestUrl: "https://crossorigin.me/http://5.45.120.170/evo-donor/",
 		place:"",
 		link: "",
 		quizComponent: "q-start",
@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
 		quiz:[
 		{technic: "technick"},
 		{question:1,
-		 image:'./dist/calendar.svg',
+		 image:'http://photodnepr.com.ua/dist/calendar.svg',
 		title:"Вам от 18 до 60 лет?",
 		answer:{
 			image:'url("./src/components/assets/error.svg"),url("./src/components/assets/calendar.svg")',
@@ -21,7 +21,7 @@ export const store = new Vuex.Store({
 		}},
 
 		{question:2,
-		 image:'./dist/ageweight.svg',
+		 image:'dist/ageweight.svg',
 		title:"Ваш вес больше 50 кг и рост выше 150 см?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -29,7 +29,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:3,
-		 image:'./dist/plane.svg',
+		 image:'dist/plane.svg',
 		title:"За последний год вы посещали малярийные страны?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -37,7 +37,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:4,
-		 image:'./dist/heartcardio.svg',
+		 image:'dist/heartcardio.svg',
 		title:"У вас были болезни сердца, инсульт или рак?",
 		answer:{
 			image:'/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -45,7 +45,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:5,
-		image:'./dist/baby.svg',
+		image:'dist/baby.svg',
 		title:"Вы родили, кормите в течении последнего года или беременны?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -53,7 +53,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:6,
-		 image:'./dist/allicon.svg',
+		 image:'dist/allicon.svg',
 		title:"Вы делали татуировку, пирсинг за последний год?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -61,7 +61,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:7,
-		image:'./dist/endoscopy.svg',
+		image:'dist/endoscopy.svg',
 		title:"За последние шесть месяцев Вам делали эндоскопию или колоноскопию?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
@@ -69,7 +69,7 @@ export const store = new Vuex.Store({
 		}},
 
 			{question:8,
-		 image:'./dist/transfusion.svg',
+		 image:'dist/transfusion.svg',
 		title:"Вам переливали кровь за последний год?",
 		answer:{
 			image:'url("/src/components/assets/error.svg"),url("/src/components/assets/calendar.svg")',
