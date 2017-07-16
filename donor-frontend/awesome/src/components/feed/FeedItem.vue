@@ -126,7 +126,7 @@ a{
 	height:90px;
 	border-radius: 50%;
 	background-color: grey;
-	background-image: url("http://photodnepr.com.ua/dist/face.svg");
+	background-image: url("http://photodnepr.com.ua/dist/girl.jpg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
