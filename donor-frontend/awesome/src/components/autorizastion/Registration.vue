@@ -60,7 +60,7 @@
                 userData: {
                     name: "" ,
                     surname:"" ,
-                    username:"", //email
+                    login:"", //email
                     password:"",
                     gender:"",
                     date:"",

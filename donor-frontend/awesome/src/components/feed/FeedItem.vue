@@ -125,7 +125,7 @@ a{
 	height:90px;
 	border-radius: 50%;
 	background-color: grey;
-	background-image: url("~../assets/face.svg");
+	background-image: url("http://photodnepr.com.ua/dist/face.svg");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: auto;
@@ -154,7 +154,7 @@ a{
 	width:98%;
 	height:20px;
 	position:relative;
-	background-image: url("~../assets/Spisok.svg");
+	background-image: url("http://photodnepr.com.ua/dist/Spisok.svg");
 	background-size: 5%;
 	background-repeat: no-repeat;
 	background-position: 100% 50%;
@@ -190,7 +190,7 @@ a{
 .goToBid{
 	width:30px;
 	height: 15px;
-	background-image: url("~../assets/StrelaWhite.svg");
+	background-image: url("http://photodnepr.com.ua/dist/StrelaWhite.svg");
 	background-size: 80%;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;

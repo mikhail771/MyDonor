@@ -3,7 +3,7 @@
     <div class="wrap">
         <div class="whole-blood">
             <div class="img-wrap">
-                <img src="../../assets/whole-blood.jpg" alt="whole blood">
+                <img src="'http://photodnepr.com.ua/dist/whole-blood.jpg" alt="whole blood">
             </div>
 
 
@@ -38,14 +38,14 @@
         <div class="switch-line">
             <div class="switch-item" :class="[currentView === 'plazma' ? 'triangle' : '']" @click="changeView('plazma')">
                 <div class="img-wrap">
-                    <img class="kostyl" src="../../assets/plazma.jpg" alt="plazma">
+                    <img class="kostyl" src="'http://photodnepr.com.ua/dist/plazma.jpg" alt="plazma">
                 </div>
 
                 <h3>Плазма</h3>
             </div>
             <div class="switch-item" @click="changeView('trombocity')" :class="[currentView === 'trombocity' ? 'triangle' : '']">
                 <div class="img-wrap">
-                    <img src="../../assets/trombocity.jpg" alt="trombocity">
+                    <img src="'http://photodnepr.com.ua/dist/trombocity.jpg" alt="trombocity">
                 </div>
                 <h3>Тромбоциты</h3>
             </div>
@@ -135,7 +135,7 @@
         cursor: pointer;
         width: 30px;
         height: 30px;
-        background: url(../../assets/StrelaWhite.svg) center no-repeat;
+        background: url('http://photodnepr.com.ua/dist/StrelaWhite.svg') center no-repeat;
         position: absolute;
         bottom: 15px;
         right: 15px;
