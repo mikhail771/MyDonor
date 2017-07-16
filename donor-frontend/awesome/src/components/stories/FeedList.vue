@@ -2,7 +2,7 @@
   <div class="list">
   <div class="mainTitle">Удивительные истории</div>
   <!-- <app-search class="test"></app-search> -->
-    <feed-item v-for="elem in store" :elem="elem"> </feed-item>
+    <feed-item v-for="n in 2"> </feed-item>
     <mugen-scroll :handler="retData" :should-handle="!loading">
       <div  :class="{load:true, noload:hiddenLoad}"></div>
        <span  :class="{end:true, noload:!hiddenLoad}">заявок больше нет...</span>

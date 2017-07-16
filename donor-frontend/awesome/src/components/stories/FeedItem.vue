@@ -1,31 +1,24 @@
 <template>
 	<div class="post" @click="toggleDetails">
-	<div class="date"> {{day}}</div>
+	<div class="date"> 30.05.2017</div>
 	<div class="container">
 	<div class="title">
 		<div class="image"> </div>
 	</div>
 	<div class="general">
 		<div>
-				<span class="name">КРУТЯЯЯЯЯЯЯЯЯК</span>
+				<span class="name">История Андрея</span>
 			</div>
 			<div>
 				<span class="age">18 лет</span>
 			</div>
 			<div class="info">
-				<span>{{elem.bidInfo}}</span>
+				<span>Удивительная история о том...</span>
 			</div>
 			<hr v-if="!extend">
 		</div>	
 	</div>
-	<div :class="{extend:!extend, hide:extend}"></div>
-	<router-link to="/recipient">
-		<div class="details" v-if="extend">
-				<div class="detailImage"></div>
-			 	<div class="detail-description">{{elem.bidComments}}</div>
-			 	<div class="goToBid"></div>
-			 </div>
-			 </router-link>
+
 	</div>
 </template>
 
