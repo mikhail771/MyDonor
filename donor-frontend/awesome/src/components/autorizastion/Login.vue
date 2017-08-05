@@ -48,6 +48,7 @@ import { store } from "../../store/store.js"
                         .then(function (response) {
                             console.log(response.data);
                             window.localStorage.setItem("user", then.loginform.username);
+                            store.state.isUserRegistered = window.localStorage.getItem("user");
                             then.$router.push('/evo-donor');
                             
 

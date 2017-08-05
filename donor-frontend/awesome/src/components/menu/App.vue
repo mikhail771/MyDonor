@@ -11,7 +11,10 @@
 	</div>
 	<transition name="slide-fade">
 		<div :class="{menu:true}" v-if="seeMenu" @click="toggleMenu">
-			<div class="category"> <router-link to="/profile"> <div class="user-image"></div> Владимир Купец (профиль) </router-link></div>
+			<!--unregistered-->
+			<div class="category" v-if="!store.state.isUserRegistered"> <router-link to="/registration">  Регистрация </router-link></div>
+			<!--registered-->
+			<div class="category" v-if="store.state.isUserRegistered"> <router-link to="/profile"> <div class="user-image"></div> Владимир Купец (профиль) </router-link></div>
 			<div class="category" @click="toggleSub('donor')">Процесс донорства <div :class="{extend:!subList.donor, extendReverse: subList.donor}"></div>
 				<div class="subcategory" v-if="subList.donor">
 					<div class="sub enabled"> <router-link to="/registration">Регистрация на сайте </router-link></div>
