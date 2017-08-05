@@ -47,6 +47,7 @@ import { store } from "../../store/store.js"
                 axios.post(store.state.baseRequestUrl + 'login', body, config)
                         .then(function (response) {
                             console.log(response.data);
+                            console.log(response.headers);
                             then.$router.push('/evo-donor');
                             
 
@@ -56,7 +57,6 @@ import { store } from "../../store/store.js"
                             console.log(error);
                             then.$router.push('/error');
                         });
-//                this.$router.push('/evo-donor');
 
             },
             checkPassword: function (e) {
