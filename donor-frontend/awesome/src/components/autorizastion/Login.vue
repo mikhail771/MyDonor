@@ -47,7 +47,7 @@ import { store } from "../../store/store.js"
                 axios.post(store.state.baseRequestUrl + 'login', body, config)
                         .then(function (response) {
                             console.log(response.data);
-                            console.log(response.headers);
+                            window.localStorage.setItem("user", then.loginform.username);
                             then.$router.push('/evo-donor');
                             
 

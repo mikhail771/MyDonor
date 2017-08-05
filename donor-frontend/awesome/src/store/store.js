@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state:{
-		isUserRegistered: document.cookie,
+		isUserRegistered: false,
 		baseRequestUrl: "http://5.45.120.170/evo-donor/",
 		place:"",
 		link: "",
