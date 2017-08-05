@@ -47,13 +47,17 @@ import { store } from "../../store/store.js"
                 axios.post(store.state.baseRequestUrl + 'login', body, config)
                         .then(function (response) {
                             console.log(response.data);
+                            then.$router.push('/evo-donor');
                             
 
                         })
                         .catch(function (error) {
                             console.log(JSON.stringify(then.userData));
                             console.log(error);
+                            then.$router.push('/error');
                         });
+//                this.$router.push('/evo-donor');
+
             },
             checkPassword: function (e) {
                 if (this.password_confirm !== this.userData.password ){
