@@ -56,7 +56,7 @@ import { store } from "../../store/store.js"
                                     store.state.auth = true;
                                     store.state.user = response.data;
                                     console.log(store.state.user, "УРАААаА");
-                                    console.log(store.state.auth, "AUTH");
+                                    console.log(store.state.auth, "AUTH давай пуууууушсяяяяя");
 //                                }
                             })
                             
