@@ -44,8 +44,6 @@ public class LoginController {
 
     @RequestMapping(value="/auth", method = RequestMethod.GET)
     public String uName (HttpServletRequest request, HttpServletResponse response) {
-
-        String name = SecurityContextHolder.getContext().getAuthentication().getName();
-        return name;
+        return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 }
