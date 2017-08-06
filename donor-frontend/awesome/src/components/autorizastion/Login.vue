@@ -58,7 +58,7 @@ import { store } from "../../store/store.js"
                                 if(response.data !== 'anonymousUser'){
                                 store.state.auth = true;
                                 store.state.user = response.data;
-                                console.log(store.state.user, "УРААА");
+                                console.log(store.state.user, "УРАААаА");
                                 }
                             })
                             }
