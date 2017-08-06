@@ -80,12 +80,14 @@
                 axios.post(store.state.baseRequestUrl + 'registration', JSON.stringify(this.userData), config)
                         .then(function (response) {
                             console.log(response.data);
-                            this.$router.push('/evo-donor');
+                            then.$router.push('/evo-donor');
 
                         })
                         .catch(function (error) {
                             console.log(JSON.stringify(then.userData));
                             console.log(error);
+                            then.$router.push('/error');
+
                         });
             },
             checkDate: function (e) {

@@ -13,6 +13,7 @@
             </div>
             <button class="button">Войти</button>
         </form>
+        <div class="error" v-if="error">Похоже, вы ввели неправильный логин или пароль. Попробуйте еще раз</div>
     </div>
 </template>
 
@@ -30,6 +31,7 @@ import { store } from "../../store/store.js"
                     username: "" ,
                     password:"" ,
                 },
+                error:false
             }
         },
         computed:{
@@ -47,13 +49,19 @@ import { store } from "../../store/store.js"
                 axios.post(store.state.baseRequestUrl + 'login', body, config)
                         .then(function (response) {
                             console.log(response.data);
+                            window.localStorage.setItem("user", then.loginform.username);
+                            store.state.isUserRegistered = window.localStorage.getItem("user");
+                            then.$router.push('/evo-donor');
                             
 
                         })
                         .catch(function (error) {
                             console.log(JSON.stringify(then.userData));
                             console.log(error);
+//                            then.$router.push('/error');
+                            then.error = true;
                         });
+
             },
             checkPassword: function (e) {
                 if (this.password_confirm !== this.userData.password ){
@@ -99,6 +107,16 @@ import { store } from "../../store/store.js"
         margin: 0 auto;
         width:100%;
         font-size: 1.1em;
+    }
+    .error{
+        width:100%;
+        background-color: rgba(255,30,30,0.5);
+        color:black;
+        padding:10px;
+        display: flex;
+        justify-content:center;
+        box-sizing:border-box;
+        margin-top:25px;
     }
 
 </style>
