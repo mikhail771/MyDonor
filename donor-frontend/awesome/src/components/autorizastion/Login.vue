@@ -50,19 +50,18 @@ import { store } from "../../store/store.js"
                         .then(function (response) {
                             console.log(response.data);
                             then.$router.push('/evo-donor');
+
+                            Vue.axios.get(store.state.baseRequestUrl + "auth").then(response=> {
+//                                if(response.data !== 'anonymousUser'){
+                                    store.state.auth = true;
+                                    store.state.user = response.data;
+                                    console.log(store.state.user, "УРАААаА");
+                                    console.log(store.state.auth, "AUTH");
+//                                }
+                            })
                             
 
                         })
-                    .then(function() {
-                            Vue.axios.get(store.state.baseRequestUrl + "auth").then(response=> {
-                                if(response.data !== 'anonymousUser'){
-                                store.state.auth = true;
-                                store.state.user = response.data;
-                                console.log(store.state.user, "УРАААаА");
-                                }
-                            })
-                            }
-                    )
                         .catch(function (error) {
                             console.log(JSON.stringify(then.userData));
                             console.log(error);
