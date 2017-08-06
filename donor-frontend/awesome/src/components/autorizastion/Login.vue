@@ -49,12 +49,20 @@ import { store } from "../../store/store.js"
                 axios.post(store.state.baseRequestUrl + 'login', body, config)
                         .then(function (response) {
                             console.log(response.data);
-                            window.localStorage.setItem("user", then.loginform.username);
-                            store.state.isUserRegistered = window.localStorage.getItem("user");
                             then.$router.push('/evo-donor');
                             
 
                         })
+                    .then(function() {
+                            Vue.axios.get(store.state.baseRequestUrl + "auth").then(response=> {
+                                if(response.data !== 'anonymousUser'){
+                                store.state.auth = true;
+                                store.state.user = response.data;
+                                console.log(store.state.user, "УРААА");
+                                }
+                            })
+                            }
+                    )
                         .catch(function (error) {
                             console.log(JSON.stringify(then.userData));
                             console.log(error);
