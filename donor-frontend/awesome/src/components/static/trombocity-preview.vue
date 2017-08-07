@@ -63,7 +63,7 @@
     }
 @media only screen and (min-width: 600px){
   .trombocity-preview-wrap{
-    width:700px;
+    width:701px;
     margin: 0 auto;
   }
 }

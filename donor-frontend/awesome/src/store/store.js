@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
 	state:{
-		isUserRegistered: window.localStorage.getItem("user"),
+		auth: false,
+		user: "",
 		baseRequestUrl: "http://5.45.120.170/evo-donor/",
 		place:"",
 		link: "",

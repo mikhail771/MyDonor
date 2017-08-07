@@ -94,7 +94,7 @@ export default {
  			this.currentIndex--;
  		}
  		
- 		for(var i =0; i<this.tabs.length; i++){
+ 		for(var i = 0; i < this.tabs.length; i++){
  			this.tabs[i].tab.activated = false;
  		}
  		this.tabs[this.currentIndex].tab.activated = true
@@ -126,7 +126,7 @@ export default {
 	display:flex;
 	justify-content:center;
 	position:relative;
-	     background-image: url("~../assets/background.jpg");
+	background-image: url("~../assets/background.jpg");
   background-size: auto;
   background-repeat:repeat;
   padding-top:20px;
@@ -139,7 +139,7 @@ export default {
 	display:flex;
 	justify-content:center;
 	position:relative;
-	     background-image: url("~../assets/background.jpg");
+	background-image: url("~../assets/background.jpg");
   background-size: auto;
   background-repeat:repeat;
   padding-bottom:0px;
