@@ -47,9 +47,4 @@ public class LoginController {
     public String uName (HttpServletRequest request, HttpServletResponse response) {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }
-
-    @RequestMapping(value="/z", method = RequestMethod.GET)
-    public String uName2 (HttpServletRequest request, HttpServletResponse response) {
-        return SecurityContextHolder.getContext().getAuthentication().getName();
-    }
 }
