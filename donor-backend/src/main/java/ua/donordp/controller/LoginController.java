@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,6 +45,11 @@ public class LoginController {
 
     @RequestMapping(value="/auth", method = RequestMethod.GET)
     public String uName (HttpServletRequest request, HttpServletResponse response) {
+        return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+
+    @RequestMapping(value="/z", method = RequestMethod.GET)
+    public String uName2 (HttpServletRequest request, HttpServletResponse response) {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 }
