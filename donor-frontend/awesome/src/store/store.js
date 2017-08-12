@@ -7,7 +7,7 @@ export const store = new Vuex.Store({
 	state:{
 		auth: false,
 		user: "",
-		baseRequestUrl: "http://5.45.120.170/evo-donor/",
+		baseRequestUrl: "https://sheltered-ravine-74878.herokuapp.com/",
 		place:"",
 		link: "",
 		quizComponent: "q-start",
