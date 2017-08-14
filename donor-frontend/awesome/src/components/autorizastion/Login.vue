@@ -46,10 +46,10 @@ import { store } from "../../store/store.js"
                 var body = 'username=' + encodeURIComponent(this.loginform.username) + '&password=' + encodeURIComponent(this.loginform.password) + '&submit=Login';
                 console.log(body);
                 const config = { headers: {'Content-Type': 'application/x-www-form-urlencoded'}};
-//                axios.post(store.state.baseRequestUrl + 'login', body, config)
-//                        .then(function (response) {
-//                            console.log(response.data);
-//                            then.$router.push('/evo-donor');
+                axios.post(store.state.baseRequestUrl + 'login', body, config)
+                        .then(function (response) {
+                            console.log(response.data);
+                            then.$router.push('/');
 //
 //                            axios.get(store.state.baseRequestUrl + "auth").then(response=> {
 ////                                if(response.data !== 'anonymousUser'){
@@ -59,37 +59,37 @@ import { store } from "../../store/store.js"
 //                                    console.log(store.state.auth, "AUTH давай пуууууушся");
 ////                                }
 //                            })
-//
-//
-//                        })
-//                        .catch(function (error) {
-//                            console.log(JSON.stringify(then.userData));
-//                            console.log(error);
-////                            then.$router.push('/error');
-//                            then.error = true;
-//                        });
-                function loginUser() {
-                    return  axios.post(store.state.baseRequestUrl + 'login', config)
-                }
 
-                function identifyUser() {
-                    return axios.get(store.state.baseRequestUrl + "auth");
-                }
 
-                axios.all([loginUser(), identifyUser()])
-                    .then(axios.spread(function (log, check) {
-                        store.state.auth = true;
-                        store.state.user = check.data;
-                        console.log(store.state.user, "УРАААаА");
-                        then.$router.push('/');
-
-                    }))
-                    .catch(function (error) {
-                        console.log(JSON.stringify(then.userData));
-                        console.log(error);
+                        })
+                        .catch(function (error) {
+                            console.log(JSON.stringify(then.userData));
+                            console.log(error);
 //                            then.$router.push('/error');
-                        then.error = true;
-                    });
+                            then.error = true;
+                        });
+//                function loginUser() {
+//                    return  axios.post(store.state.baseRequestUrl + 'login', config)
+//                }
+//
+//                function identifyUser() {
+//                    return axios.get(store.state.baseRequestUrl + "auth");
+//                }
+//
+//                axios.all([loginUser(), identifyUser()])
+//                    .then(axios.spread(function (log, check) {
+//                        store.state.auth = true;
+//                        store.state.user = check.data;
+//                        console.log(store.state.user, "УРАААаА");
+//                        then.$router.push('/');
+//
+//                    }))
+//                    .catch(function (error) {
+//                        console.log(JSON.stringify(then.userData));
+//                        console.log(error);
+////                            then.$router.push('/error');
+//                        then.error = true;
+//                    });
 
             },
             checkPassword: function (e) {
