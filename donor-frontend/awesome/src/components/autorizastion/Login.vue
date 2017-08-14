@@ -69,9 +69,9 @@ import { store } from "../../store/store.js"
 //                            then.error = true;
 //                        });
                 function loginUser() {
-                    return  axios.post(store.state.baseRequestUrl + 'login', body, config)
+                    return  axios.post(store.state.baseRequestUrl + 'login', config)
                 }
-
+                b
                 function identifyUser() {
                     return axios.get(store.state.baseRequestUrl + "auth");
                 }
