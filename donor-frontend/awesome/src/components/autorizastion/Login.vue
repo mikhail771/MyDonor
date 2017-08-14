@@ -71,7 +71,7 @@ import { store } from "../../store/store.js"
                 function loginUser() {
                     return  axios.post(store.state.baseRequestUrl + 'login', config)
                 }
-                b
+
                 function identifyUser() {
                     return axios.get(store.state.baseRequestUrl + "auth");
                 }
