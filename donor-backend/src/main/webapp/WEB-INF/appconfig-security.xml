@@ -11,9 +11,9 @@
       http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
-    <http entry-point-ref="myAuthenticationEntryPoint" auto-config="true">
+    <http entry-point-ref="myAuthenticationEntryPoint" use-expressions="true">
         <intercept-url pattern="/registration/**" method="GET" access="hasRole('ROLE_USER')" requires-channel="https"/>
-        <intercept-url pattern="/**" access="hasRole('ROLE_USER', 'ROLE_USER', 'ROLE_ANONYMOUS')" requires-channel="https"/>
+        <intercept-url pattern="/**" access="permitAll" requires-channel="https"/>
         <port-mappings>
             <!-- Default ports -->
             <port-mapping http="80" https="443"/>
