@@ -80,7 +80,7 @@
                 axios.post(store.state.baseRequestUrl + 'registration', JSON.stringify(this.userData), config)
                         .then(function (response) {
                             console.log(response.data);
-                            then.$router.push('/evo-donor');
+                            then.$router.push(store.state.baseRequestUrl);
 
                         })
                         .catch(function (error) {
