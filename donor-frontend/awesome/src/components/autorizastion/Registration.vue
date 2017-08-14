@@ -86,6 +86,7 @@
                         .catch(function (error) {
                             console.log(JSON.stringify(then.userData));
                             console.log(error);
+                            console.log(store.state.baseRequestUrl + 'registration');
                             then.$router.push('/error');
 
                         });

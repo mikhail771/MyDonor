@@ -81,7 +81,7 @@ import { store } from "../../store/store.js"
                         store.state.auth = true;
                         store.state.user = check.data;
                         console.log(store.state.user, "УРАААаА");
-                        then.$router.push('/evo-donor');
+                        then.$router.push('/');
 
                     }))
                     .catch(function (error) {
