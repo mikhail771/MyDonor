@@ -49,7 +49,7 @@ import { store } from "../../store/store.js"
                 axios.post(store.state.baseRequestUrl + 'login', body, config)
                         .then(function (response) {
                             console.log(response.data);
-                            then.$router.push('/');
+//                            then.$router.push('/');
 //
 //                            axios.get(store.state.baseRequestUrl + "auth").then(response=> {
 ////                                if(response.data !== 'anonymousUser'){
